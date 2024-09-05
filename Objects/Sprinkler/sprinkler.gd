@@ -20,12 +20,8 @@ func _ready() -> void:
 	hydration_modifier = hydration_modifier_packed.instantiate() as HydrationModifier
 	hydration_modifier.initialize(abs(modification_amount) * get_sign())
 
-	field_row.add_child(hydration_modifier)
+	field_row.add_child.call_deferred(hydration_modifier)
 
-	pass
-
-
-func _process(delta: float) -> void:
 	pass
 
 
@@ -34,9 +30,9 @@ func get_sign() -> int:
 	return (2 * int(on)) - 1
 
 
-func toggle(toggle : bool) -> void:
+func toggle(status : bool) -> void:
 
-	on = toggle
+	on = status
 
 
 func flip() -> bool:

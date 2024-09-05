@@ -1,16 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://1ysiotibgavm"]
+[gd_scene load_steps=3 format=3 uid="uid://1ysiotibgavm"]
 
 [ext_resource type="PackedScene" uid="uid://bmdpf0qns06ig" path="res://Objects/FieldRow/field_row.tscn" id="1_q8fjm"]
-[ext_resource type="PackedScene" uid="uid://gqb4c4yj45gp" path="res://Objects/CircleVisual/circle_visual.tscn" id="2_svx1h"]
-[ext_resource type="PackedScene" uid="uid://n38birkjbbmb" path="res://Objects/Sprinkler/sprinkler.tscn" id="4_4sje6"]
+[ext_resource type="PackedScene" uid="uid://ccygi3xb10kgr" path="res://Objects/Player/player.tscn" id="2_xlu18"]
 
 [node name="MainGame" type="Node2D"]
 
 [node name="FieldRow" parent="." instance=ExtResource("1_q8fjm")]
 
-[node name="CircleVisual" parent="." node_paths=PackedStringArray("field_row") instance=ExtResource("2_svx1h")]
-position = Vector2(167, 85)
-field_row = NodePath("../FieldRow")
-
-[node name="Sprinkler" parent="." node_paths=PackedStringArray("field_row") instance=ExtResource("4_4sje6")]
-field_row = NodePath("../FieldRow")
+[node name="Player" parent="." instance=ExtResource("2_xlu18")]
+position = Vector2(189, 105)

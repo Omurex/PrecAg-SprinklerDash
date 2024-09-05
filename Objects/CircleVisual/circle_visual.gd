@@ -25,7 +25,7 @@ func _ready() -> void:
 	pass
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 
 	hydration_circle.scale = calculate_scale(field_row.hydration)
 

@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccygi3xb10kgr"]
+
+[ext_resource type="Script" path="res://Objects/Player/player.gd" id="1_nod3v"]
+[ext_resource type="Texture2D" uid="uid://peorgh33nn6r" path="res://Art/Sprites/icon.svg" id="2_bkvex"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_udjqb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3urwl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bkvex")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animated_sprite")]
+motion_mode = 1
+script = ExtResource("1_nod3v")
+animated_sprite = NodePath("AnimatedSprite2D")
+move_speed = 300.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_udjqb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3urwl")
+animation = &"walk_left"
