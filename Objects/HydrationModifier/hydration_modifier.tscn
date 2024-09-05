@@ -4,3 +4,4 @@
 
 [node name="HydrationModifier" type="Node"]
 script = ExtResource("1_kmjpg")
+mod_amount_per_sec = 5.0

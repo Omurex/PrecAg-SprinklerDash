@@ -39,6 +39,10 @@ func _enter_tree() -> void:
 
 
 func _process(delta: float) -> void:
+
+	#FIXME Print
+	print(hydration)
+
 	pass
 
 
@@ -48,7 +52,5 @@ func modify_hydration(modification) -> void:
 
 
 func _on_points_timer_timeout() -> void:
-
-	print(hydration)
 
 	pass # Replace with function body.

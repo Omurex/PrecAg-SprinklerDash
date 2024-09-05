@@ -7,11 +7,11 @@ extends Node
 
 
 @export_group("Properties")
+@export var mod_amount_per_sec : float = 0
 
 
 var field_row : FieldRow
 
-var mod_amount_per_sec : float = 0
 
 
 func initialize(mod_amount : float):
@@ -31,6 +31,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 
 	field_row.modify_hydration(mod_amount_per_sec * delta)
+
+	if Input.is_action_just_pressed("ui_up"):
+		mod_amount_per_sec *= -1
 
 	pass
 

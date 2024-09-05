@@ -1,7 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://1ysiotibgavm"]
+[gd_scene load_steps=4 format=3 uid="uid://1ysiotibgavm"]
 
 [ext_resource type="PackedScene" uid="uid://bmdpf0qns06ig" path="res://Objects/FieldRow/field_row.tscn" id="1_q8fjm"]
+[ext_resource type="PackedScene" uid="uid://bcf5tuvvbo1bl" path="res://Objects/HydrationModifier/hydration_modifier.tscn" id="2_hnxey"]
+[ext_resource type="PackedScene" uid="uid://gqb4c4yj45gp" path="res://Objects/CircleVisual/circle_visual.tscn" id="2_svx1h"]
 
 [node name="MainGame" type="Node2D"]
 
 [node name="FieldRow" parent="." instance=ExtResource("1_q8fjm")]
+
+[node name="HydrationModifier" parent="FieldRow" instance=ExtResource("2_hnxey")]
+
+[node name="CircleVisual" parent="." node_paths=PackedStringArray("field_row") instance=ExtResource("2_svx1h")]
+position = Vector2(167, 85)
+field_row = NodePath("../FieldRow")

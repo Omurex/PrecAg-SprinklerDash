@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://gqb4c4yj45gp"]
+
+[ext_resource type="Script" path="res://Objects/CircleVisual/circle_visual.gd" id="1_5km8h"]
+[ext_resource type="Texture2D" uid="uid://bb60trllitwy" path="res://Art/Sprites/CircleOutline.png" id="1_7rv7s"]
+
+[node name="CircleVisual" type="Node2D" node_paths=PackedStringArray("inner_circle", "outer_circle", "hydration_circle")]
+script = ExtResource("1_5km8h")
+inner_circle = NodePath("InnerCircle")
+outer_circle = NodePath("OuterCircle")
+hydration_circle = NodePath("HydrationCircle")
+
+[node name="InnerCircle" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.627451)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_7rv7s")
+
+[node name="OuterCircle" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.627451)
+scale = Vector2(2, 2)
+texture = ExtResource("1_7rv7s")
+
+[node name="HydrationCircle" type="Sprite2D" parent="."]
+modulate = Color(0, 0.631373, 1, 0.627451)
+texture = ExtResource("1_7rv7s")
