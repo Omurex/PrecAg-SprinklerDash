@@ -21,6 +21,7 @@ point_count = 2
 [node name="WaterEmitter" type="CPUParticles2D" parent="."]
 amount = 30
 lifetime = 0.92
+speed_scale = 0.75
 lifetime_randomness = 0.04
 texture = ExtResource("1_nf5ev")
 particle_flag_align_y = true
