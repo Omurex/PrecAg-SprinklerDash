@@ -8,18 +8,22 @@ script = ExtResource("1_5km8h")
 inner_circle = NodePath("InnerCircle")
 outer_circle = NodePath("OuterCircle")
 hydration_circle = NodePath("HydrationCircle")
+max_scale = 1.25
 
 [node name="InnerCircle" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.627451)
+z_index = 3
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_7rv7s")
 
 [node name="OuterCircle" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.627451)
-scale = Vector2(1.25, 1.25)
+z_index = 3
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_7rv7s")
 
 [node name="HydrationCircle" type="Sprite2D" parent="."]
 modulate = Color(0, 0.631373, 1, 0.627451)
-scale = Vector2(0.75, 0.75)
+z_index = 3
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_7rv7s")
