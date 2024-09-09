@@ -7,8 +7,9 @@
 [node name="FieldRow" type="Node2D"]
 script = ExtResource("1_p3tfu")
 
-[node name="Sprinkler" parent="." node_paths=PackedStringArray("field_row") instance=ExtResource("2_l5iie")]
+[node name="Sprinkler" parent="." node_paths=PackedStringArray("field_row", "nozzle_parent") instance=ExtResource("2_l5iie")]
 field_row = NodePath("..")
+nozzle_parent = NodePath("..")
 
 [node name="CircleVisual" parent="Sprinkler" node_paths=PackedStringArray("field_row") instance=ExtResource("3_7h6vf")]
 field_row = NodePath("../..")

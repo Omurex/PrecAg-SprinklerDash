@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpncji1vsivr7"]
+[gd_scene load_steps=7 format=3 uid="uid://bpncji1vsivr7"]
 
 [ext_resource type="Texture2D" uid="uid://okfrt08oq3eg" path="res://Art/Sprites/WaterDroplet.png" id="1_nf5ev"]
-[ext_resource type="Texture2D" uid="uid://peorgh33nn6r" path="res://Art/Sprites/icon.svg" id="1_w3dra"]
+[ext_resource type="Script" path="res://Objects/Sprinkler/sprinkler_nozzle.gd" id="1_w1ky5"]
+[ext_resource type="Texture2D" uid="uid://bmy16jr7pmkwn" path="res://Art/Sprites/SprinklerSpout.png" id="3_oncco"]
 
 [sub_resource type="Curve" id="Curve_reyc5"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.667797, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.75, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="Gradient" id="Gradient_fqq0x"]
@@ -16,20 +17,25 @@ min_value = -1.0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="SprinklerNozzle" type="Node2D"]
+[node name="SprinklerNozzle" type="Node2D" node_paths=PackedStringArray("water_emitter", "sprite")]
+script = ExtResource("1_w1ky5")
+water_emitter = NodePath("WaterEmitter")
+sprite = NodePath("Sprite2D")
 
 [node name="WaterEmitter" type="CPUParticles2D" parent="."]
-amount = 30
-lifetime = 0.92
+emitting = false
+amount = 50
+lifetime = 0.91
 speed_scale = 0.75
 lifetime_randomness = 0.04
 texture = ExtResource("1_nf5ev")
 particle_flag_align_y = true
-direction = Vector2(1, -0.6)
-spread = 15.0
+direction = Vector2(1, -0.7)
+spread = 13.0
 gravity = Vector2(0, 70)
 initial_velocity_min = 65.0
 initial_velocity_max = 70.0
+angle_min = -1.0
 scale_amount_min = 0.3
 scale_amount_max = 0.4
 scale_amount_curve = SubResource("Curve_reyc5")
@@ -37,6 +43,5 @@ color_ramp = SubResource("Gradient_fqq0x")
 hue_variation_curve = SubResource("Curve_yh2kk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0, 1)
-scale = Vector2(0.026, 0.05)
-texture = ExtResource("1_w3dra")
+scale = Vector2(0.415, 0.415)
+texture = ExtResource("3_oncco")
