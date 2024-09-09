@@ -34,6 +34,8 @@ func toggle(status : bool) -> void:
 
 	on = status
 
+	hydration_modifier.mod_amount_per_sec = abs(hydration_modifier.mod_amount_per_sec) * get_sign()
+
 
 func flip() -> bool:
 

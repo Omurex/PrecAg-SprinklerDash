@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ccygi3xb10kgr"]
+[gd_scene load_steps=24 format=3 uid="uid://ccygi3xb10kgr"]
 
 [ext_resource type="Script" path="res://Objects/Player/player.gd" id="1_nod3v"]
 [ext_resource type="Texture2D" uid="uid://b2kx5j0m6w0b3" path="res://Art/External/Player/Player.png" id="2_ht4dh"]
@@ -149,11 +149,15 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6mexn"]
+radius = 16.21
+height = 94.48
+
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animated_sprite")]
 motion_mode = 1
 script = ExtResource("1_nod3v")
 animated_sprite = NodePath("AnimatedSprite2D")
-move_speed = 300.0
+move_speed = 200.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_udjqb")
@@ -161,3 +165,14 @@ shape = SubResource("CapsuleShape2D_udjqb")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3urwl")
 animation = &"walk_right"
+
+[node name="SprinklerDetector" type="Area2D" parent="."]
+position = Vector2(0, 25)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SprinklerDetector"]
+shape = SubResource("CapsuleShape2D_6mexn")
+
+[connection signal="area_entered" from="SprinklerDetector" to="." method="_on_sprinkler_detector_area_entered"]
+[connection signal="area_exited" from="SprinklerDetector" to="." method="_on_sprinkler_detector_area_exited"]

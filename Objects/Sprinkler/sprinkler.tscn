@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://n38birkjbbmb"]
+[gd_scene load_steps=7 format=3 uid="uid://n38birkjbbmb"]
 
 [ext_resource type="Script" path="res://Objects/Sprinkler/sprinkler.gd" id="1_8eawx"]
 [ext_resource type="PackedScene" uid="uid://bcf5tuvvbo1bl" path="res://Objects/HydrationModifier/hydration_modifier.tscn" id="2_qucwf"]
 [ext_resource type="Texture2D" uid="uid://cogo2ucn48ccq" path="res://Art/Sprites/Sprinkler.png" id="3_n8clu"]
+[ext_resource type="Script" path="res://Objects/Sprinkler/sprinkler_collision.gd" id="4_jrd7a"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hyalw"]
 animations = [{
@@ -15,9 +16,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_4b2iy"]
+
 [node name="Sprinkler" type="Node2D"]
 script = ExtResource("1_8eawx")
 hydration_modifier_packed = ExtResource("2_qucwf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hyalw")
+
+[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("sprinkler")]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+script = ExtResource("4_jrd7a")
+sprinkler = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_4b2iy")

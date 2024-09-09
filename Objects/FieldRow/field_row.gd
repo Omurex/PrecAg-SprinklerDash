@@ -41,7 +41,7 @@ func _enter_tree() -> void:
 func _process(_delta: float) -> void:
 
 	#FIXME Print
-	print(hydration)
+	#print(hydration)
 
 	pass
 
