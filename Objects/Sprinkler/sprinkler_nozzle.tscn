@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpncji1vsivr7"]
+
+[ext_resource type="Texture2D" uid="uid://okfrt08oq3eg" path="res://Art/Sprites/WaterDroplet.png" id="1_nf5ev"]
+[ext_resource type="Texture2D" uid="uid://peorgh33nn6r" path="res://Art/Sprites/icon.svg" id="1_w3dra"]
+
+[sub_resource type="Curve" id="Curve_reyc5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.667797, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_fqq0x"]
+offsets = PackedFloat32Array(0, 0.17603, 1)
+colors = PackedColorArray(0.298039, 0.72549, 0.815686, 0, 0.298039, 0.72549, 0.815686, 1, 0.298039, 0.72549, 0.815686, 1)
+
+[sub_resource type="Curve" id="Curve_yh2kk"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="SprinklerNozzle" type="Node2D"]
+
+[node name="WaterEmitter" type="CPUParticles2D" parent="."]
+amount = 30
+lifetime = 0.92
+lifetime_randomness = 0.04
+texture = ExtResource("1_nf5ev")
+particle_flag_align_y = true
+direction = Vector2(1, -0.6)
+spread = 15.0
+gravity = Vector2(0, 70)
+initial_velocity_min = 65.0
+initial_velocity_max = 70.0
+scale_amount_min = 0.3
+scale_amount_max = 0.4
+scale_amount_curve = SubResource("Curve_reyc5")
+color_ramp = SubResource("Gradient_fqq0x")
+hue_variation_curve = SubResource("Curve_yh2kk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.026, 0.05)
+texture = ExtResource("1_w3dra")
