@@ -6,6 +6,11 @@
 [node name="MainGame" type="Node2D"]
 
 [node name="FieldRow" parent="." instance=ExtResource("1_q8fjm")]
+position = Vector2(336, 108)
 
 [node name="Player" parent="." instance=ExtResource("2_xlu18")]
 position = Vector2(189, 105)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(336, 172)
+zoom = Vector2(1.705, 1.705)

@@ -1,0 +1,99 @@
+[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://4q5fin2binof"]
+
+[ext_resource type="Texture2D" uid="uid://clpmf14ql1fwc" path="res://Art/External/Tiles/Cliff_Tile.png" id="1_20nia"]
+[ext_resource type="Texture2D" uid="uid://pmkwb6ica5g7" path="res://Art/External/Tiles/FarmLand_Tile.png" id="2_67oka"]
+[ext_resource type="Texture2D" uid="uid://44kmsbwosrv2" path="res://Art/External/Tiles/Grass_Middle.png" id="3_07ya8"]
+[ext_resource type="Texture2D" uid="uid://dqdy43ctw236s" path="res://Art/External/Tiles/Path_Middle.png" id="4_8ie4p"]
+[ext_resource type="Texture2D" uid="uid://dl706pmach1g4" path="res://Art/External/Tiles/Path_Tile.png" id="5_jqh67"]
+[ext_resource type="Texture2D" uid="uid://dmtptr4ab1fab" path="res://Art/External/Tiles/Water_Middle.png" id="6_w42d5"]
+[ext_resource type="Texture2D" uid="uid://d4jc8ixjls58g" path="res://Art/External/Tiles/Water_Tile.png" id="7_x6rfc"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pv1o0"]
+texture = ExtResource("1_20nia")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t87u8"]
+texture = ExtResource("2_67oka")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jjrei"]
+texture = ExtResource("3_07ya8")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_waany"]
+texture = ExtResource("4_8ie4p")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_grbri"]
+texture = ExtResource("5_jqh67")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fuapi"]
+texture = ExtResource("6_w42d5")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lu3el"]
+texture = ExtResource("7_x6rfc")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_pv1o0")
+sources/1 = SubResource("TileSetAtlasSource_t87u8")
+sources/2 = SubResource("TileSetAtlasSource_jjrei")
+sources/3 = SubResource("TileSetAtlasSource_waany")
+sources/4 = SubResource("TileSetAtlasSource_grbri")
+sources/5 = SubResource("TileSetAtlasSource_fuapi")
+sources/6 = SubResource("TileSetAtlasSource_lu3el")

@@ -1,8 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://n38birkjbbmb"]
+[gd_scene load_steps=5 format=3 uid="uid://n38birkjbbmb"]
 
 [ext_resource type="Script" path="res://Objects/Sprinkler/sprinkler.gd" id="1_8eawx"]
 [ext_resource type="PackedScene" uid="uid://bcf5tuvvbo1bl" path="res://Objects/HydrationModifier/hydration_modifier.tscn" id="2_qucwf"]
+[ext_resource type="Texture2D" uid="uid://cogo2ucn48ccq" path="res://Art/Sprites/Sprinkler.png" id="3_n8clu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hyalw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_n8clu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Sprinkler" type="Node2D"]
 script = ExtResource("1_8eawx")
 hydration_modifier_packed = ExtResource("2_qucwf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hyalw")
