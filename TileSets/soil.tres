@@ -1,0 +1,130 @@
+[gd_resource type="TileSet" load_steps=19 format=3 uid="uid://b72k6vja6eba8"]
+
+[ext_resource type="Texture2D" uid="uid://c6sldjyw76els" path="res://Art/Sprites/Soil/Default_Farmland.png" id="1_7hwo0"]
+[ext_resource type="Texture2D" uid="uid://cwthjhjjjta0e" path="res://Art/Sprites/Soil/Dry1_Farmland.png" id="2_o8h7f"]
+[ext_resource type="Texture2D" uid="uid://xo8m627l68rl" path="res://Art/Sprites/Soil/Dry2_Farmland.png" id="3_3bsqk"]
+[ext_resource type="Texture2D" uid="uid://bur5wb0x76lfa" path="res://Art/Sprites/Soil/Dry3_Farmland.png" id="4_qefc8"]
+[ext_resource type="Texture2D" uid="uid://c520ys2uhun1g" path="res://Art/Sprites/Soil/Dry4_Farmland.png" id="5_h1ki4"]
+[ext_resource type="Texture2D" uid="uid://btbygnvxdxxoa" path="res://Art/Sprites/Soil/Wet1_Farmland.png" id="6_qt3wt"]
+[ext_resource type="Texture2D" uid="uid://dhiaoayxsurf8" path="res://Art/Sprites/Soil/Wet2_Farmland.png" id="7_r0acd"]
+[ext_resource type="Texture2D" uid="uid://cnaeunah3bixh" path="res://Art/Sprites/Soil/Wet3_Farmland.png" id="8_1s80k"]
+[ext_resource type="Texture2D" uid="uid://dp8hol4odim01" path="res://Art/Sprites/Soil/Wet4_Farmland.png" id="9_gsyp6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j66d3"]
+texture = ExtResource("1_7hwo0")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eer6m"]
+texture = ExtResource("2_o8h7f")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_csggg"]
+texture = ExtResource("3_3bsqk")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l6x0c"]
+texture = ExtResource("4_qefc8")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qp772"]
+texture = ExtResource("5_h1ki4")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mmaq6"]
+texture = ExtResource("6_qt3wt")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nt7t4"]
+texture = ExtResource("7_r0acd")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mtbu0"]
+texture = ExtResource("8_1s80k")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s7h5m"]
+texture = ExtResource("9_gsyp6")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_j66d3")
+sources/1 = SubResource("TileSetAtlasSource_eer6m")
+sources/2 = SubResource("TileSetAtlasSource_csggg")
+sources/3 = SubResource("TileSetAtlasSource_l6x0c")
+sources/4 = SubResource("TileSetAtlasSource_qp772")
+sources/5 = SubResource("TileSetAtlasSource_mmaq6")
+sources/6 = SubResource("TileSetAtlasSource_nt7t4")
+sources/7 = SubResource("TileSetAtlasSource_mtbu0")
+sources/8 = SubResource("TileSetAtlasSource_s7h5m")

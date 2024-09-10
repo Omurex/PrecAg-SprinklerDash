@@ -1,12 +1,61 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmdpf0qns06ig"]
+[gd_scene load_steps=15 format=3 uid="uid://bmdpf0qns06ig"]
 
 [ext_resource type="Script" path="res://Objects/FieldRow/field_row.gd" id="1_p3tfu"]
+[ext_resource type="Script" path="res://Resources/Scripts/field_row_coloring_data.gd" id="2_2kfgl"]
 [ext_resource type="PackedScene" uid="uid://n38birkjbbmb" path="res://Objects/Sprinkler/sprinkler.tscn" id="2_l5iie"]
 [ext_resource type="PackedScene" uid="uid://gqb4c4yj45gp" path="res://Objects/CircleVisual/circle_visual.tscn" id="3_7h6vf"]
+[ext_resource type="TileSet" uid="uid://b72k6vja6eba8" path="res://TileSets/soil.tres" id="5_8o7mn"]
 
-[node name="FieldRow" type="Node2D" node_paths=PackedStringArray("points_timer")]
+[sub_resource type="Resource" id="Resource_g7fiw"]
+script = ExtResource("2_2kfgl")
+threshold = 0.01
+layer = 8
+
+[sub_resource type="Resource" id="Resource_gbe2t"]
+script = ExtResource("2_2kfgl")
+threshold = 12.5
+layer = 7
+
+[sub_resource type="Resource" id="Resource_fspr1"]
+script = ExtResource("2_2kfgl")
+threshold = 25.0
+layer = 6
+
+[sub_resource type="Resource" id="Resource_bgx0a"]
+script = ExtResource("2_2kfgl")
+threshold = 37.5
+layer = 5
+
+[sub_resource type="Resource" id="Resource_jdhdn"]
+script = ExtResource("2_2kfgl")
+threshold = 62.5
+layer = 0
+
+[sub_resource type="Resource" id="Resource_khvkc"]
+script = ExtResource("2_2kfgl")
+threshold = 75.0
+layer = 1
+
+[sub_resource type="Resource" id="Resource_1rfcj"]
+script = ExtResource("2_2kfgl")
+threshold = 87.5
+layer = 2
+
+[sub_resource type="Resource" id="Resource_c3t30"]
+script = ExtResource("2_2kfgl")
+threshold = 99.99
+layer = 3
+
+[sub_resource type="Resource" id="Resource_i2srd"]
+script = ExtResource("2_2kfgl")
+threshold = 1000.0
+layer = 4
+
+[node name="FieldRow" type="Node2D" node_paths=PackedStringArray("points_timer", "tilemap")]
 script = ExtResource("1_p3tfu")
 points_timer = NodePath("PointsTimer")
+tilemap = NodePath("TileMap")
+field_row_coloring_data = Array[ExtResource("2_2kfgl")]([SubResource("Resource_g7fiw"), SubResource("Resource_gbe2t"), SubResource("Resource_fspr1"), SubResource("Resource_bgx0a"), SubResource("Resource_jdhdn"), SubResource("Resource_khvkc"), SubResource("Resource_1rfcj"), SubResource("Resource_c3t30"), SubResource("Resource_i2srd")])
 
 [node name="Sprinkler" parent="." node_paths=PackedStringArray("field_row", "nozzle_parent") instance=ExtResource("2_l5iie")]
 field_row = NodePath("..")
@@ -17,5 +66,37 @@ field_row = NodePath("../..")
 
 [node name="PointsTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="TileMap" type="TileMap" parent="."]
+editor_description = "0 : Default
+1 : Wet 1
+2 : Wet 2
+3 : Wet 3
+4 : Wet 4
+5 : Dry 1
+6 : Dry 2
+7 : Dry 3
+8 : Dry 4"
+position = Vector2(-8, -8)
+tile_set = ExtResource("5_8o7mn")
+format = 2
+layer_0/name = "Default"
+layer_0/tile_data = PackedInt32Array(196607, 0, 1, 131072, 65536, 1, 131073, 131072, 1, 262143, 0, 1, 196608, 65536, 1, 196609, 131072, 1, 327679, 0, 1, 262144, 65536, 1, 262145, 131072, 1, 393215, 0, 1, 327680, 65536, 1, 327681, 131072, 1, 458751, 0, 1, 393216, 65536, 1, 393217, 131072, 1, 524287, 0, 1, 458752, 65536, 1, 458753, 131072, 1, 589823, 0, 1, 524288, 65536, 1, 524289, 131072, 1, 131071, 0, 0, 65536, 65536, 0, 65537, 131072, 0, 655359, 0, 2, 589824, 65536, 2, 589825, 131072, 2)
+layer_1/name = "Wet 1"
+layer_1/tile_data = PackedInt32Array(131071, 5, 0, 65536, 65541, 0, 65537, 131077, 0, 196607, 5, 1, 131072, 65541, 1, 131073, 131077, 1, 262143, 5, 1, 196608, 65541, 1, 196609, 131077, 1, 327679, 5, 1, 262144, 65541, 1, 262145, 131077, 1, 393215, 5, 1, 327680, 65541, 1, 327681, 131077, 1, 458751, 5, 1, 393216, 65541, 1, 393217, 131077, 1, 524287, 5, 1, 458752, 65541, 1, 458753, 131077, 1, 589823, 5, 1, 524288, 65541, 1, 524289, 131077, 1, 655359, 5, 2, 589824, 65541, 2, 589825, 131077, 2)
+layer_2/name = "Wet 2"
+layer_2/tile_data = PackedInt32Array(131071, 6, 0, 65536, 65542, 0, 65537, 131078, 0, 196607, 6, 1, 131072, 65542, 1, 131073, 131078, 1, 262143, 6, 1, 196608, 65542, 1, 196609, 131078, 1, 327679, 6, 1, 262144, 65542, 1, 262145, 131078, 1, 393215, 6, 1, 327680, 65542, 1, 327681, 131078, 1, 458751, 6, 1, 393216, 65542, 1, 393217, 131078, 1, 524287, 6, 1, 458752, 65542, 1, 458753, 131078, 1, 589823, 6, 1, 524288, 65542, 1, 524289, 131078, 1, 655359, 6, 2, 589824, 65542, 2, 589825, 131078, 2)
+layer_3/name = "Wet 3"
+layer_3/tile_data = PackedInt32Array(131071, 7, 0, 65536, 65543, 0, 65537, 131079, 0, 196607, 7, 1, 131072, 65543, 1, 131073, 131079, 1, 262143, 7, 1, 196608, 65543, 1, 196609, 131079, 1, 327679, 7, 1, 262144, 65543, 1, 262145, 131079, 1, 393215, 7, 1, 327680, 65543, 1, 327681, 131079, 1, 458751, 7, 1, 393216, 65543, 1, 393217, 131079, 1, 524287, 7, 1, 458752, 65543, 1, 458753, 131079, 1, 589823, 7, 1, 524288, 65543, 1, 524289, 131079, 1, 655359, 7, 2, 589824, 65543, 2, 589825, 131079, 2)
+layer_4/name = "Wet 4"
+layer_4/tile_data = PackedInt32Array(131071, 8, 0, 65536, 65544, 0, 65537, 131080, 0, 196607, 8, 1, 131072, 65544, 1, 131073, 131080, 1, 262143, 8, 1, 196608, 65544, 1, 196609, 131080, 1, 327679, 8, 1, 262144, 65544, 1, 262145, 131080, 1, 393215, 8, 1, 327680, 65544, 1, 327681, 131080, 1, 458751, 8, 1, 393216, 65544, 1, 393217, 131080, 1, 524287, 8, 1, 458752, 65544, 1, 458753, 131080, 1, 589823, 8, 1, 524288, 65544, 1, 524289, 131080, 1, 655359, 8, 2, 589824, 65544, 2, 589825, 131080, 2)
+layer_5/name = "Dry 1"
+layer_5/tile_data = PackedInt32Array(131071, 1, 0, 65536, 65537, 0, 65537, 131073, 0, 196607, 1, 1, 131072, 65537, 1, 131073, 131073, 1, 262143, 1, 1, 196608, 65537, 1, 196609, 131073, 1, 327679, 1, 1, 262144, 65537, 1, 262145, 131073, 1, 393215, 1, 1, 327680, 65537, 1, 327681, 131073, 1, 458751, 1, 1, 393216, 65537, 1, 393217, 131073, 1, 524287, 1, 1, 458752, 65537, 1, 458753, 131073, 1, 589823, 1, 1, 524288, 65537, 1, 524289, 131073, 1, 655359, 1, 2, 589824, 65537, 2, 589825, 131073, 2)
+layer_6/name = "Dry 2"
+layer_6/tile_data = PackedInt32Array(131071, 2, 0, 65536, 65538, 0, 65537, 131074, 0, 196607, 2, 1, 131072, 65538, 1, 131073, 131074, 1, 262143, 2, 1, 196608, 65538, 1, 196609, 131074, 1, 327679, 2, 1, 262144, 65538, 1, 262145, 131074, 1, 393215, 2, 1, 327680, 65538, 1, 327681, 131074, 1, 458751, 2, 1, 393216, 65538, 1, 393217, 131074, 1, 524287, 2, 1, 458752, 65538, 1, 458753, 131074, 1, 589823, 2, 1, 524288, 65538, 1, 524289, 131074, 1, 655359, 2, 2, 589824, 65538, 2, 589825, 131074, 2)
+layer_7/name = "Dry 3"
+layer_7/tile_data = PackedInt32Array(131071, 3, 0, 65536, 65539, 0, 65537, 131075, 0, 196607, 3, 1, 131072, 65539, 1, 131073, 131075, 1, 262143, 3, 1, 196608, 65539, 1, 196609, 131075, 1, 327679, 3, 1, 262144, 65539, 1, 262145, 131075, 1, 393215, 3, 1, 327680, 65539, 1, 327681, 131075, 1, 458751, 3, 1, 393216, 65539, 1, 393217, 131075, 1, 524287, 3, 1, 458752, 65539, 1, 458753, 131075, 1, 589823, 3, 1, 524288, 65539, 1, 524289, 131075, 1, 655359, 3, 2, 589824, 65539, 2, 589825, 131075, 2)
+layer_8/name = "Dry 4"
+layer_8/tile_data = PackedInt32Array(131071, 4, 0, 65536, 65540, 0, 65537, 131076, 0, 196607, 4, 1, 131072, 65540, 1, 131073, 131076, 1, 262143, 4, 1, 196608, 65540, 1, 196609, 131076, 1, 327679, 4, 1, 262144, 65540, 1, 262145, 131076, 1, 393215, 4, 1, 327680, 65540, 1, 327681, 131076, 1, 458751, 4, 1, 393216, 65540, 1, 393217, 131076, 1, 524287, 4, 1, 458752, 65540, 1, 458753, 131076, 1, 589823, 4, 1, 524288, 65540, 1, 524289, 131076, 1, 655359, 4, 2, 589824, 65540, 2, 589825, 131076, 2)
 
 [connection signal="timeout" from="PointsTimer" to="." method="_on_points_timer_timeout"]

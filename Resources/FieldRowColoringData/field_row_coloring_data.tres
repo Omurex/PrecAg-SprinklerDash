@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="FieldRowColoringData" load_steps=2 format=3 uid="uid://dslh481gxgf2u"]
+
+[ext_resource type="Script" path="res://Resources/Scripts/field_row_coloring_data.gd" id="1_rhsgj"]
+
+[resource]
+script = ExtResource("1_rhsgj")
