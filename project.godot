@@ -15,6 +15,10 @@ run/main_scene="res://Objects/GameScenes/main_game.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://Art/Sprites/icon.svg"
 
+[autoload]
+
+PointManager="*res://Objects/Autoload/point_manager.tscn"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")

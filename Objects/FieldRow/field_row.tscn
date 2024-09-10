@@ -4,8 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://n38birkjbbmb" path="res://Objects/Sprinkler/sprinkler.tscn" id="2_l5iie"]
 [ext_resource type="PackedScene" uid="uid://gqb4c4yj45gp" path="res://Objects/CircleVisual/circle_visual.tscn" id="3_7h6vf"]
 
-[node name="FieldRow" type="Node2D"]
+[node name="FieldRow" type="Node2D" node_paths=PackedStringArray("points_timer")]
 script = ExtResource("1_p3tfu")
+points_timer = NodePath("PointsTimer")
 
 [node name="Sprinkler" parent="." node_paths=PackedStringArray("field_row", "nozzle_parent") instance=ExtResource("2_l5iie")]
 field_row = NodePath("..")

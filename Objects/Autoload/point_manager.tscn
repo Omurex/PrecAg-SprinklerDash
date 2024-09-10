@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c83q8lj2x2y3y"]
+
+[ext_resource type="Script" path="res://Objects/Autoload/point_manager.gd" id="1_pywyi"]
+
+[node name="PointManager" type="Node"]
+script = ExtResource("1_pywyi")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

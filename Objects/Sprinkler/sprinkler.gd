@@ -45,9 +45,6 @@ func load_nozzle_refs_from_children():
 
 			nozzle_refs.push_back(child as SprinklerNozzle)
 
-
-	print(nozzle_refs.size())
-
 	pass
 
 
