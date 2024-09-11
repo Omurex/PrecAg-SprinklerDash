@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4mwr3gvbuxmo"]
+[gd_scene load_steps=6 format=3 uid="uid://d4mwr3gvbuxmo"]
 
 [ext_resource type="Script" path="res://Objects/Weather/Effects/ExtremeHeat/extreme_heat_weather_effect.gd" id="1_osycj"]
 [ext_resource type="PackedScene" uid="uid://doerjt4hfrpf8" path="res://Objects/HydrationModifier/Special/SprinklerDependentHydrationModifier.tscn" id="2_hs4s6"]
 [ext_resource type="Texture2D" uid="uid://55jgpwews48o" path="res://Art/Sprites/WeatherIcons/SunWeatherIcon1.png" id="3_uo1k4"]
+[ext_resource type="Shader" path="res://Objects/Weather/Effects/ExtremeHeat/extreme_heat_weather_effect.gdshader" id="4_fajr3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0c2xr"]
+shader = ExtResource("4_fajr3")
+shader_parameter/sunshine_color = Color(0.933333, 1, 0, 0.501961)
 
 [node name="ExtremeHeatWeatherEffect" type="Node"]
 script = ExtResource("1_osycj")
@@ -12,3 +17,13 @@ weather_icon = ExtResource("3_uo1k4")
 hydration_modifier_amount = -3.0
 hydration_modifier_delay = 2.0
 duration_range = Vector2(8, 16)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SunshineOverlay" type="Panel" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_0c2xr")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
