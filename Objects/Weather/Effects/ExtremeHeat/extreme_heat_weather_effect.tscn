@@ -1,13 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://d4mwr3gvbuxmo"]
 
 [ext_resource type="Script" path="res://Objects/Weather/Effects/ExtremeHeat/extreme_heat_weather_effect.gd" id="1_osycj"]
-[ext_resource type="PackedScene" uid="uid://bcf5tuvvbo1bl" path="res://Objects/HydrationModifier/hydration_modifier.tscn" id="2_du17n"]
+[ext_resource type="PackedScene" uid="uid://doerjt4hfrpf8" path="res://Objects/HydrationModifier/Special/SprinklerDependentHydrationModifier.tscn" id="2_hs4s6"]
 [ext_resource type="Texture2D" uid="uid://55jgpwews48o" path="res://Art/Sprites/WeatherIcons/SunWeatherIcon1.png" id="3_uo1k4"]
 
 [node name="ExtremeHeatWeatherEffect" type="Node"]
 script = ExtResource("1_osycj")
-hydration_modifier_packed = ExtResource("2_du17n")
+sprinkler_off_hydration_amount = -9.0
+hydration_modifier_packed = ExtResource("2_hs4s6")
 weather_icon = ExtResource("3_uo1k4")
-hydration_modifier_amount = -5.0
+hydration_modifier_amount = -3.0
 hydration_modifier_delay = 2.0
 duration_range = Vector2(8, 16)

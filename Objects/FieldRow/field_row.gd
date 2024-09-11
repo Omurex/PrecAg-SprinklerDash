@@ -6,6 +6,7 @@ extends Node2D
 @export_group("References")
 @export var points_timer : Timer
 @export var tilemap : TileMap
+@export var sprinkler : Sprinkler
 
 
 @export_group("Properties")

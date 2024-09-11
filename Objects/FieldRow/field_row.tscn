@@ -51,10 +51,11 @@ script = ExtResource("2_2kfgl")
 threshold = 1000.0
 layer = 4
 
-[node name="FieldRow" type="Node2D" node_paths=PackedStringArray("points_timer", "tilemap")]
+[node name="FieldRow" type="Node2D" node_paths=PackedStringArray("points_timer", "tilemap", "sprinkler")]
 script = ExtResource("1_p3tfu")
 points_timer = NodePath("PointsTimer")
 tilemap = NodePath("TileMap")
+sprinkler = NodePath("Sprinkler")
 field_row_coloring_data = Array[ExtResource("2_2kfgl")]([SubResource("Resource_g7fiw"), SubResource("Resource_gbe2t"), SubResource("Resource_fspr1"), SubResource("Resource_bgx0a"), SubResource("Resource_jdhdn"), SubResource("Resource_khvkc"), SubResource("Resource_1rfcj"), SubResource("Resource_c3t30"), SubResource("Resource_i2srd")])
 
 [node name="Sprinkler" parent="." node_paths=PackedStringArray("field_row", "nozzle_parent") instance=ExtResource("2_l5iie")]
