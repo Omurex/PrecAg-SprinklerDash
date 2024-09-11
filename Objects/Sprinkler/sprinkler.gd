@@ -24,7 +24,7 @@ func _ready() -> void:
 	on = field_row.hydration <= mid
 
 	hydration_modifier = hydration_modifier_packed.instantiate() as HydrationModifier
-	hydration_modifier.initialize(abs(modification_amount) * get_sign())
+	hydration_modifier.initialize(abs(modification_amount) * get_sign(), 0)
 
 	field_row.add_child.call_deferred(hydration_modifier)
 

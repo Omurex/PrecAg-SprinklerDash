@@ -7,8 +7,8 @@
 script = ExtResource("1_nvbru")
 weather_effects = Array[PackedScene]([ExtResource("2_tyrrb")])
 timer = NodePath("Timer")
-first_weather_effect_delay_range = Vector2(0, 0.5)
-weather_effect_delay_range = Vector2(5, 10)
+first_weather_effect_delay_range = Vector2(10, 15)
+weather_effect_delay_range = Vector2(15, 30)
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

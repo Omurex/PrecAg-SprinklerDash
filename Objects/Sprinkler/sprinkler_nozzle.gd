@@ -23,10 +23,6 @@ func _ready() -> void:
 	pass
 
 
-func _process(delta: float) -> void:
-	pass
-
-
 func toggle(on : bool) -> void:
 
 	water_emitter.emitting = on

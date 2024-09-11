@@ -10,6 +10,7 @@ extends Node
 
 @export_group("Properties")
 @export var hydration_modifier_amount : float
+@export var hydration_modifier_delay : float
 @export var duration_range : Vector2
 
 
@@ -30,7 +31,7 @@ func _ready() -> void:
 
 		var hydration_modifier = hydration_modifier_packed.instantiate() as HydrationModifier
 
-		hydration_modifier.initialize(hydration_modifier_amount)
+		hydration_modifier.initialize(hydration_modifier_amount, hydration_modifier_delay)
 
 		row.add_child(hydration_modifier)
 

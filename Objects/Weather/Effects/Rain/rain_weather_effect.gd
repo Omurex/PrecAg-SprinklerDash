@@ -30,18 +30,6 @@ func _ready() -> void:
 	pass
 
 
-
-## Returns 0: Average position, 1: X bounds
-func calculate_field_vars() -> Array:
-
-	var ret : Array
-
-	ret.push_back(calculate_row_avg_pos())
-	ret.push_back(calculate_field_x_bounds())
-
-	return ret
-
-
 func calculate_row_avg_pos() -> Vector2:
 
 	var avg := Vector2(0, 0)

@@ -16,16 +16,13 @@ signal on_weather_effect_ended(weather_effect : BaseWeatherEffect)
 
 
 var current_weather_effect : BaseWeatherEffect = null
+var queued_weather_effect : BaseWeatherEffect = null
 
 
 func _ready() -> void:
 
 	timer.start(Random.randf_range_vec2(first_weather_effect_delay_range))
 
-	pass
-
-
-func _process(delta: float) -> void:
 	pass
 
 
@@ -48,7 +45,12 @@ func start_random_weather_effect() -> void:
 
 	stop_current_weather_effect()
 
-	current_weather_effect = weather_effects.pick_random().instantiate() as BaseWeatherEffect
+	if queued_weather_effect == null:
+		current_weather_effect = select_random_weather_effect()
+
+	else:
+		current_weather_effect = queued_weather_effect
+		queued_weather_effect = null
 
 	current_weather_effect.init(field)
 
@@ -71,3 +73,27 @@ func stop_current_weather_effect() -> void:
 
 	pass
 
+
+func select_random_weather_effect() -> BaseWeatherEffect:
+
+	return weather_effects.pick_random().instantiate() as BaseWeatherEffect
+
+
+func request_next_weather_effect() -> BaseWeatherEffect:
+
+	if queued_weather_effect == null:
+		queued_weather_effect = select_random_weather_effect()
+
+	return queued_weather_effect
+
+
+func is_weather_effect_in_progress() -> bool:
+
+	return current_weather_effect != null
+
+
+# Note: Depending on weather state, this can either be time left until next weather
+# effect, or time left until weather effect end. Use is_weather_effect_in_progress to check!
+func get_time_left() -> float:
+
+	return timer.time_left
