@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cscn34776cjny"]
+[gd_scene load_steps=7 format=3 uid="uid://cscn34776cjny"]
 
 [ext_resource type="Script" path="res://Objects/Weather/Effects/Rain/rain_weather_effect.gd" id="1_ufp2j"]
 [ext_resource type="PackedScene" uid="uid://bcf5tuvvbo1bl" path="res://Objects/HydrationModifier/hydration_modifier.tscn" id="2_mao25"]
@@ -14,6 +14,9 @@ gravity = Vector3(-48, 98, 0)
 scale_min = 0.5
 scale_max = 0.5
 color = Color(0, 0, 1, 0.498039)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nb6i1"]
+bg_color = Color(0.14902, 0.2, 0.329412, 0.443137)
 
 [node name="RainWeatherEffect" type="Node" node_paths=PackedStringArray("rain_particle_system")]
 script = ExtResource("1_ufp2j")
@@ -32,3 +35,13 @@ amount = 100
 process_material = SubResource("ParticleProcessMaterial_d43y5")
 texture = ExtResource("4_q1upa")
 lifetime = 5.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nb6i1")

@@ -7,7 +7,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0c2xr"]
 shader = ExtResource("4_fajr3")
-shader_parameter/sunshine_color = Color(0.933333, 1, 0, 0.501961)
+shader_parameter/source_sunshine_color = Color(0.831373, 0.607843, 0, 0.745098)
+shader_parameter/min_sunshine_color = Color(0.831373, 0.607843, 0, 0.196078)
 
 [node name="ExtremeHeatWeatherEffect" type="Node"]
 script = ExtResource("1_osycj")
