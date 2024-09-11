@@ -1,7 +1,7 @@
 Hello! Thank you for downloading the Cute Fantasy asset pack.
 
 This project will be getting updates over time. This version of the asset pack is not final and there will be few more additional sprites.
-	
+
 License - Free Version
    - You can use these assets in non-commercial projects.
    - You can modify the assets.

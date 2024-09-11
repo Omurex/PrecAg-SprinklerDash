@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://1ysiotibgavm"]
+[gd_scene load_steps=9 format=3 uid="uid://1ysiotibgavm"]
 
 [ext_resource type="PackedScene" uid="uid://bmdpf0qns06ig" path="res://Objects/FieldRow/field_row.tscn" id="1_q8fjm"]
 [ext_resource type="PackedScene" uid="uid://ccygi3xb10kgr" path="res://Objects/Player/player.tscn" id="2_xlu18"]
 [ext_resource type="TileSet" uid="uid://4q5fin2binof" path="res://TileSets/farm.tres" id="3_va1lp"]
 [ext_resource type="Script" path="res://Objects/zMisc/field.gd" id="4_0xgus"]
 [ext_resource type="PackedScene" uid="uid://bpncji1vsivr7" path="res://Objects/Sprinkler/sprinkler_nozzle.tscn" id="5_8yrca"]
+[ext_resource type="PackedScene" uid="uid://bp6dwhn3mnlt4" path="res://Objects/Weather/weather_system.tscn" id="6_87syu"]
+[ext_resource type="Script" path="res://Objects/zMisc/weather_icon_visual.gd" id="6_mvg1y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c8c8p"]
 size = Vector2(32, 10000)
@@ -127,3 +129,15 @@ position = Vector2(-32, 128)
 [node name="SprinklerNozzle20" parent="Field/FieldRow5" instance=ExtResource("5_8yrca")]
 position = Vector2(32, 96)
 facing_right = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("weather_system", "tex_rect")]
+script = ExtResource("6_mvg1y")
+weather_system = NodePath("../WeatherSystem")
+tex_rect = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_right = 168.0
+offset_bottom = 168.0
+
+[node name="WeatherSystem" parent="." node_paths=PackedStringArray("field") instance=ExtResource("6_87syu")]
+field = NodePath("../Field")

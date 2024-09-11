@@ -33,11 +33,3 @@ func subtract_points(amount : int) -> int:
 
 func reset_points():
 	points = 0
-
-
-
-func _on_timer_timeout() -> void:
-
-	print(points)
-
-	pass # Replace with function body.

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp6dwhn3mnlt4"]
+
+[ext_resource type="Script" path="res://Objects/Weather/weather_system.gd" id="1_nvbru"]
+[ext_resource type="PackedScene" uid="uid://cscn34776cjny" path="res://Objects/Weather/Effects/Rain/rain_weather_effect.tscn" id="2_tyrrb"]
+
+[node name="WeatherSystem" type="Node" node_paths=PackedStringArray("timer")]
+script = ExtResource("1_nvbru")
+weather_effects = Array[PackedScene]([ExtResource("2_tyrrb")])
+timer = NodePath("Timer")
+first_weather_effect_delay_range = Vector2(5, 10)
+weather_effect_delay_range = Vector2(5, 10)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
