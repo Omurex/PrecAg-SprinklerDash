@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://ccygi3xb10kgr"]
 
 [ext_resource type="Script" path="res://Objects/Player/player.gd" id="1_nod3v"]
-[ext_resource type="Texture2D" uid="uid://b2kx5j0m6w0b3" path="res://Art/External/Player/Player.png" id="2_ht4dh"]
+[ext_resource type="Texture2D" uid="uid://b2kx5j0m6w0b3" path="res://Art/External/Kenmi-CuteFantasyRPG/Player/Player.png" id="2_ht4dh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_udjqb"]
 

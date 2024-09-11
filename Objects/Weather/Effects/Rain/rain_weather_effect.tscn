@@ -25,9 +25,9 @@ offset_from_field = Vector2(100, -100)
 x_bound_padding = 100.0
 hydration_modifier_packed = ExtResource("2_mao25")
 weather_icon = ExtResource("3_m8fjk")
-hydration_modifier_amount = 5.0
+hydration_modifier_amount = 6.0
 hydration_modifier_delay = 2.0
-duration_range = Vector2(8, 16)
+duration_range = Vector2(8, 12)
 
 [node name="RainParticleSystem" type="GPUParticles2D" parent="."]
 modulate = Color(0, 0, 1, 1)

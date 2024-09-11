@@ -17,7 +17,7 @@ hydration_modifier_packed = ExtResource("2_hs4s6")
 weather_icon = ExtResource("3_uo1k4")
 hydration_modifier_amount = -3.0
 hydration_modifier_delay = 2.0
-duration_range = Vector2(8, 16)
+duration_range = Vector2(8, 12)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -19,7 +19,7 @@ texture = ExtResource("1_7rv7s")
 [node name="OuterCircle" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.627451)
 z_index = 3
-scale = Vector2(0.75, 0.75)
+scale = Vector2(0.72, 0.72)
 texture = ExtResource("1_7rv7s")
 
 [node name="HydrationCircle" type="Sprite2D" parent="."]
