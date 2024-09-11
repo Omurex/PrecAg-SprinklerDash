@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://b01tsahgbxaq5"]
+
+[ext_resource type="Texture2D" uid="uid://de8n8ocp7wu65" path="res://Art/External/lunar-glitch-FarmingRPGGui/PeachPanel/hover_peach_panel.png" id="1_if365"]
+
+[resource]
+texture = ExtResource("1_if365")
+texture_margin_left = 64.0
+texture_margin_top = 64.0
+texture_margin_right = 64.0
+texture_margin_bottom = 64.0
