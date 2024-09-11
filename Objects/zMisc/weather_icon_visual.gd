@@ -17,6 +17,8 @@ func _ready() -> void:
 	weather_system.on_weather_effect_started.connect(show_icon)
 	weather_system.on_weather_effect_ended.connect(hide_icon)
 
+	hide_icon(null)
+
 	pass
 
 

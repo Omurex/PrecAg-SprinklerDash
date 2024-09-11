@@ -1,12 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://cscn34776cjny"]
+[gd_scene load_steps=6 format=3 uid="uid://cscn34776cjny"]
 
 [ext_resource type="Script" path="res://Objects/Weather/Effects/Rain/rain_weather_effect.gd" id="1_ufp2j"]
 [ext_resource type="PackedScene" uid="uid://bcf5tuvvbo1bl" path="res://Objects/HydrationModifier/hydration_modifier.tscn" id="2_mao25"]
 [ext_resource type="Texture2D" uid="uid://b2o5is7ohin8k" path="res://Art/Sprites/WeatherIcons/RainWeatherIcon.png" id="3_m8fjk"]
+[ext_resource type="Texture2D" uid="uid://okfrt08oq3eg" path="res://Art/Sprites/WaterDroplet.png" id="4_q1upa"]
 
-[node name="RainWeatherEffect" type="Node"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d43y5"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(-48, 98, 0)
+scale_min = 0.5
+scale_max = 0.5
+color = Color(0, 0, 1, 0.498039)
+
+[node name="RainWeatherEffect" type="Node" node_paths=PackedStringArray("rain_particle_system")]
 script = ExtResource("1_ufp2j")
+rain_particle_system = NodePath("RainParticleSystem")
+offset_from_field = Vector2(100, -100)
+x_bound_padding = 100.0
 hydration_modifier_packed = ExtResource("2_mao25")
 weather_icon = ExtResource("3_m8fjk")
-hydration_modifier_amount = 10.0
+hydration_modifier_amount = 5.0
 duration_range = Vector2(8, 16)
+
+[node name="RainParticleSystem" type="GPUParticles2D" parent="."]
+modulate = Color(0, 0, 1, 1)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_d43y5")
+texture = ExtResource("4_q1upa")
+lifetime = 5.0
