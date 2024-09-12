@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo2w76svgt1ka"]
+
+[ext_resource type="Script" path="res://Objects/zMisc/scene_transition.gd" id="1_kjn5h"]
+[ext_resource type="Theme" uid="uid://brpv3hhm8o0c7" path="res://Objects/UI/ui_theme.tres" id="2_74ngh"]
+[ext_resource type="Script" path="res://Objects/UI/score_label_updater.gd" id="3_4v0oi"]
+
+[node name="ScoreScreen" type="CanvasLayer"]
+script = ExtResource("1_kjn5h")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 344.0
+offset_top = 216.0
+offset_right = -344.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="PlayAgain" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_74ngh")
+text = "PLAY AGAIN"
+
+[node name="MainMenu" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_74ngh")
+text = "MAIN MENU"
+
+[node name="ScorePanel" type="Panel" parent="." node_paths=PackedStringArray("label")]
+anchors_preset = -1
+anchor_left = 0.139
+anchor_top = 0.049
+anchor_right = 0.861
+anchor_bottom = 0.247
+offset_left = -0.128021
+offset_top = 0.247999
+offset_right = 0.12793
+offset_bottom = 7.944
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_74ngh")
+script = ExtResource("3_4v0oi")
+label = NodePath("Label")
+
+[node name="Label" type="Label" parent="ScorePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_74ngh")
+text = "SCORE: 00000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Panel/VBoxContainer/PlayAgain" to="." method="transition_scene" binds= ["res://Objects/GameScenes/main_game.tscn"]]
+[connection signal="pressed" from="Panel/VBoxContainer/MainMenu" to="." method="transition_scene" binds= ["res://Objects/GameScenes/main_menu.tscn"]]

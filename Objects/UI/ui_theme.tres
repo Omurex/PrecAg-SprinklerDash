@@ -1,16 +1,28 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://brpv3hhm8o0c7"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://brpv3hhm8o0c7"]
 
 [ext_resource type="FontFile" uid="uid://ckxklj826lyw5" path="res://Fonts/CodeMan38-PressStart2P/PressStart2P-Regular.ttf" id="1_oen4b"]
-[ext_resource type="StyleBox" uid="uid://xs0vy6ky7gwv" path="res://Objects/UI/peach_button_style_box.tres" id="1_r00o7"]
+[ext_resource type="StyleBox" uid="uid://xs0vy6ky7gwv" path="res://Objects/UI/peach_panel_style_box.tres" id="2_k0iin"]
 [ext_resource type="StyleBox" uid="uid://b01tsahgbxaq5" path="res://Objects/UI/hover_peach_button_style_box.tres" id="3_nmr0b"]
+[ext_resource type="Texture2D" uid="uid://b1ja5fq88b5is" path="res://Art/External/lunar-glitch-FarmingRPGGui/PeachPanel/peach_panel_variant.png" id="4_1st4m"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_28ck4"]
+texture = ExtResource("4_1st4m")
+texture_margin_left = 64.0
+texture_margin_top = 64.0
+texture_margin_right = 64.0
+texture_margin_bottom = 64.0
 
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
 Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
 Button/font_sizes/font_size = 32
 Button/fonts/font = ExtResource("1_oen4b")
-Button/styles/disabled = ExtResource("1_r00o7")
-Button/styles/focus = ExtResource("1_r00o7")
+Button/styles/disabled = ExtResource("2_k0iin")
+Button/styles/focus = ExtResource("2_k0iin")
 Button/styles/hover = ExtResource("3_nmr0b")
-Button/styles/normal = ExtResource("1_r00o7")
-Button/styles/pressed = ExtResource("1_r00o7")
+Button/styles/normal = ExtResource("2_k0iin")
+Button/styles/pressed = ExtResource("2_k0iin")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_oen4b")
+Panel/styles/panel = SubResource("StyleBoxTexture_28ck4")

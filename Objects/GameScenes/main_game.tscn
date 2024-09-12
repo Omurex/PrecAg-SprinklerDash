@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://1ysiotibgavm"]
+[gd_scene load_steps=10 format=3 uid="uid://1ysiotibgavm"]
 
 [ext_resource type="PackedScene" uid="uid://bmdpf0qns06ig" path="res://Objects/FieldRow/field_row.tscn" id="1_q8fjm"]
 [ext_resource type="PackedScene" uid="uid://ccygi3xb10kgr" path="res://Objects/Player/player.tscn" id="2_xlu18"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bpncji1vsivr7" path="res://Objects/Sprinkler/sprinkler_nozzle.tscn" id="5_8yrca"]
 [ext_resource type="PackedScene" uid="uid://bp6dwhn3mnlt4" path="res://Objects/Weather/weather_system.tscn" id="6_87syu"]
 [ext_resource type="PackedScene" uid="uid://ddmefqx7t4733" path="res://Objects/Weather/weather_icon_visual.tscn" id="6_ylomu"]
+[ext_resource type="PackedScene" uid="uid://bnsioq3xc7i5m" path="res://Objects/GameTimer/game_timer.tscn" id="8_kn4b1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c8c8p"]
 size = Vector2(32, 10000)
@@ -135,3 +136,5 @@ weather_system = NodePath("../WeatherSystem")
 
 [node name="WeatherSystem" parent="." node_paths=PackedStringArray("field") instance=ExtResource("6_87syu")]
 field = NodePath("../Field")
+
+[node name="GameTimer" parent="." instance=ExtResource("8_kn4b1")]
