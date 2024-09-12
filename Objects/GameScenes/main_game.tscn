@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://1ysiotibgavm"]
+[gd_scene load_steps=11 format=3 uid="uid://1ysiotibgavm"]
 
 [ext_resource type="PackedScene" uid="uid://bmdpf0qns06ig" path="res://Objects/FieldRow/field_row.tscn" id="1_q8fjm"]
 [ext_resource type="PackedScene" uid="uid://ccygi3xb10kgr" path="res://Objects/Player/player.tscn" id="2_xlu18"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bp6dwhn3mnlt4" path="res://Objects/Weather/weather_system.tscn" id="6_87syu"]
 [ext_resource type="PackedScene" uid="uid://ddmefqx7t4733" path="res://Objects/Weather/weather_icon_visual.tscn" id="6_ylomu"]
 [ext_resource type="PackedScene" uid="uid://bnsioq3xc7i5m" path="res://Objects/GameTimer/game_timer.tscn" id="8_kn4b1"]
+[ext_resource type="AudioStream" uid="uid://c6wvwy34dqdj6" path="res://Audio/Music/Curious.ogg" id="9_j4nwg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c8c8p"]
 size = Vector2(32, 10000)
@@ -138,3 +139,7 @@ weather_system = NodePath("../WeatherSystem")
 field = NodePath("../Field")
 
 [node name="GameTimer" parent="." instance=ExtResource("8_kn4b1")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_j4nwg")
+autoplay = true

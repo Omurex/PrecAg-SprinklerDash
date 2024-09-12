@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bo2w76svgt1ka" path="res://Objects/GameScenes/score_screen.tscn" id="2_q2mcn"]
 
 [node name="GameTimer" type="Timer" node_paths=PackedStringArray("scene_transition")]
-wait_time = 10.0
+wait_time = 120.0
 one_shot = true
 autostart = true
 script = ExtResource("1_grn6f")
