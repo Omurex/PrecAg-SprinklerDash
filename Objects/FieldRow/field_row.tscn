@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://gqb4c4yj45gp" path="res://Objects/CircleVisual/circle_visual.tscn" id="3_7h6vf"]
 [ext_resource type="TileSet" uid="uid://b72k6vja6eba8" path="res://TileSets/soil.tres" id="5_8o7mn"]
 [ext_resource type="Texture2D" uid="uid://dv2ovq5e8glpq" path="res://Art/External/Josehzz-Crops/Crop_Spritesheet.png" id="6_xklb8"]
-[ext_resource type="Texture2D" uid="uid://c462jt6ldv615" path="res://Art/Sprites/SprinklerSpout2.png" id="7_l67t5"]
+[ext_resource type="PackedScene" uid="uid://bpncji1vsivr7" path="res://Objects/Sprinkler/sprinkler_nozzle.tscn" id="7_o4y13"]
 
 [sub_resource type="Resource" id="Resource_g7fiw"]
 script = ExtResource("2_2kfgl")
@@ -63,7 +63,7 @@ points_per_timer = 50
 
 [node name="Sprinkler" parent="." node_paths=PackedStringArray("field_row", "nozzle_parent") instance=ExtResource("2_l5iie")]
 field_row = NodePath("..")
-nozzle_parent = NodePath("..")
+nozzle_parent = NodePath("../SprinklerNozzles")
 
 [node name="CircleVisual" parent="Sprinkler" node_paths=PackedStringArray("field_row") instance=ExtResource("3_7h6vf")]
 field_row = NodePath("../..")
@@ -175,20 +175,18 @@ hframes = 12
 vframes = 10
 frame = 25
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 40.5)
-texture = ExtResource("7_l67t5")
+[node name="SprinklerNozzles" type="Node2D" parent="."]
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(0, 68.5)
-texture = ExtResource("7_l67t5")
+[node name="SprinklerNozzle" parent="SprinklerNozzles" instance=ExtResource("7_o4y13")]
+position = Vector2(0, 36)
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(0, 96.5)
-texture = ExtResource("7_l67t5")
+[node name="SprinklerNozzle2" parent="SprinklerNozzles" instance=ExtResource("7_o4y13")]
+position = Vector2(0, 64)
 
-[node name="Sprite2D4" type="Sprite2D" parent="."]
-position = Vector2(0, 124.5)
-texture = ExtResource("7_l67t5")
+[node name="SprinklerNozzle3" parent="SprinklerNozzles" instance=ExtResource("7_o4y13")]
+position = Vector2(0, 92)
+
+[node name="SprinklerNozzle4" parent="SprinklerNozzles" instance=ExtResource("7_o4y13")]
+position = Vector2(0, 120)
 
 [connection signal="timeout" from="PointsTimer" to="." method="_on_points_timer_timeout"]

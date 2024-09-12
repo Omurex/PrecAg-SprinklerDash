@@ -9,16 +9,16 @@ extends Node2D
 
 
 @export_group("Properties")
-@export var facing_right := true
+#@export var facing_right := true
 
 
 
 func _ready() -> void:
 
-	var sign_dir = (2 * int(facing_right)) - 1
-
-	water_emitter.direction.x  = abs(water_emitter.direction.x) * sign_dir
-	sprite.scale.x = abs(sprite.scale.x) * sign_dir
+	#var sign_dir = (2 * int(facing_right)) - 1
+#
+	#water_emitter.direction.x  = abs(water_emitter.direction.x) * sign_dir
+	#sprite.scale.x = abs(sprite.scale.x) * sign_dir
 
 	pass
 

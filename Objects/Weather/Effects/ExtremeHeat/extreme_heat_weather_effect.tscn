@@ -12,8 +12,7 @@ shader_parameter/min_sunshine_color = Color(0.831373, 0.607843, 0, 0.196078)
 
 [node name="ExtremeHeatWeatherEffect" type="Node"]
 script = ExtResource("1_osycj")
-sprinkler_on_hydration_amount = -1.0
-sprinkler_off_hydration_amount = -7.0
+sprinkler_off_hydration_amount = -9.0
 hydration_modifier_packed = ExtResource("2_hs4s6")
 weather_icon = ExtResource("3_uo1k4")
 hydration_modifier_amount = -3.0

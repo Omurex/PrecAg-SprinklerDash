@@ -21,7 +21,6 @@ animations = [{
 [node name="Sprinkler" type="Node2D"]
 script = ExtResource("1_8eawx")
 hydration_modifier_packed = ExtResource("2_qucwf")
-modification_amount = 2.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.75, 0.75)
