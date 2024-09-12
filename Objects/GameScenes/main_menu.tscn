@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bexodfelsc044"]
+[gd_scene load_steps=5 format=3 uid="uid://bexodfelsc044"]
 
 [ext_resource type="Script" path="res://Objects/zMisc/scene_transition.gd" id="1_cqbqn"]
 [ext_resource type="Theme" uid="uid://brpv3hhm8o0c7" path="res://Objects/UI/ui_theme.tres" id="2_m7uid"]
+[ext_resource type="PackedScene" uid="uid://c5uifoyqfxjke" path="res://Objects/MusicPlayerNotifier/music_player_notifier.tscn" id="3_acfho"]
+[ext_resource type="AudioStream" uid="uid://dgj0gjae345wv" path="res://Audio/Music/External/cat2x-RetroRPG/Festive.ogg" id="3_dw5jl"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_cqbqn")
@@ -38,6 +40,9 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_m7uid")
 text = "QUIT"
+
+[node name="MusicPlayerNotifier" parent="." instance=ExtResource("3_acfho")]
+audio = ExtResource("3_dw5jl")
 
 [connection signal="pressed" from="Panel/VBoxContainer/Play" to="." method="transition_scene" binds= ["res://Objects/GameScenes/main_game.tscn"]]
 [connection signal="pressed" from="Panel/VBoxContainer/Quit" to="." method="quit_game"]

@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bo2w76svgt1ka"]
+[gd_scene load_steps=6 format=3 uid="uid://bo2w76svgt1ka"]
 
 [ext_resource type="Script" path="res://Objects/zMisc/scene_transition.gd" id="1_kjn5h"]
 [ext_resource type="Theme" uid="uid://brpv3hhm8o0c7" path="res://Objects/UI/ui_theme.tres" id="2_74ngh"]
 [ext_resource type="Script" path="res://Objects/UI/score_label_updater.gd" id="3_4v0oi"]
+[ext_resource type="AudioStream" uid="uid://dgj0gjae345wv" path="res://Audio/Music/External/cat2x-RetroRPG/Festive.ogg" id="4_b4aho"]
+[ext_resource type="PackedScene" uid="uid://c5uifoyqfxjke" path="res://Objects/MusicPlayerNotifier/music_player_notifier.tscn" id="4_utxih"]
 
 [node name="ScoreScreen" type="CanvasLayer"]
 script = ExtResource("1_kjn5h")
@@ -67,6 +69,9 @@ theme = ExtResource("2_74ngh")
 text = "SCORE: 00000"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MusicPlayerNotifier" parent="." instance=ExtResource("4_utxih")]
+audio = ExtResource("4_b4aho")
 
 [connection signal="pressed" from="Panel/VBoxContainer/PlayAgain" to="." method="transition_scene" binds= ["res://Objects/GameScenes/main_game.tscn"]]
 [connection signal="pressed" from="Panel/VBoxContainer/MainMenu" to="." method="transition_scene" binds= ["res://Objects/GameScenes/main_menu.tscn"]]

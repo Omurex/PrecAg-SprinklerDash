@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c83q8lj2x2y3y"]
 
-[ext_resource type="Script" path="res://Objects/Autoload/point_manager.gd" id="1_pywyi"]
+[ext_resource type="Script" path="res://Objects/Autoload/PointManager/point_manager.gd" id="1_pywyi"]
 
 [node name="PointManager" type="Node"]
 script = ExtResource("1_pywyi")

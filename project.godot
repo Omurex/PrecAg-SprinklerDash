@@ -17,7 +17,8 @@ config/icon="res://Art/Sprites/icon.svg"
 
 [autoload]
 
-PointManager="*res://Objects/Autoload/point_manager.tscn"
+PointManager="*res://Objects/Autoload/PointManager/point_manager.tscn"
+MusicPlayer="*res://Objects/Autoload/MusicPlayer/music_player.tscn"
 
 [editor_plugins]
 

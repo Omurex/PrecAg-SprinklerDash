@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d034r6v4apkxt"]
+
+[ext_resource type="Script" path="res://Objects/Autoload/MusicPlayer/music_player.gd" id="1_omcpq"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+script = ExtResource("1_omcpq")

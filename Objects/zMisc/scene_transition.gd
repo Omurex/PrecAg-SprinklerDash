@@ -9,5 +9,4 @@ func transition_scene(scene_path : String):
 
 
 func quit_game():
-
 	get_tree().quit()
