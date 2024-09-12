@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bmdpf0qns06ig"]
+[gd_scene load_steps=17 format=3 uid="uid://bmdpf0qns06ig"]
 
 [ext_resource type="Script" path="res://Objects/FieldRow/field_row.gd" id="1_p3tfu"]
 [ext_resource type="Script" path="res://Resources/Scripts/field_row_coloring_data.gd" id="2_2kfgl"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://gqb4c4yj45gp" path="res://Objects/CircleVisual/circle_visual.tscn" id="3_7h6vf"]
 [ext_resource type="TileSet" uid="uid://b72k6vja6eba8" path="res://TileSets/soil.tres" id="5_8o7mn"]
 [ext_resource type="Texture2D" uid="uid://dv2ovq5e8glpq" path="res://Art/External/Josehzz-Crops/Crop_Spritesheet.png" id="6_xklb8"]
+[ext_resource type="Texture2D" uid="uid://c462jt6ldv615" path="res://Art/Sprites/SprinklerSpout2.png" id="7_l67t5"]
 
 [sub_resource type="Resource" id="Resource_g7fiw"]
 script = ExtResource("2_2kfgl")
@@ -105,73 +106,89 @@ layer_8/tile_data = PackedInt32Array(131071, 4, 0, 65536, 65540, 0, 65537, 13107
 [node name="Tomatoes" type="Node2D" parent="."]
 
 [node name="Tomato" type="Sprite2D" parent="Tomatoes"]
-position = Vector2(-8, 32)
+position = Vector2(-12, 32)
 texture = ExtResource("6_xklb8")
 hframes = 12
 vframes = 10
 frame = 25
 
 [node name="Tomato2" type="Sprite2D" parent="Tomatoes"]
-position = Vector2(8, 32)
+position = Vector2(12, 32)
 texture = ExtResource("6_xklb8")
 hframes = 12
 vframes = 10
 frame = 25
 
 [node name="Tomato3" type="Sprite2D" parent="Tomatoes"]
-position = Vector2(-8, 56)
+position = Vector2(-12, 56)
 texture = ExtResource("6_xklb8")
 hframes = 12
 vframes = 10
 frame = 25
 
 [node name="Tomato4" type="Sprite2D" parent="Tomatoes"]
-position = Vector2(8, 56)
+position = Vector2(12, 56)
 texture = ExtResource("6_xklb8")
 hframes = 12
 vframes = 10
 frame = 25
 
 [node name="Tomato5" type="Sprite2D" parent="Tomatoes"]
-position = Vector2(-8, 80)
+position = Vector2(-12, 80)
 texture = ExtResource("6_xklb8")
 hframes = 12
 vframes = 10
 frame = 25
 
 [node name="Tomato6" type="Sprite2D" parent="Tomatoes"]
-position = Vector2(8, 80)
+position = Vector2(12, 80)
 texture = ExtResource("6_xklb8")
 hframes = 12
 vframes = 10
 frame = 25
 
 [node name="Tomato7" type="Sprite2D" parent="Tomatoes"]
-position = Vector2(-8, 104)
+position = Vector2(-12, 104)
 texture = ExtResource("6_xklb8")
 hframes = 12
 vframes = 10
 frame = 25
 
 [node name="Tomato8" type="Sprite2D" parent="Tomatoes"]
-position = Vector2(8, 104)
+position = Vector2(12, 104)
 texture = ExtResource("6_xklb8")
 hframes = 12
 vframes = 10
 frame = 25
 
 [node name="Tomato9" type="Sprite2D" parent="Tomatoes"]
-position = Vector2(-8, 128)
+position = Vector2(-12, 128)
 texture = ExtResource("6_xklb8")
 hframes = 12
 vframes = 10
 frame = 25
 
 [node name="Tomato10" type="Sprite2D" parent="Tomatoes"]
-position = Vector2(8, 128)
+position = Vector2(12, 128)
 texture = ExtResource("6_xklb8")
 hframes = 12
 vframes = 10
 frame = 25
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 40.5)
+texture = ExtResource("7_l67t5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, 68.5)
+texture = ExtResource("7_l67t5")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(0, 96.5)
+texture = ExtResource("7_l67t5")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(0, 124.5)
+texture = ExtResource("7_l67t5")
 
 [connection signal="timeout" from="PointsTimer" to="." method="_on_points_timer_timeout"]

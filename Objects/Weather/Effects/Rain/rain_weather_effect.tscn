@@ -25,7 +25,7 @@ offset_from_field = Vector2(100, -100)
 x_bound_padding = 100.0
 hydration_modifier_packed = ExtResource("2_mao25")
 weather_icon = ExtResource("3_m8fjk")
-hydration_modifier_amount = 6.0
+hydration_modifier_amount = 4.0
 hydration_modifier_delay = 2.0
 duration_range = Vector2(8, 12)
 
