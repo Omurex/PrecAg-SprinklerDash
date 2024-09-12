@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://1ysiotibgavm"]
+[gd_scene load_steps=15 format=3 uid="uid://1ysiotibgavm"]
 
 [ext_resource type="PackedScene" uid="uid://bmdpf0qns06ig" path="res://Objects/FieldRow/field_row.tscn" id="1_q8fjm"]
 [ext_resource type="PackedScene" uid="uid://ccygi3xb10kgr" path="res://Objects/Player/player.tscn" id="2_xlu18"]
@@ -9,9 +9,19 @@
 [ext_resource type="PackedScene" uid="uid://bnsioq3xc7i5m" path="res://Objects/GameTimer/game_timer.tscn" id="8_kn4b1"]
 [ext_resource type="PackedScene" uid="uid://c5uifoyqfxjke" path="res://Objects/MusicPlayerNotifier/music_player_notifier.tscn" id="9_8qtqc"]
 [ext_resource type="AudioStream" uid="uid://c6wvwy34dqdj6" path="res://Audio/Music/External/cat2x-RetroRPG/Curious.ogg" id="9_j4nwg"]
+[ext_resource type="Texture2D" uid="uid://il8sbbyqtpdp" path="res://Art/External/lunar-glitch-FarmingRPGGui/PeachPanel/small_peach.png" id="10_ahklg"]
+[ext_resource type="Script" path="res://Objects/UI/score_label_updater.gd" id="11_4lxqv"]
+[ext_resource type="Theme" uid="uid://brpv3hhm8o0c7" path="res://Objects/UI/ui_theme.tres" id="11_qbrow"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c8c8p"]
 size = Vector2(32, 10000)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pgv7p"]
+texture = ExtResource("10_ahklg")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
 
 [node name="MainGame" type="Node2D"]
 
@@ -62,9 +72,6 @@ position = Vector2(424, 104)
 [node name="FieldRow5" parent="Field" instance=ExtResource("1_q8fjm")]
 position = Vector2(504, 104)
 
-[node name="WeatherIconVisual" parent="." node_paths=PackedStringArray("weather_system") instance=ExtResource("6_ylomu")]
-weather_system = NodePath("../WeatherSystem")
-
 [node name="WeatherSystem" parent="." node_paths=PackedStringArray("field") instance=ExtResource("6_87syu")]
 field = NodePath("../Field")
 
@@ -72,3 +79,37 @@ field = NodePath("../Field")
 
 [node name="MusicPlayerNotifier" parent="." instance=ExtResource("9_8qtqc")]
 audio = ExtResource("9_j4nwg")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="WeatherIconVisual" parent="UI" node_paths=PackedStringArray("weather_system") instance=ExtResource("6_ylomu")]
+weather_system = NodePath("../../WeatherSystem")
+
+[node name="PointsPanel" type="Panel" parent="UI" node_paths=PackedStringArray("label")]
+modulate = Color(1, 1, 1, 0.737255)
+anchors_preset = -1
+anchor_right = 0.222
+anchor_bottom = 0.074
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 248.256
+offset_bottom = 8.048
+theme_override_styles/panel = SubResource("StyleBoxTexture_pgv7p")
+script = ExtResource("11_4lxqv")
+label = NodePath("Label")
+preceding_line = "GOOD IRRIGATION TIMING POINTS:\\n"
+update_every_frame = true
+
+[node name="Label" type="Label" parent="UI/PointsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("11_qbrow")
+theme_override_font_sizes/font_size = 16
+text = "Good Irrigation Timing Points:
+38590"
+horizontal_alignment = 1
+vertical_alignment = 1

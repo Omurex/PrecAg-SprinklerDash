@@ -1,16 +1,36 @@
-extends Panel
+extends Node
 
 
 @export_group("References")
 @export var label : Label
 
+@export_group("Properties")
+@export var preceding_line : String = "SCORE: "
+@export var proceding_line : String = ""
 @export var num_digits : int = 6
+@export var update_every_frame : bool = false
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 
-	var str : String = "SCORE: "
+	update_label()
+
+	set_process(update_every_frame)
+
+	pass # Replace with function body.
+
+
+func _process(delta: float) -> void:
+
+	# Should really be tied to an event, but doesn't matter too much
+	update_label()
+
+
+
+func update_label() -> void:
+
+	var str : String = preceding_line
 
 	var points = str(PointManager.points)
 
@@ -19,6 +39,8 @@ func _ready() -> void:
 
 	str += points
 
-	label.text = str
+	str += proceding_line
 
-	pass # Replace with function body.
+	label.text = str.c_unescape()
+
+	pass
