@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bmdpf0qns06ig"]
+[gd_scene load_steps=17 format=3 uid="uid://bmdpf0qns06ig"]
 
 [ext_resource type="Script" path="res://Objects/FieldRow/field_row.gd" id="1_p3tfu"]
 [ext_resource type="Script" path="res://Resources/Scripts/field_row_coloring_data.gd" id="2_2kfgl"]
@@ -52,8 +52,6 @@ layer = 3
 script = ExtResource("2_2kfgl")
 threshold = 1000.0
 layer = 4
-
-[sub_resource type="Gradient" id="Gradient_vex5h"]
 
 [node name="FieldRow" type="Node2D" node_paths=PackedStringArray("points_timer", "tilemap", "sprinkler")]
 script = ExtResource("1_p3tfu")
@@ -178,9 +176,15 @@ vframes = 10
 frame = 25
 
 [node name="Line2D" type="Line2D" parent="."]
-points = PackedVector2Array(0, 8, 0, 48)
-width = 2.0
-gradient = SubResource("Gradient_vex5h")
+points = PackedVector2Array(0, 8, 0, 16, 4, 16, 4, 48, 0, 48, 4, 48, 4, 76, 0, 76, 4, 76, 4, 104, 0, 104, 4, 104, 4, 132, 0, 132)
+width = 0.5
+default_color = Color(0, 0.152941, 0, 1)
+
+[node name="Line2D2" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(0, 8, 0, 132)
+width = 0.5
+default_color = Color(0, 0.152941, 0, 1)
 
 [node name="SprinklerNozzles" type="Node2D" parent="."]
 
