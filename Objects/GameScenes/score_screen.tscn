@@ -44,19 +44,20 @@ text = "MAIN MENU"
 
 [node name="ScorePanel" type="Panel" parent="." node_paths=PackedStringArray("label")]
 anchors_preset = -1
-anchor_left = 0.139
+anchor_left = 0.062
 anchor_top = 0.049
-anchor_right = 0.861
-anchor_bottom = 0.247
-offset_left = -0.128021
+anchor_right = 0.944
+anchor_bottom = 0.259
+offset_left = 0.575996
 offset_top = 0.247999
-offset_right = 0.12793
-offset_bottom = 7.944
+offset_right = -7.48804
+offset_bottom = 0.167999
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_74ngh")
 script = ExtResource("3_4v0oi")
 label = NodePath("Label")
+preceding_line = "GOOD IRRIGATION TIMING POINTS:\\n"
 
 [node name="Label" type="Label" parent="ScorePanel"]
 layout_mode = 1
@@ -66,7 +67,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_74ngh")
-text = "SCORE: 00000"
+text = "GOOD IRRIGATION TIMING POINTS: 
+00000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
