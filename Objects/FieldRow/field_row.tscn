@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bmdpf0qns06ig"]
+[gd_scene load_steps=19 format=3 uid="uid://bmdpf0qns06ig"]
 
 [ext_resource type="Script" path="res://Objects/FieldRow/field_row.gd" id="1_p3tfu"]
 [ext_resource type="Script" path="res://Resources/Scripts/field_row_coloring_data.gd" id="2_2kfgl"]
@@ -7,6 +7,8 @@
 [ext_resource type="TileSet" uid="uid://b72k6vja6eba8" path="res://TileSets/soil.tres" id="5_8o7mn"]
 [ext_resource type="Texture2D" uid="uid://dv2ovq5e8glpq" path="res://Art/External/Josehzz-Crops/Crop_Spritesheet.png" id="6_xklb8"]
 [ext_resource type="PackedScene" uid="uid://bpncji1vsivr7" path="res://Objects/Sprinkler/sprinkler_nozzle.tscn" id="7_o4y13"]
+[ext_resource type="Texture2D" uid="uid://bsg8bjx8jckka" path="res://Art/Sprites/ExclamationPoint.png" id="8_x6fpa"]
+[ext_resource type="Script" path="res://Objects/zMisc/warning_icon.gd" id="9_jgdcl"]
 
 [sub_resource type="Resource" id="Resource_g7fiw"]
 script = ExtResource("2_2kfgl")
@@ -200,4 +202,17 @@ position = Vector2(0, 92)
 [node name="SprinklerNozzle4" parent="SprinklerNozzles" instance=ExtResource("7_o4y13")]
 position = Vector2(0, 120)
 
+[node name="WarningIcon" type="Sprite2D" parent="." node_paths=PackedStringArray("flash_timer", "field_row")]
+modulate = Color(0.984835, 0.822166, 7.70092e-07, 1)
+z_index = 5
+position = Vector2(28, 20)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("8_x6fpa")
+script = ExtResource("9_jgdcl")
+flash_timer = NodePath("FlashTimer")
+field_row = NodePath("..")
+
+[node name="FlashTimer" type="Timer" parent="WarningIcon"]
+
 [connection signal="timeout" from="PointsTimer" to="." method="_on_points_timer_timeout"]
+[connection signal="timeout" from="WarningIcon/FlashTimer" to="WarningIcon" method="_on_flash_timer_timeout"]
