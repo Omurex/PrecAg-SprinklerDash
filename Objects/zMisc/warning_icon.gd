@@ -1,6 +1,6 @@
 class_name WarningIcon
 
-extends Sprite2D
+extends CanvasItem
 
 
 enum WarningIconStatus
@@ -29,6 +29,9 @@ enum WarningIconStatus
 ## How far hydration must be past healthy threshold before switching to heavy icon
 ## This is the portion between health bound limit and the dead limit
 @export var heavy_warning_portion_threshold : float = .5
+
+@export var light_flash_start_hidden : bool = false
+@export var heavy_flash_start_hidden : bool = false
 
 
 var current_status = WarningIconStatus.UNINITIALIZED
@@ -78,15 +81,14 @@ func change_status(new_status : WarningIconStatus):
 			visible = false
 
 		WarningIconStatus.LIGHT:
-			visible = true
+			visible = !light_flash_start_hidden
 			flash_timer_delay = light_warning_flash_speed
 			color = light_warning_color
 
 		WarningIconStatus.HEAVY:
-			visible = true
+			visible = !heavy_flash_start_hidden
 			flash_timer_delay = heavy_warning_flash_speed
 			color = heavy_warning_color
-
 
 	flash_timer.start(flash_timer_delay)
 	modulate = color

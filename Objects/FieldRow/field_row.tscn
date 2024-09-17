@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bmdpf0qns06ig"]
+[gd_scene load_steps=20 format=3 uid="uid://bmdpf0qns06ig"]
 
 [ext_resource type="Script" path="res://Objects/FieldRow/field_row.gd" id="1_p3tfu"]
 [ext_resource type="Script" path="res://Resources/Scripts/field_row_coloring_data.gd" id="2_2kfgl"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bpncji1vsivr7" path="res://Objects/Sprinkler/sprinkler_nozzle.tscn" id="7_o4y13"]
 [ext_resource type="Texture2D" uid="uid://bsg8bjx8jckka" path="res://Art/Sprites/ExclamationPoint.png" id="8_x6fpa"]
 [ext_resource type="Script" path="res://Objects/zMisc/warning_icon.gd" id="9_jgdcl"]
+[ext_resource type="Theme" uid="uid://brpv3hhm8o0c7" path="res://Objects/UI/ui_theme.tres" id="10_dbqgd"]
 
 [sub_resource type="Resource" id="Resource_g7fiw"]
 script = ExtResource("2_2kfgl")
@@ -214,5 +215,37 @@ field_row = NodePath("..")
 
 [node name="FlashTimer" type="Timer" parent="WarningIcon"]
 
+[node name="WarningIcon2" type="Label" parent="." node_paths=PackedStringArray("flash_timer", "field_row")]
+modulate = Color(0.984835, 0.822166, 7.70092e-07, 1)
+z_index = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -48.0
+offset_right = 64.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+theme = ExtResource("10_dbqgd")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 8
+text = "RUNNING OUT
+OF TIME"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("9_jgdcl")
+flash_timer = NodePath("FlashTimer2")
+field_row = NodePath("..")
+heavy_flash_start_hidden = true
+
+[node name="FlashTimer2" type="Timer" parent="WarningIcon2"]
+
 [connection signal="timeout" from="PointsTimer" to="." method="_on_points_timer_timeout"]
 [connection signal="timeout" from="WarningIcon/FlashTimer" to="WarningIcon" method="_on_flash_timer_timeout"]
+[connection signal="timeout" from="WarningIcon2/FlashTimer2" to="WarningIcon2" method="_on_flash_timer_timeout"]
