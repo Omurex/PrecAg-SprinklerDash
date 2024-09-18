@@ -50,7 +50,18 @@ func _process(delta: float) -> void:
 	if time_passed < delay:
 		return
 
-	field_row.modify_hydration(mod_amount_per_sec * delta)
+	var scale : float = 0
+
+	if GameDifficultyScaling.instance != null:
+		scale = GameDifficultyScaling.instance.hydration_modifier_scale
+
+	field_row.modify_hydration((mod_amount_per_sec + (scale * sign(mod_amount_per_sec))) * delta)
 
 	pass
+
+
+func set_delay(new_delay_time : float) -> void:
+
+	time_passed = 0
+	delay = new_delay_time
 

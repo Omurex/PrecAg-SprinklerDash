@@ -1,18 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://bnsioq3xc7i5m"]
 
-[ext_resource type="Script" path="res://Objects/GameTimer/game_timer.gd" id="1_grn6f"]
+[ext_resource type="Script" path="res://Objects/GameOverManager/game_over_manager.gd" id="1_grn6f"]
 [ext_resource type="Script" path="res://Objects/zMisc/scene_transition.gd" id="2_eq3or"]
 [ext_resource type="PackedScene" uid="uid://bo2w76svgt1ka" path="res://Objects/GameScenes/score_screen.tscn" id="2_q2mcn"]
 
-[node name="GameTimer" type="Timer" node_paths=PackedStringArray("scene_transition")]
-wait_time = 120.0
-one_shot = true
-autostart = true
+[node name="GameOverManager" type="Node" node_paths=PackedStringArray("scene_transition")]
 script = ExtResource("1_grn6f")
-scene_transition = NodePath("Node")
+scene_transition = NodePath("SceneTransition")
 to_scene = ExtResource("2_q2mcn")
+num_dead_rows_before_transition = 3
 
-[node name="Node" type="Node" parent="."]
+[node name="SceneTransition" type="Node" parent="."]
 script = ExtResource("2_eq3or")
-
-[connection signal="timeout" from="." to="." method="_on_timeout"]

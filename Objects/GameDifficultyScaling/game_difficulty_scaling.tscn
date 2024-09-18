@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkgwswk8bmwf8"]
+
+[ext_resource type="Script" path="res://Objects/GameDifficultyScaling/game_difficulty_scaling.gd" id="1_5fa6k"]
+
+[node name="GameDifficultyScaling" type="Node"]
+script = ExtResource("1_5fa6k")
+hydration_modifier_scale_change_per_sec = 0.05

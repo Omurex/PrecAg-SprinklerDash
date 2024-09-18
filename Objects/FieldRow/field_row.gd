@@ -3,6 +3,9 @@ class_name FieldRow
 extends Node2D
 
 
+signal on_died(field_row : FieldRow)
+
+
 @export_group("References")
 @export var points_timer : Timer
 @export var tilemap : TileMap
@@ -15,6 +18,7 @@ extends Node2D
 @export var healthy_hydration_range = Vector2(25, 75)
 @export var hydration_start_range = Vector2(25, 75)
 @export var points_per_timer : int = 5
+@export var row_num : int = -1
 
 var healthy : bool = true
 var dead : bool = false
@@ -47,6 +51,7 @@ func set_hydration(val) -> void:
 	if dead:
 		set_process(false)
 		check_for_tilemap_update()
+		on_died.emit(self)
 
 
 func _enter_tree() -> void:

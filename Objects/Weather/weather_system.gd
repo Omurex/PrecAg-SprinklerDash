@@ -21,24 +21,17 @@ var queued_weather_effect : BaseWeatherEffect = null
 
 func _ready() -> void:
 
+	start_timer()
+
+	pass
+
+
+func start_timer():
 	timer.start(Random.randf_range_vec2(first_weather_effect_delay_range))
 
-	pass
 
-
-func _on_timer_timeout() -> void:
-
-	if current_weather_effect == null:
-
-		start_random_weather_effect()
-		timer.start(Random.randf_range_vec2(current_weather_effect.duration_range))
-
-	else:
-
-		stop_current_weather_effect()
-		timer.start(Random.randf_range_vec2(weather_effect_delay_range))
-
-	pass
+func stop_timer():
+	timer.stop()
 
 
 func start_random_weather_effect() -> void:
@@ -97,3 +90,18 @@ func is_weather_effect_in_progress() -> bool:
 func get_time_left() -> float:
 
 	return timer.time_left
+
+
+func _on_timer_timeout() -> void:
+
+	if current_weather_effect == null:
+
+		start_random_weather_effect()
+		timer.start(Random.randf_range_vec2(current_weather_effect.duration_range))
+
+	else:
+
+		stop_current_weather_effect()
+		timer.start(Random.randf_range_vec2(weather_effect_delay_range))
+
+	pass

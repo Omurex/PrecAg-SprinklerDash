@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Objects/zMisc/field.gd" id="4_0xgus"]
 [ext_resource type="PackedScene" uid="uid://bp6dwhn3mnlt4" path="res://Objects/Weather/weather_system.tscn" id="6_87syu"]
 [ext_resource type="PackedScene" uid="uid://ddmefqx7t4733" path="res://Objects/Weather/weather_icon_visual.tscn" id="6_ylomu"]
-[ext_resource type="PackedScene" uid="uid://bnsioq3xc7i5m" path="res://Objects/GameOverManager/game_over_manager.tscn" id="8_kn4b1"]
+[ext_resource type="PackedScene" uid="uid://bnsioq3xc7i5m" path="res://Objects/GameTimer/game_timer.tscn" id="8_kn4b1"]
 [ext_resource type="PackedScene" uid="uid://c5uifoyqfxjke" path="res://Objects/MusicPlayerNotifier/music_player_notifier.tscn" id="9_8qtqc"]
 [ext_resource type="AudioStream" uid="uid://c6wvwy34dqdj6" path="res://Audio/Music/External/cat2x-RetroRPG/Curious.ogg" id="9_j4nwg"]
 [ext_resource type="Texture2D" uid="uid://bq58citreyk02" path="res://Art/External/lunar-glitch-FarmingRPGGui/PeachPanel/small_peach_panel_variant.png" id="10_6s47l"]
@@ -61,37 +61,24 @@ script = ExtResource("4_0xgus")
 
 [node name="FieldRow" parent="Field" instance=ExtResource("1_q8fjm")]
 position = Vector2(184, 104)
-row_num = 1
 
 [node name="FieldRow2" parent="Field" instance=ExtResource("1_q8fjm")]
 position = Vector2(264, 104)
-row_num = 2
 
 [node name="FieldRow3" parent="Field" instance=ExtResource("1_q8fjm")]
 position = Vector2(344, 104)
-row_num = 3
 
 [node name="FieldRow4" parent="Field" instance=ExtResource("1_q8fjm")]
 position = Vector2(424, 104)
-row_num = 4
 
 [node name="FieldRow5" parent="Field" instance=ExtResource("1_q8fjm")]
 position = Vector2(504, 104)
-row_num = 5
 
 [node name="WeatherSystem" parent="." node_paths=PackedStringArray("field") instance=ExtResource("6_87syu")]
 field = NodePath("../Field")
 
 [node name="MusicPlayerNotifier" parent="." instance=ExtResource("9_8qtqc")]
 audio = ExtResource("9_j4nwg")
-
-[node name="GameDifficultyScaling" parent="." instance=ExtResource("12_2bbkk")]
-hydration_modifier_scale_change_per_sec = 0.025
-
-[node name="GameTimer" parent="." node_paths=PackedStringArray("field", "row_died_warning_ui") instance=ExtResource("8_kn4b1")]
-field = NodePath("../Field")
-row_died_warning_ui = NodePath("../UI/RowDiedWarningUi")
-num_dead_rows_before_transition = 2
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -130,3 +117,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RowDiedWarningUi" parent="UI" instance=ExtResource("14_umx5a")]
+offset_left = -70.848
+offset_top = -24.116
+offset_right = -70.8481
+offset_bottom = -24.444
+
+[node name="GameDifficultyScaling" parent="." instance=ExtResource("12_2bbkk")]
+hydration_modifier_scale_change_per_sec = 0.025
+
+[node name="GameTimer" parent="." node_paths=PackedStringArray("field") instance=ExtResource("8_kn4b1")]
+field = NodePath("../Field")
+num_dead_rows_before_transition = 2

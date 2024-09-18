@@ -62,6 +62,10 @@ func get_sign() -> int:
 
 func toggle(status : bool) -> void:
 
+	# Can't change sprinkler if row is already dead!
+	if field_row.dead:
+		return
+
 	on = status
 
 	hydration_modifier.mod_amount_per_sec = abs(hydration_modifier.mod_amount_per_sec) * get_sign()
