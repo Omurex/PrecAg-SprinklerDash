@@ -1,0 +1,107 @@
+[gd_scene load_steps=10 format=3 uid="uid://yamxwm88fwrg"]
+
+[ext_resource type="Script" path="res://Objects/zMisc/scene_transition.gd" id="1_brdhr"]
+[ext_resource type="Theme" uid="uid://brpv3hhm8o0c7" path="res://Objects/UI/ui_theme.tres" id="2_nckps"]
+[ext_resource type="Texture2D" uid="uid://b2kx5j0m6w0b3" path="res://Art/External/Kenmi-CuteFantasyRPG/Player/Player.png" id="3_ctxp1"]
+[ext_resource type="Script" path="res://Objects/zMisc/texture_rect_anim_player.gd" id="4_414cs"]
+[ext_resource type="PackedScene" uid="uid://c5uifoyqfxjke" path="res://Objects/MusicPlayerNotifier/music_player_notifier.tscn" id="5_boj5d"]
+[ext_resource type="AudioStream" uid="uid://dgj0gjae345wv" path="res://Audio/Music/External/cat2x-RetroRPG/Festive.ogg" id="6_d2wm8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu7qo"]
+atlas = ExtResource("3_ctxp1")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqsmq"]
+atlas = ExtResource("3_ctxp1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7f62a"]
+atlas = ExtResource("3_ctxp1")
+region = Rect2(0, 128, 32, 32)
+
+[node name="TutorialScreen" type="CanvasLayer"]
+script = ExtResource("1_brdhr")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 436.0
+offset_right = -40.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 185
+alignment = 1
+
+[node name="MainMenu" type="Button" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_nckps")
+text = "MAIN MENU"
+
+[node name="Play" type="Button" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_nckps")
+text = "PLAY"
+
+[node name="PlayerLeft" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.389
+anchor_bottom = 0.691
+offset_right = -0.128021
+offset_bottom = 0.231964
+texture = SubResource("AtlasTexture_wu7qo")
+script = ExtResource("4_414cs")
+fps = 8.0
+start_x = 0
+end_x = 5
+
+[node name="PlayerIdle" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.389
+anchor_bottom = 0.691
+offset_left = 328.0
+offset_top = -24.0
+offset_right = 327.872
+offset_bottom = -23.768
+texture = SubResource("AtlasTexture_xqsmq")
+script = ExtResource("4_414cs")
+fps = 8.0
+start_x = 0
+end_x = 5
+
+[node name="PlayerRight" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.389
+anchor_bottom = 0.691
+offset_left = 688.0
+offset_top = 24.0
+offset_right = 687.872
+offset_bottom = 24.232
+texture = SubResource("AtlasTexture_7f62a")
+script = ExtResource("4_414cs")
+fps = 8.0
+start_x = 0
+end_x = 5
+
+[node name="MusicPlayerNotifier" parent="." instance=ExtResource("5_boj5d")]
+audio = ExtResource("6_d2wm8")
+
+[connection signal="pressed" from="Panel/HBoxContainer/MainMenu" to="." method="transition_scene" binds= ["res://Objects/GameScenes/main_menu.tscn"]]
+[connection signal="pressed" from="Panel/HBoxContainer/Play" to="." method="transition_scene" binds= ["res://Objects/GameScenes/main_game.tscn"]]
