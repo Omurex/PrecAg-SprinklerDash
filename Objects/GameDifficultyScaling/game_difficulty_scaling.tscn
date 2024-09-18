@@ -4,4 +4,5 @@
 
 [node name="GameDifficultyScaling" type="Node"]
 script = ExtResource("1_5fa6k")
-hydration_modifier_scale_change_per_sec = 0.05
+hydration_modifier_scale = 0.15
+hydration_modifier_scale_change_per_sec = 0.025

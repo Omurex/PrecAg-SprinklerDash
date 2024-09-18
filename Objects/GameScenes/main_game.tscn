@@ -86,7 +86,6 @@ field = NodePath("../Field")
 audio = ExtResource("9_j4nwg")
 
 [node name="GameDifficultyScaling" parent="." instance=ExtResource("12_2bbkk")]
-hydration_modifier_scale_change_per_sec = 0.025
 
 [node name="GameTimer" parent="." node_paths=PackedStringArray("field", "row_died_warning_ui", "weather_system", "player") instance=ExtResource("8_kn4b1")]
 field = NodePath("../Field")
@@ -131,3 +130,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RowDiedWarningUi" parent="UI" instance=ExtResource("14_umx5a")]
+anchor_top = 0.395
+anchor_bottom = 0.605
+offset_top = 0.0399933
+offset_bottom = -0.0400085
