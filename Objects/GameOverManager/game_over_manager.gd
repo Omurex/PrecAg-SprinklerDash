@@ -4,27 +4,29 @@ extends Node
 
 
 @export_group("Internal References")
+@export var to_scene : PackedScene
 @export var scene_transition : SceneTransition
+@export var game_pause_timer : Timer
 
 
 @export_group("External References")
-@export var to_scene : PackedScene
 @export var field : Field
 @export var row_died_warning_ui : RowDiedWarningUI
+@export var weather_system : WeatherSystem
+@export var player : Player
 
 
 @export_group("Properties")
 @export var num_dead_rows_before_transition : int = 2
 
-## How long players should get a break from hydration modifiers
-@export var after_died_buffer_time : float = 3
 
-## How long the game should be essentially paused before resuming
+## How long the game should be essentially paused before resuming.
 ## Use this to allow players to read UI warning
 @export var game_pause_time : float  = 5
+@export var difficulty_reduction_amount_on_crop_death : float = 2
 
 
-var num_died : int = 0
+var dead_crops_stack : Array[FieldRow]
 
 
 func _ready() -> void:
@@ -37,7 +39,7 @@ func _ready() -> void:
 
 func check_for_scene_transition():
 
-	if num_dead_rows_before_transition <= num_died:
+	if num_dead_rows_before_transition <= dead_crops_stack.size():
 
 		scene_transition.transition_scene(to_scene.resource_path)
 
@@ -46,11 +48,72 @@ func check_for_scene_transition():
 	pass
 
 
-func _on_row_died(field_row : FieldRow):
+func pause_game() -> void:
 
-	num_died += 1
+	row_died_warning_ui.show_warning(dead_crops_stack.back().row_num, \
+		dead_crops_stack.size(), num_dead_rows_before_transition)
 
-	row_died_warning_ui.show_warning(field_row.row_num, num_died, \
-		num_dead_rows_before_transition)
+	weather_system.stop_current_weather_effect()
+	weather_system.stop_timer()
+
+	player.lock_movement()
+
+	for row in field.rows:
+
+		# Give player a reset in case multiple rows were on the brink of failing
+		row.initialize_hydration()
+		row.sprinkler.toggle_from_row_status()
+
+		toggle_pause_in_row_hydration_modifiers(row, true)
+
+		row.pause_points_timer()
 
 	pass
+
+
+func unpause_game() -> void:
+
+	row_died_warning_ui.hide_warning()
+
+	weather_system.start_timer()
+
+	player.unlock_movement()
+
+	GameDifficultyScaling.instance.modify_scale(-difficulty_reduction_amount_on_crop_death)
+
+	for row in field.rows:
+
+		toggle_pause_in_row_hydration_modifiers(row, false)
+
+		row.unpause_points_timer()
+
+	check_for_scene_transition()
+
+	pass
+
+
+func toggle_pause_in_row_hydration_modifiers(row : FieldRow, status : bool):
+
+	for child in row.get_children():
+
+			if child is HydrationModifier:
+
+				(child as HydrationModifier).toggle_pause(status)
+
+
+func _on_row_died(field_row : FieldRow):
+
+	dead_crops_stack.push_back(field_row)
+
+	pause_game()
+
+	game_pause_timer.start(game_pause_time)
+
+	pass
+
+
+func _on_game_pause_timer_timeout() -> void:
+
+	unpause_game()
+
+	pass # Replace with function body.

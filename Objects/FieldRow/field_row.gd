@@ -56,7 +56,7 @@ func set_hydration(val) -> void:
 
 func _enter_tree() -> void:
 
-	hydration = Random.randf_range_vec2(healthy_hydration_range)
+	initialize_hydration()
 
 	pass
 
@@ -77,6 +77,11 @@ func _process(_delta: float) -> void:
 	check_for_tilemap_update()
 
 	pass
+
+
+func initialize_hydration() -> void:
+
+	hydration = Random.randf_range_vec2(healthy_hydration_range)
 
 
 func check_for_tilemap_update() -> void:
@@ -123,6 +128,16 @@ func check_for_tilemap_update() -> void:
 func modify_hydration(modification) -> void:
 
 	hydration += modification
+
+
+func pause_points_timer() -> void:
+
+	points_timer.paused = true
+
+
+func unpause_points_timer() -> void:
+
+	points_timer.paused = false
 
 
 func _on_points_timer_timeout() -> void:

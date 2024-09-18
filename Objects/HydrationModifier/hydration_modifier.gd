@@ -27,6 +27,8 @@ var field_row : FieldRow
 
 var time_passed : float = 0
 
+var paused : bool = false
+
 
 func initialize(mod_amount : float, start_delay : float):
 
@@ -47,7 +49,7 @@ func _process(delta: float) -> void:
 
 	time_passed += delta
 
-	if time_passed < delay:
+	if paused or time_passed < delay:
 		return
 
 	var scale : float = 0
@@ -56,6 +58,27 @@ func _process(delta: float) -> void:
 		scale = GameDifficultyScaling.instance.hydration_modifier_scale
 
 	field_row.modify_hydration((mod_amount_per_sec + (scale * sign(mod_amount_per_sec))) * delta)
+
+	pass
+
+
+func pause() -> void:
+
+	toggle_pause(true)
+
+	pass
+
+
+func unpause() -> void:
+
+	toggle_pause(false)
+
+	pass
+
+
+func toggle_pause(pause_status : bool):
+
+	paused = pause_status
 
 	pass
 

@@ -4,11 +4,18 @@
 [ext_resource type="Script" path="res://Objects/zMisc/scene_transition.gd" id="2_eq3or"]
 [ext_resource type="PackedScene" uid="uid://bo2w76svgt1ka" path="res://Objects/GameScenes/score_screen.tscn" id="2_q2mcn"]
 
-[node name="GameOverManager" type="Node" node_paths=PackedStringArray("scene_transition")]
+[node name="GameOverManager" type="Node" node_paths=PackedStringArray("scene_transition", "game_pause_timer")]
 script = ExtResource("1_grn6f")
-scene_transition = NodePath("SceneTransition")
 to_scene = ExtResource("2_q2mcn")
+scene_transition = NodePath("SceneTransition")
+game_pause_timer = NodePath("GamePauseTimer")
 num_dead_rows_before_transition = 3
+difficulty_reduction_amount_on_crop_death = 2.125
 
 [node name="SceneTransition" type="Node" parent="."]
 script = ExtResource("2_eq3or")
+
+[node name="GamePauseTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="GamePauseTimer" to="." method="_on_game_pause_timer_timeout"]

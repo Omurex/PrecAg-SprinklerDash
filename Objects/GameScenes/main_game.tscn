@@ -88,10 +88,11 @@ audio = ExtResource("9_j4nwg")
 [node name="GameDifficultyScaling" parent="." instance=ExtResource("12_2bbkk")]
 hydration_modifier_scale_change_per_sec = 0.025
 
-[node name="GameTimer" parent="." node_paths=PackedStringArray("field", "row_died_warning_ui") instance=ExtResource("8_kn4b1")]
+[node name="GameTimer" parent="." node_paths=PackedStringArray("field", "row_died_warning_ui", "weather_system", "player") instance=ExtResource("8_kn4b1")]
 field = NodePath("../Field")
 row_died_warning_ui = NodePath("../UI/RowDiedWarningUi")
-num_dead_rows_before_transition = 2
+weather_system = NodePath("../WeatherSystem")
+player = NodePath("../Player")
 
 [node name="UI" type="CanvasLayer" parent="."]
 

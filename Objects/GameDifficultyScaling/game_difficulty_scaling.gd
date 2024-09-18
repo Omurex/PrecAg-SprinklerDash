@@ -33,6 +33,10 @@ func _process(delta: float) -> void:
 	print(hydration_modifier_scale)
 
 
+func modify_scale(modification : float):
+	hydration_modifier_scale = maxf(0, hydration_modifier_scale + modification)
+
+
 func _exit_tree() -> void:
 
 	if instance == self:

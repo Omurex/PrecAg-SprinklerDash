@@ -20,11 +20,9 @@ var nozzle_refs : Array[SprinklerNozzle]
 
 func _ready() -> void:
 
-	var mid = (field_row.healthy_hydration_range.x + field_row.healthy_hydration_range.y) / 2
-	on = field_row.hydration <= mid
-
 	hydration_modifier = hydration_modifier_packed.instantiate() as HydrationModifier
-	hydration_modifier.initialize(abs(modification_amount) * get_sign(), 0)
+
+	toggle_from_row_status()
 
 	field_row.add_child.call_deferred(hydration_modifier)
 
@@ -33,6 +31,21 @@ func _ready() -> void:
 	toggle_nozzle_visuals(on)
 
 	pass
+
+
+func toggle_from_row_status() -> void:
+
+	var mid = (field_row.healthy_hydration_range.x + field_row.healthy_hydration_range.y) / 2
+	on = field_row.hydration <= mid
+
+	# If field row is dead, we want it to look like the sprinkler isn't trying
+	# to save it somehow
+	if field_row.dead:
+		on = !on
+
+	hydration_modifier.initialize(abs(modification_amount) * get_sign(), 0)
+
+	toggle_nozzle_visuals(on)
 
 
 func load_nozzle_refs_from_children():

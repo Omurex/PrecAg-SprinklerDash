@@ -87,7 +87,11 @@ func is_weather_effect_in_progress() -> bool:
 
 # Note: Depending on weather state, this can either be time left until next weather
 # effect, or time left until weather effect end. Use is_weather_effect_in_progress to check!
+# Returns inf if timer is stopped
 func get_time_left() -> float:
+
+	if timer.is_stopped():
+		return INF
 
 	return timer.time_left
 

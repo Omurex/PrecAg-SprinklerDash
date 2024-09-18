@@ -21,6 +21,8 @@ const input_to_anim = {
 var input : float
 var detected_sprinkler : Sprinkler = null
 
+var movement_locked : bool = false
+
 
 func _process(_delta: float) -> void:
 
@@ -35,6 +37,9 @@ func _process(_delta: float) -> void:
 
 func _physics_process(_delta: float) -> void:
 
+	if movement_locked:
+		return
+
 	velocity = Vector2(input, 0) * move_speed
 
 	move_and_slide()
@@ -48,6 +53,15 @@ func sprinkler_interaction() -> void:
 
 		detected_sprinkler.flip()
 
+
+func lock_movement() -> void:
+
+	movement_locked = true
+
+
+func unlock_movement() -> void:
+
+	movement_locked = false
 
 
 func _on_sprinkler_detector_area_entered(area: Area2D) -> void:
