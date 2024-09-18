@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://yamxwm88fwrg"]
+[gd_scene load_steps=16 format=3 uid="uid://yamxwm88fwrg"]
 
 [ext_resource type="Script" path="res://Objects/zMisc/scene_transition.gd" id="1_brdhr"]
 [ext_resource type="Theme" uid="uid://brpv3hhm8o0c7" path="res://Objects/UI/ui_theme.tres" id="2_nckps"]
@@ -29,11 +29,14 @@ atlas = ExtResource("5_m47lt")
 region = Rect2(96, 208, 16, 16)
 
 [sub_resource type="LabelSettings" id="LabelSettings_8lsre"]
-line_spacing = 7.715
+line_spacing = 6.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1hn3a"]
 atlas = ExtResource("5_m47lt")
 region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ksl5s"]
+line_spacing = 12.0
 
 [node name="TutorialScreen" type="CanvasLayer"]
 script = ExtResource("1_brdhr")
@@ -156,6 +159,22 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_1hn3a")
 expand_mode = 3
 stretch_mode = 4
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 16.0
+offset_right = 1136.0
+offset_bottom = 120.0
+theme = ExtResource("2_nckps")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "YOUR GOAL IS TO KEEP YOUR CROPS HYDRATED, WHILE NOT UNDER OR OVER WATERING THEM."
+label_settings = SubResource("LabelSettings_ksl5s")
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 2
+uppercase = true
 
 [node name="MusicPlayerNotifier" parent="." instance=ExtResource("5_boj5d")]
 audio = ExtResource("6_d2wm8")
