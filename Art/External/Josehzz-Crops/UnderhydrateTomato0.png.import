@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv2ovq5e8glpq"
-path="res://.godot/imported/Crop_Spritesheet.png-c71a58777fefb9b3539c169393ac924f.ctex"
+uid="uid://cbvtxyjpy3rfw"
+path="res://.godot/imported/UnderhydrateTomato0.png-8f06ecd8bfdc4d409175caecca33da10.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/External/Josehzz-Crops/Crop_Spritesheet.png"
-dest_files=["res://.godot/imported/Crop_Spritesheet.png-c71a58777fefb9b3539c169393ac924f.ctex"]
+source_file="res://Art/External/Josehzz-Crops/UnderhydrateTomato0.png"
+dest_files=["res://.godot/imported/UnderhydrateTomato0.png-8f06ecd8bfdc4d409175caecca33da10.ctex"]
 
 [params]
 

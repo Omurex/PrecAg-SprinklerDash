@@ -10,6 +10,9 @@ signal on_died(field_row : FieldRow)
 @export var points_timer : Timer
 @export var tilemap : TileMap
 @export var sprinkler : Sprinkler
+@export var tomato_sprites_container : Node
+@export var overhydrate_tex : Texture2D
+@export var underhydrate_tex : Texture2D
 
 
 @export_group("Properties")
@@ -51,6 +54,22 @@ func set_hydration(val) -> void:
 	if dead:
 		set_process(false)
 		check_for_tilemap_update()
+
+		var tex : Texture2D
+
+		if hydration < hydration_limits.x:
+			tex = underhydrate_tex
+
+		else:
+			tex = overhydrate_tex
+
+		for child in tomato_sprites_container.get_children():
+
+			if !(child is Sprite2D):
+				continue
+
+			(child as Sprite2D).texture = tex
+
 		on_died.emit(self)
 
 
