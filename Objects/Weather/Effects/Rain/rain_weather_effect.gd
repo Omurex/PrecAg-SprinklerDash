@@ -5,6 +5,8 @@ extends BaseWeatherEffect
 
 @export_group("References")
 @export var rain_particle_system : GPUParticles2D
+@export var rain_audio_player : AudioStreamPlayer
+@export var rain_audio_options : Array[AudioStream]
 
 
 @export_group("Properties")
@@ -26,6 +28,8 @@ func _ready() -> void:
 	var x_bounds = calculate_field_x_bounds()
 	process_material.emission_box_extents = \
 		Vector3((x_bounds.y - x_bounds.x) / 2.0 + x_bound_padding, extents.y, extents.z)
+
+
 
 	pass
 

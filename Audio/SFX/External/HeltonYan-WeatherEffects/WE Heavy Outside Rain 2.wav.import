@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bxxittsdbjikp"
+path="res://.godot/imported/WE Heavy Outside Rain 2.wav-a2ce1301f79e5ecd4f7193889346716b.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/External/HeltonYan-WeatherEffects/WE Heavy Outside Rain 2.wav"
+dest_files=["res://.godot/imported/WE Heavy Outside Rain 2.wav-a2ce1301f79e5ecd4f7193889346716b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
