@@ -31,7 +31,6 @@ func _process(delta: float) -> void:
 			time_passed = fade_time
 
 		volume_db = lerpf(start_volume, end_volume, time_passed / fade_time)
-		print(volume_db)
 
 
 func start_fade(fade_time_duration : float, \

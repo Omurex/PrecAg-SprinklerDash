@@ -13,6 +13,10 @@ extends BaseWeatherEffect
 @export var offset_from_field : Vector2 = Vector2(0, 0)
 @export var x_bound_padding : float = 0
 
+@export_group("Audio Properties")
+@export var fade_in_time : float = 2
+@export var fade_in_start_volume : float = -80
+@export var fade_in_end_volume : float = -18
 
 
 
@@ -30,7 +34,7 @@ func _ready() -> void:
 		Vector3((x_bounds.y - x_bounds.x) / 2.0 + x_bound_padding, extents.y, extents.z)
 
 	rain_audio_player.stream = rain_audio_options.pick_random()
-	rain_audio_player.start_fade(2, -80, -18)
+	rain_audio_player.start_fade(fade_in_time, fade_in_start_volume, fade_in_end_volume)
 	rain_audio_player.play(randf_range(0, rain_audio_player.stream.get_length()))
 
 	pass

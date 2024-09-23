@@ -18,6 +18,11 @@ var hydration_modifiers : Array[HydrationModifier]
 var field : Field
 
 
+func _ready() -> void:
+
+	end_weather_effect()
+
+
 func init(affected_field : Field) -> void:
 
 	field = affected_field
@@ -25,7 +30,22 @@ func init(affected_field : Field) -> void:
 	pass
 
 
-func _ready() -> void:
+func start_weather_effect() -> void:
+	push_error("THIS IS AN ABSTRACT FUNCTION THAT SHOULD BE OVERRIDDEN")
+	pass
+
+
+func end_weather_effect() -> void:
+	push_error("THIS IS AN ABSTRACT FUNCTION THAT SHOULD BE OVERRIDDEN")
+	pass
+
+
+# Note: It'd be better to use the pause functionality of the hydration modifiers instead of adding / removing
+# them whenever the weather status changes, however due to the way the code is currently architected and the timeline we're working with,
+# we're not going to do the refactor needed to make that work
+func add_hydration_modifiers() -> void:
+
+	remove_hydration_modifiers()
 
 	for row in field.rows:
 
@@ -40,10 +60,15 @@ func _ready() -> void:
 	pass
 
 
-func _exit_tree() -> void:
+func remove_hydration_modifiers() -> void:
 
 	for modifier in hydration_modifiers:
-
 		modifier.queue_free()
 
+	hydration_modifiers.clear()
+
+
+func _exit_tree() -> void:
+
+	remove_hydration_modifiers()
 

@@ -6,7 +6,7 @@ signal on_weather_effect_started(weather_effect : BaseWeatherEffect)
 signal on_weather_effect_ended(weather_effect : BaseWeatherEffect)
 
 @export_group("References")
-@export var weather_effects : Array[PackedScene]
+@export var weather_effects_packed : Array[PackedScene]
 @export var timer : Timer
 @export var field : Field
 
@@ -15,6 +15,8 @@ signal on_weather_effect_ended(weather_effect : BaseWeatherEffect)
 @export var weather_effect_delay_range : Vector2
 
 
+var weather_effects : Array[BaseWeatherEffect]
+
 var current_weather_effect : BaseWeatherEffect = null
 var queued_weather_effect : BaseWeatherEffect = null
 
@@ -22,6 +24,11 @@ var queued_weather_effect : BaseWeatherEffect = null
 func _ready() -> void:
 
 	start_timer()
+
+	for packed in weather_effects_packed:
+		var effect = packed.instantiate() as BaseWeatherEffect
+		effect.init(field)
+		weather_effects.push_back(effect)
 
 	pass
 
@@ -45,9 +52,7 @@ func start_random_weather_effect() -> void:
 		current_weather_effect = queued_weather_effect
 		queued_weather_effect = null
 
-	current_weather_effect.init(field)
-
-	add_child(current_weather_effect)
+	current_weather_effect.start_weather_effect()
 
 	on_weather_effect_started.emit(current_weather_effect)
 
@@ -61,7 +66,8 @@ func stop_current_weather_effect() -> void:
 
 	on_weather_effect_ended.emit(current_weather_effect)
 
-	current_weather_effect.queue_free()
+	current_weather_effect.end_weather_effect()
+
 	current_weather_effect = null
 
 	pass
@@ -69,7 +75,7 @@ func stop_current_weather_effect() -> void:
 
 func select_random_weather_effect() -> BaseWeatherEffect:
 
-	return weather_effects.pick_random().instantiate() as BaseWeatherEffect
+	return weather_effects.pick_random()
 
 
 func request_next_weather_effect() -> BaseWeatherEffect:
