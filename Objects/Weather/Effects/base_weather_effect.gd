@@ -19,8 +19,7 @@ var field : Field
 
 
 func _ready() -> void:
-
-	end_weather_effect()
+	pass
 
 
 func init(affected_field : Field) -> void:

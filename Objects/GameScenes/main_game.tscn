@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://1ysiotibgavm"]
+[gd_scene load_steps=19 format=3 uid="uid://1ysiotibgavm"]
 
 [ext_resource type="PackedScene" uid="uid://bmdpf0qns06ig" path="res://Objects/FieldRow/field_row.tscn" id="1_q8fjm"]
 [ext_resource type="PackedScene" uid="uid://ccygi3xb10kgr" path="res://Objects/Player/player.tscn" id="2_xlu18"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cscn34776cjny" path="res://Objects/Weather/Effects/Rain/rain_weather_effect.tscn" id="6_4xyvr"]
 [ext_resource type="PackedScene" uid="uid://bp6dwhn3mnlt4" path="res://Objects/Weather/weather_system.tscn" id="6_87syu"]
 [ext_resource type="PackedScene" uid="uid://ddmefqx7t4733" path="res://Objects/Weather/weather_icon_visual.tscn" id="6_ylomu"]
+[ext_resource type="PackedScene" uid="uid://d4mwr3gvbuxmo" path="res://Objects/Weather/Effects/ExtremeHeat/extreme_heat_weather_effect.tscn" id="7_dqjd8"]
 [ext_resource type="PackedScene" uid="uid://bnsioq3xc7i5m" path="res://Objects/GameOverManager/game_over_manager.tscn" id="8_kn4b1"]
 [ext_resource type="PackedScene" uid="uid://c5uifoyqfxjke" path="res://Objects/MusicPlayerNotifier/music_player_notifier.tscn" id="9_8qtqc"]
 [ext_resource type="AudioStream" uid="uid://c6wvwy34dqdj6" path="res://Audio/Music/External/cat2x-RetroRPG/Curious.ogg" id="9_j4nwg"]
@@ -81,7 +82,7 @@ position = Vector2(504, 104)
 row_num = 5
 
 [node name="WeatherSystem" parent="." node_paths=PackedStringArray("field") instance=ExtResource("6_87syu")]
-weather_effects_packed = Array[PackedScene]([ExtResource("6_4xyvr")])
+weather_effects_packed = Array[PackedScene]([ExtResource("6_4xyvr"), ExtResource("7_dqjd8")])
 field = NodePath("../Field")
 
 [node name="MusicPlayerNotifier" parent="." instance=ExtResource("9_8qtqc")]

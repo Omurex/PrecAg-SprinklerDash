@@ -9,11 +9,14 @@
 shader = ExtResource("4_fajr3")
 shader_parameter/source_sunshine_color = Color(0.831373, 0.607843, 0, 0.745098)
 shader_parameter/min_sunshine_color = Color(0.831373, 0.607843, 0, 0.196078)
+shader_parameter/alpha_mult = 1.0
 
-[node name="ExtremeHeatWeatherEffect" type="Node"]
+[node name="ExtremeHeatWeatherEffect" type="Node" node_paths=PackedStringArray("sunshine_overlay")]
 script = ExtResource("1_osycj")
+sunshine_overlay = NodePath("CanvasLayer/SunshineOverlay")
 sprinkler_on_hydration_amount = -1.0
 sprinkler_off_hydration_amount = -7.0
+sunshine_fade_time = 1.0
 hydration_modifier_packed = ExtResource("2_hs4s6")
 weather_icon = ExtResource("3_uo1k4")
 hydration_modifier_amount = -3.0
