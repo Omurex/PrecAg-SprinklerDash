@@ -8,6 +8,7 @@ const ALPHA_SHADER_PARAM_NAME = "alpha_mult"
 
 @export_group("Internal References")
 @export var sunshine_overlay : Panel
+@export var audio_fader : AudioFader
 
 
 @export_group("External References")
@@ -17,6 +18,8 @@ const ALPHA_SHADER_PARAM_NAME = "alpha_mult"
 @export var sprinkler_on_hydration_amount : float = -3
 @export var sprinkler_off_hydration_amount : float = -8
 @export var sunshine_fade_time : float = 2
+@export var audio_min : float = -80
+@export var audio_max : float = -2
 
 
 func _ready() -> void:
@@ -44,6 +47,9 @@ func specific_start_weather_effect() -> void:
 
 	sunshine_overlay.visible = true
 
+	audio_fader.start_fade(sunshine_fade_time, audio_min, audio_max)
+	audio_fader.play()
+
 	#screen_fade_tween.tween_property(sunshine_overlay.material)
 	#screen_fade_tween.tween_method(shader.set_shader_parameter.bind()
 
@@ -60,6 +66,8 @@ func specific_end_weather_effect() -> void:
 
 	var screen_fade_timer := get_tree().create_timer(sunshine_fade_time)
 	screen_fade_timer.timeout.connect(turn_off_overlay_visiblity)
+
+	audio_fader.start_fade(sunshine_fade_time, audio_max, audio_min)
 
 	pass
 

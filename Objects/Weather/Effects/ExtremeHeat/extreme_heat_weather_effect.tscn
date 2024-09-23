@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://d4mwr3gvbuxmo"]
+[gd_scene load_steps=8 format=3 uid="uid://d4mwr3gvbuxmo"]
 
 [ext_resource type="Script" path="res://Objects/Weather/Effects/ExtremeHeat/extreme_heat_weather_effect.gd" id="1_osycj"]
 [ext_resource type="PackedScene" uid="uid://doerjt4hfrpf8" path="res://Objects/HydrationModifier/Special/SprinklerDependentHydrationModifier.tscn" id="2_hs4s6"]
 [ext_resource type="Texture2D" uid="uid://55jgpwews48o" path="res://Art/Sprites/WeatherIcons/SunWeatherIcon1.png" id="3_uo1k4"]
 [ext_resource type="Shader" path="res://Objects/Weather/Effects/ExtremeHeat/extreme_heat_weather_effect.gdshader" id="4_fajr3"]
+[ext_resource type="AudioStream" uid="uid://dw4l0c2q3gd0j" path="res://Audio/SFX/External/Pixabay/CracklingFire.mp3" id="5_qnnlb"]
+[ext_resource type="Script" path="res://Objects/zMisc/audio_fader.gd" id="6_5kvdt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0c2xr"]
 shader = ExtResource("4_fajr3")
@@ -11,9 +13,10 @@ shader_parameter/source_sunshine_color = Color(0.831373, 0.607843, 0, 0.745098)
 shader_parameter/min_sunshine_color = Color(0.831373, 0.607843, 0, 0.196078)
 shader_parameter/alpha_mult = 1.0
 
-[node name="ExtremeHeatWeatherEffect" type="Node" node_paths=PackedStringArray("sunshine_overlay")]
+[node name="ExtremeHeatWeatherEffect" type="Node" node_paths=PackedStringArray("sunshine_overlay", "audio_fader")]
 script = ExtResource("1_osycj")
 sunshine_overlay = NodePath("CanvasLayer/SunshineOverlay")
+audio_fader = NodePath("AudioFader")
 sprinkler_on_hydration_amount = -1.0
 sprinkler_off_hydration_amount = -7.0
 sunshine_fade_time = 1.0
@@ -32,3 +35,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="AudioFader" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_qnnlb")
+volume_db = -4.0
+script = ExtResource("6_5kvdt")
