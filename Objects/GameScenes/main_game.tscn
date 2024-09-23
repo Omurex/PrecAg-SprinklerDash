@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://1ysiotibgavm"]
+[gd_scene load_steps=18 format=3 uid="uid://1ysiotibgavm"]
 
 [ext_resource type="PackedScene" uid="uid://bmdpf0qns06ig" path="res://Objects/FieldRow/field_row.tscn" id="1_q8fjm"]
 [ext_resource type="PackedScene" uid="uid://ccygi3xb10kgr" path="res://Objects/Player/player.tscn" id="2_xlu18"]
 [ext_resource type="TileSet" uid="uid://4q5fin2binof" path="res://TileSets/farm.tres" id="3_va1lp"]
 [ext_resource type="Script" path="res://Objects/zMisc/field.gd" id="4_0xgus"]
+[ext_resource type="PackedScene" uid="uid://cscn34776cjny" path="res://Objects/Weather/Effects/Rain/rain_weather_effect.tscn" id="6_4xyvr"]
 [ext_resource type="PackedScene" uid="uid://bp6dwhn3mnlt4" path="res://Objects/Weather/weather_system.tscn" id="6_87syu"]
 [ext_resource type="PackedScene" uid="uid://ddmefqx7t4733" path="res://Objects/Weather/weather_icon_visual.tscn" id="6_ylomu"]
 [ext_resource type="PackedScene" uid="uid://bnsioq3xc7i5m" path="res://Objects/GameOverManager/game_over_manager.tscn" id="8_kn4b1"]
@@ -80,6 +81,7 @@ position = Vector2(504, 104)
 row_num = 5
 
 [node name="WeatherSystem" parent="." node_paths=PackedStringArray("field") instance=ExtResource("6_87syu")]
+weather_effects_packed = Array[PackedScene]([ExtResource("6_4xyvr")])
 field = NodePath("../Field")
 
 [node name="MusicPlayerNotifier" parent="." instance=ExtResource("9_8qtqc")]

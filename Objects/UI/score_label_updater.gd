@@ -21,7 +21,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 
 	# Should really be tied to an event, but doesn't matter too much
 	update_label()
@@ -30,17 +30,17 @@ func _process(delta: float) -> void:
 
 func update_label() -> void:
 
-	var str : String = preceding_line
+	var label_text : String = preceding_line
 
 	var points = str(PointManager.points)
 
 	for i in range(num_digits - points.length()): # Padding 0s at the front
-		str += "0"
+		label_text += "0"
 
-	str += points
+	label_text += points
 
-	str += proceding_line
+	label_text += proceding_line
 
-	label.text = str.c_unescape()
+	label.text = label_text.c_unescape()
 
 	pass

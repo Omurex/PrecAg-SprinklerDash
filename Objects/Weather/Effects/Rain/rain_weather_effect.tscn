@@ -29,10 +29,11 @@ color = Color(0, 0, 1, 0.498039)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nb6i1"]
 bg_color = Color(0.14902, 0.2, 0.329412, 0.443137)
 
-[node name="RainWeatherEffect" type="Node" node_paths=PackedStringArray("rain_particle_system", "rain_audio_player")]
+[node name="RainWeatherEffect" type="Node" node_paths=PackedStringArray("rain_particle_system", "rain_audio_player", "rain_screen_tint")]
 script = ExtResource("1_ufp2j")
 rain_particle_system = NodePath("RainParticleSystem")
 rain_audio_player = NodePath("RainAudioPlayer")
+rain_screen_tint = NodePath("CanvasLayer/RainScreenTint")
 rain_audio_options = Array[AudioStream]([ExtResource("2_s2ruj"), ExtResource("3_y8854"), ExtResource("4_lj4vx"), ExtResource("5_mbckj"), ExtResource("6_rkfqc"), ExtResource("7_3vuce"), ExtResource("8_n824s"), ExtResource("9_oxkht"), ExtResource("10_i1mrv"), ExtResource("11_ngcp1")])
 offset_from_field = Vector2(100, -100)
 x_bound_padding = 100.0
@@ -51,7 +52,7 @@ lifetime = 5.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Panel" type="Panel" parent="CanvasLayer"]
+[node name="RainScreenTint" type="Panel" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -62,5 +63,4 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_nb6i1")
 [node name="RainAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_y8854")
 volume_db = -18.0
-autoplay = true
 script = ExtResource("15_dinu3")

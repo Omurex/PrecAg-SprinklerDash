@@ -28,7 +28,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 
-	var time_left = weather_system.get_time_left()
+	#var time_left = weather_system.get_time_left()
 
 	if weather_system.is_weather_effect_in_progress():
 		return

@@ -6,6 +6,8 @@ extends BaseWeatherEffect
 @export_group("References")
 @export var rain_particle_system : GPUParticles2D
 @export var rain_audio_player : AudioFader
+@export var rain_screen_tint : Panel
+
 @export var rain_audio_options : Array[AudioStream]
 
 
@@ -18,6 +20,8 @@ extends BaseWeatherEffect
 @export var fade_in_start_volume : float = -80
 @export var fade_in_end_volume : float = -18
 
+@export_group("Screen Tint Properties")
+@export var screen_fade_in_time : float = 1
 
 
 func _ready() -> void:
@@ -33,11 +37,59 @@ func _ready() -> void:
 	process_material.emission_box_extents = \
 		Vector3((x_bounds.y - x_bounds.x) / 2.0 + x_bound_padding, extents.y, extents.z)
 
+	toggle_rain_particles(false)
+
+	rain_screen_tint.modulate = Color(1, 1, 1, 0)
+	rain_particle_system.modulate = Color(1, 1, 1, 1)
+
+	pass
+
+
+func toggle_rain_particles(toggle : bool) -> void:
+
+	rain_particle_system.emitting = toggle
+
+	pass
+
+
+func specific_start_weather_effect() -> void:
+
 	rain_audio_player.stream = rain_audio_options.pick_random()
 	rain_audio_player.start_fade(fade_in_time, fade_in_start_volume, fade_in_end_volume)
 	rain_audio_player.play(randf_range(0, rain_audio_player.stream.get_length()))
 
+	toggle_rain_particles(true)
+
+	rain_screen_tint.visible = true
+
+	rain_screen_tint.modulate = Color(1, 1, 1, 0)
+
+	var screen_tint_tween := get_tree().create_tween()
+	screen_tint_tween.tween_property(rain_screen_tint, "modulate", Color(1, 1, 1, 1), screen_fade_in_time)
+
+	rain_particle_system.modulate = Color(1, 1, 1, 1)
+
+
+func specific_end_weather_effect() -> void:
+
+	rain_audio_player.start_fade(fade_in_time, fade_in_end_volume, fade_in_start_volume)
+
+	var audio_stop_timer := get_tree().create_timer(fade_in_time)
+	audio_stop_timer.timeout.connect(stop_sound)
+
+	toggle_rain_particles(false)
+
+	var screen_tint_tween := get_tree().create_tween()
+	screen_tint_tween.tween_property(rain_screen_tint, "modulate", Color(1, 1, 1, 0), screen_fade_in_time)
+
+	var particle_fade_tween := get_tree().create_tween()
+	particle_fade_tween.tween_property(rain_particle_system, "modulate", Color(1, 1, 1, 0), screen_fade_in_time)
+
 	pass
+
+
+func stop_sound() -> void:
+	rain_audio_player.stop()
 
 
 func calculate_row_avg_pos() -> Vector2:

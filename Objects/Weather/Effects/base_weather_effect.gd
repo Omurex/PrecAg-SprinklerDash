@@ -31,13 +31,23 @@ func init(affected_field : Field) -> void:
 
 
 func start_weather_effect() -> void:
-	push_error("THIS IS AN ABSTRACT FUNCTION THAT SHOULD BE OVERRIDDEN")
+	add_hydration_modifiers()
+	specific_start_weather_effect()
 	pass
+
+
+func specific_start_weather_effect() -> void:
+	push_error("THIS IS AN ABSTRACT FUNCTION")
 
 
 func end_weather_effect() -> void:
-	push_error("THIS IS AN ABSTRACT FUNCTION THAT SHOULD BE OVERRIDDEN")
+	remove_hydration_modifiers()
+	specific_end_weather_effect()
 	pass
+
+
+func specific_end_weather_effect() -> void:
+	push_error("THIS IS AN ABSTRACT FUNCTION")
 
 
 # Note: It'd be better to use the pause functionality of the hydration modifiers instead of adding / removing

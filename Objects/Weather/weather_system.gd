@@ -28,6 +28,7 @@ func _ready() -> void:
 	for packed in weather_effects_packed:
 		var effect = packed.instantiate() as BaseWeatherEffect
 		effect.init(field)
+		add_child(effect)
 		weather_effects.push_back(effect)
 
 	pass

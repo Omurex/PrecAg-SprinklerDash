@@ -41,7 +41,7 @@ func _ready() -> void:
 	update_status()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 
 	update_status()
 
