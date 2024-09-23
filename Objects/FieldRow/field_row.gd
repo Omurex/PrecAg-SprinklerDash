@@ -138,7 +138,7 @@ func check_for_tilemap_update() -> void:
 
 			return
 
-	assert(0 == 1, "If here, something is messed up with thresholds / layering for soil hydration")
+	push_error("If here, something is messed up with thresholds / layering for soil hydration")
 
 	pass
 

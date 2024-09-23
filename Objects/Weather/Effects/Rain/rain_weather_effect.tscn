@@ -1,19 +1,19 @@
 [gd_scene load_steps=18 format=3 uid="uid://cscn34776cjny"]
 
 [ext_resource type="Script" path="res://Objects/Weather/Effects/Rain/rain_weather_effect.gd" id="1_ufp2j"]
-[ext_resource type="AudioStream" uid="uid://cdc8jow7gpdv4" path="res://Audio/SFX/External/HeltonYan-WeatherEffects/WE Heavy Outside Rain 1.wav" id="2_5ai5j"]
 [ext_resource type="PackedScene" uid="uid://bcf5tuvvbo1bl" path="res://Objects/HydrationModifier/hydration_modifier.tscn" id="2_mao25"]
-[ext_resource type="AudioStream" uid="uid://bxxittsdbjikp" path="res://Audio/SFX/External/HeltonYan-WeatherEffects/WE Heavy Outside Rain 2.wav" id="3_e3kfy"]
+[ext_resource type="AudioStream" uid="uid://n388vsfk27ym" path="res://Audio/SFX/External/HeltonYan-WeatherEffects/WE Heavy Outside Rain 1.wav" id="2_s2ruj"]
 [ext_resource type="Texture2D" uid="uid://b2o5is7ohin8k" path="res://Art/Sprites/WeatherIcons/RainWeatherIcon.png" id="3_m8fjk"]
-[ext_resource type="AudioStream" uid="uid://16cqcewa3gmi" path="res://Audio/SFX/External/HeltonYan-WeatherEffects/WE Heavy Outside Rain 3.wav" id="4_mkmu1"]
+[ext_resource type="AudioStream" uid="uid://cnut05robg008" path="res://Audio/SFX/External/HeltonYan-WeatherEffects/WE Heavy Outside Rain 2.wav" id="3_y8854"]
+[ext_resource type="AudioStream" uid="uid://ncrbpc55f43g" path="res://Audio/SFX/External/HeltonYan-WeatherEffects/WE Heavy Outside Rain 3.wav" id="4_lj4vx"]
 [ext_resource type="Texture2D" uid="uid://okfrt08oq3eg" path="res://Art/Sprites/WaterDroplet.png" id="4_q1upa"]
-[ext_resource type="AudioStream" uid="uid://c6mit6wcrl7vb" path="res://Audio/SFX/External/HeltonYan-WeatherEffects/WE Heavy Outside Rain 4.wav" id="5_5yjt0"]
-[ext_resource type="AudioStream" uid="uid://dx608xccvefxa" path="res://Audio/SFX/External/HeltonYan-WeatherEffects/WE Heavy Outside Rain 5.wav" id="6_puq0m"]
-[ext_resource type="AudioStream" uid="uid://c17if7c47i07c" path="res://Audio/SFX/External/HeltonYan-WeatherEffects/WE Heavy Outside Rain 6.wav" id="7_hu6av"]
-[ext_resource type="AudioStream" uid="uid://bfruh4chteo4o" path="res://Audio/SFX/External/HeltonYan-WeatherEffects/WE Heavy Outside Rain 7.wav" id="8_bsejr"]
-[ext_resource type="AudioStream" uid="uid://eqyvww3iqvyf" path="res://Audio/SFX/External/HeltonYan-WeatherEffects/WE Heavy Outside Rain 8.wav" id="9_1cy2s"]
-[ext_resource type="AudioStream" uid="uid://de8nr1s74mm05" path="res://Audio/SFX/External/HeltonYan-WeatherEffects/WE Heavy Outside Rain 9.wav" id="10_7aes5"]
-[ext_resource type="AudioStream" uid="uid://7h6lmnjc3x2e" path="res://Audio/SFX/External/HeltonYan-WeatherEffects/WE Heavy Outside Rain 10.wav" id="11_imhni"]
+[ext_resource type="AudioStream" uid="uid://duhjg7b138yp" path="res://Audio/SFX/External/HeltonYan-WeatherEffects/WE Heavy Outside Rain 4.wav" id="5_mbckj"]
+[ext_resource type="AudioStream" uid="uid://doj01w5xc2pqn" path="res://Audio/SFX/External/HeltonYan-WeatherEffects/WE Heavy Outside Rain 5.wav" id="6_rkfqc"]
+[ext_resource type="AudioStream" uid="uid://d2feelpawqbp6" path="res://Audio/SFX/External/HeltonYan-WeatherEffects/WE Heavy Outside Rain 6.wav" id="7_3vuce"]
+[ext_resource type="AudioStream" uid="uid://b42m05jh4se4r" path="res://Audio/SFX/External/HeltonYan-WeatherEffects/WE Heavy Outside Rain 7.wav" id="8_n824s"]
+[ext_resource type="AudioStream" uid="uid://b6k84oic31pmf" path="res://Audio/SFX/External/HeltonYan-WeatherEffects/WE Heavy Outside Rain 8.wav" id="9_oxkht"]
+[ext_resource type="AudioStream" uid="uid://d0dud4vwts0ij" path="res://Audio/SFX/External/HeltonYan-WeatherEffects/WE Heavy Outside Rain 9.wav" id="10_i1mrv"]
+[ext_resource type="AudioStream" uid="uid://vrvdhnvru0fa" path="res://Audio/SFX/External/HeltonYan-WeatherEffects/WE Heavy Outside Rain 10.wav" id="11_ngcp1"]
 [ext_resource type="Script" path="res://Objects/zMisc/audio_fader.gd" id="15_dinu3"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d43y5"]
@@ -29,10 +29,11 @@ color = Color(0, 0, 1, 0.498039)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nb6i1"]
 bg_color = Color(0.14902, 0.2, 0.329412, 0.443137)
 
-[node name="RainWeatherEffect" type="Node" node_paths=PackedStringArray("rain_particle_system")]
+[node name="RainWeatherEffect" type="Node" node_paths=PackedStringArray("rain_particle_system", "rain_audio_player")]
 script = ExtResource("1_ufp2j")
 rain_particle_system = NodePath("RainParticleSystem")
-rain_audio_options = Array[AudioStream]([ExtResource("2_5ai5j"), ExtResource("3_e3kfy"), ExtResource("4_mkmu1"), ExtResource("5_5yjt0"), ExtResource("6_puq0m"), ExtResource("7_hu6av"), ExtResource("8_bsejr"), ExtResource("9_1cy2s"), ExtResource("10_7aes5"), ExtResource("11_imhni")])
+rain_audio_player = NodePath("RainAudioPlayer")
+rain_audio_options = Array[AudioStream]([ExtResource("2_s2ruj"), ExtResource("3_y8854"), ExtResource("4_lj4vx"), ExtResource("5_mbckj"), ExtResource("6_rkfqc"), ExtResource("7_3vuce"), ExtResource("8_n824s"), ExtResource("9_oxkht"), ExtResource("10_i1mrv"), ExtResource("11_ngcp1")])
 offset_from_field = Vector2(100, -100)
 x_bound_padding = 100.0
 hydration_modifier_packed = ExtResource("2_mao25")
@@ -58,5 +59,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_nb6i1")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="RainAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_y8854")
+volume_db = -18.0
+autoplay = true
 script = ExtResource("15_dinu3")

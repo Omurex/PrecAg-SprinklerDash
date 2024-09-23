@@ -5,7 +5,7 @@ extends BaseWeatherEffect
 
 @export_group("References")
 @export var rain_particle_system : GPUParticles2D
-@export var rain_audio_player : AudioStreamPlayer
+@export var rain_audio_player : AudioFader
 @export var rain_audio_options : Array[AudioStream]
 
 
@@ -29,7 +29,9 @@ func _ready() -> void:
 	process_material.emission_box_extents = \
 		Vector3((x_bounds.y - x_bounds.x) / 2.0 + x_bound_padding, extents.y, extents.z)
 
-
+	rain_audio_player.stream = rain_audio_options.pick_random()
+	rain_audio_player.start_fade(2, -80, -18)
+	rain_audio_player.play(randf_range(0, rain_audio_player.stream.get_length()))
 
 	pass
 

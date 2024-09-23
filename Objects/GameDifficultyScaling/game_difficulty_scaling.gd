@@ -30,7 +30,7 @@ func _enter_tree() -> void:
 
 func _process(delta: float) -> void:
 	hydration_modifier_scale += hydration_modifier_scale_change_per_sec * delta
-	print(hydration_modifier_scale)
+	#print(hydration_modifier_scale)
 
 
 func modify_scale(modification : float):
