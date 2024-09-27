@@ -58,8 +58,9 @@ position = Vector2(632, 8)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/RightWall"]
 shape = SubResource("RectangleShape2D_c8c8p")
 
-[node name="Field" type="Node2D" parent="."]
+[node name="Field" type="Node2D" parent="." node_paths=PackedStringArray("center_row")]
 script = ExtResource("4_0xgus")
+center_row = NodePath("FieldRow4")
 
 [node name="FieldRow" parent="Field" node_paths=PackedStringArray("right_neighbor_row") instance=ExtResource("1_q8fjm")]
 position = Vector2(104, 104)
@@ -96,13 +97,13 @@ row_num = 5
 position = Vector2(504, 104)
 left_neighbor_row = NodePath("../FieldRow5")
 right_neighbor_row = NodePath("../FieldRow7")
-row_num = 5
+row_num = 6
 start_empty = true
 
 [node name="FieldRow7" parent="Field" node_paths=PackedStringArray("left_neighbor_row") instance=ExtResource("1_q8fjm")]
 position = Vector2(584, 104)
 left_neighbor_row = NodePath("../FieldRow6")
-row_num = 5
+row_num = 7
 start_empty = true
 
 [node name="WeatherSystem" parent="." node_paths=PackedStringArray("field") instance=ExtResource("6_87syu")]

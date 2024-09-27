@@ -11,10 +11,15 @@ signal on_revive(field_row : FieldRow)
 @export var points_timer : Timer
 @export var tilemap : TileMap
 @export var sprinkler : Sprinkler
+
 @export var tomato_sprites_container : Node2D
 @export var sprinkler_nozzles_container : Node2D
+@export var warnings : Node2D
+
 @export var overhydrate_tex : Texture2D
+@export var base_tomato_tex : Texture2D
 @export var underhydrate_tex : Texture2D
+
 @export var left_neighbor_row : FieldRow
 @export var right_neighbor_row : FieldRow
 
@@ -78,6 +83,8 @@ func set_hydration(val) -> void:
 				continue
 
 			(child as Sprite2D).texture = tex
+
+		warnings.visible = false
 
 		on_died.emit(self)
 
@@ -156,31 +163,42 @@ func check_for_tilemap_update() -> void:
 
 
 func make_row_empty() -> void:
+
 	dead = true
+
 	sprinkler.visible = false
 	tomato_sprites_container.visible = false
 	sprinkler_nozzles_container.visible = false
+	warnings.visible = false
+
 	tilemap.set_layer_enabled(current_enabled_layer, false)
 	tilemap.set_layer_enabled(field_row_coloring_data[empty_field_row_coloring_data_index].layer, true)
+
 	pause_points_timer()
 	set_process(false)
 
 
-func revive() -> void:
+func revive() -> bool:
 
 	if !dead:
-		return
+		return false
 
 	dead = false
+
 	sprinkler.visible = true
 	tomato_sprites_container.visible = true
 	sprinkler_nozzles_container.visible = true
+	warnings.visible = true
+
 	initialize_hydration()
 	check_for_tilemap_update()
+
 	unpause_points_timer()
 	set_process(true)
 
-	pass
+	on_revive.emit(self)
+
+	return true
 
 
 func modify_hydration(modification) -> void:

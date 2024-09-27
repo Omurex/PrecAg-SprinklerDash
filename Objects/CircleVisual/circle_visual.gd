@@ -23,13 +23,13 @@ func _ready() -> void:
 	inner_circle_value = field_row.healthy_hydration_range.x
 	outer_circle_value = field_row.healthy_hydration_range.y
 
+	field_row.on_died.connect(_on_row_death)
+	field_row.on_revive.connect(_on_row_revive)
+
 	pass
 
 
 func _process(_delta: float) -> void:
-
-	if field_row.dead:
-		queue_free()
 
 	hydration_circle.scale = calculate_scale(field_row.hydration)
 
@@ -63,19 +63,15 @@ func calculate_scale(val : float) -> Vector2:
 	return Vector2(scale_amount, scale_amount)
 
 
+func _on_row_revive(row : FieldRow):
+
+	visible = true
 
 
+func _on_row_death(row : FieldRow):
 
+	visible = false
 
-
-
-
-
-
-
-
-
-
-
+	pass
 
 

@@ -40,7 +40,16 @@ func _ready() -> void:
 	# Wait a frame to give field rows chance to initialize, then see how many started empty
 	await get_tree().process_frame
 
+	check_for_initial_empty_rows()
 
+	pass
+
+
+func _process(delta: float) -> void:
+
+	# TODO: DELETE
+	if Input.is_action_just_pressed("up"):
+		regen_rows_from_row(field.center_row, 2)
 
 	pass
 
@@ -118,11 +127,52 @@ func toggle_pause_in_row_hydration_modifiers(row : FieldRow, status : bool):
 				(child as HydrationModifier).toggle_pause(status)
 
 
-func regen_rows_from_row(origin_row : FieldRow, num_rows_to_regen : int):
+# If successfully regenerated full amount of num_rows_to_regen, returns 0
+# Else, returns how many rows it wanted to regenerate but were left over
+func regen_rows_from_row(origin_row : FieldRow, num_rows_to_regen : int) -> int:
 
-	#if origin_row.dead
+	var left_row := origin_row
+	var right_row := origin_row
+	var left_to_right = false
 
-	pass
+	var first : FieldRow
+	var second : FieldRow
+
+	while (left_row != null or right_row != null) and num_rows_to_regen >= 1:
+
+		# Alternating left to right and right to left gives us better looking row regen patterns
+		# when not dealing with simple cases of rows equidistant apart
+		if left_to_right:
+			first = left_row
+			second = right_row
+
+		else:
+			first = right_row
+			second = left_row
+
+		left_to_right = !left_to_right
+
+		if first != null and first.dead:
+			first.revive()
+			num_rows_to_regen -= 1
+			num_dead_crops -= 1
+
+		if num_rows_to_regen <= 0:
+			break
+
+		if second != null and second.dead:
+			second.revive()
+			num_rows_to_regen -= 1
+			num_dead_crops -= 1
+			left_to_right = !left_to_right
+
+		if left_row != null:
+			left_row = left_row.left_neighbor_row
+
+		if right_row != null:
+			right_row = right_row.right_neighbor_row
+
+	return num_rows_to_regen
 
 
 func _on_row_died(field_row : FieldRow):

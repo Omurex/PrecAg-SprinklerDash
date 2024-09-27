@@ -52,11 +52,11 @@ func update_status() -> void:
 
 	if field_row.dead:
 
-		visible = false
+		#visible = false
 
-		flash_timer.timeout.disconnect(_on_flash_timer_timeout)
+		#flash_timer.timeout.disconnect(_on_flash_timer_timeout)
 
-		set_process(false)
+		#set_process(false)
 
 		return
 

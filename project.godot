@@ -20,6 +20,11 @@ config/icon="res://Art/Sprites/icon.svg"
 PointManager="*res://Objects/Autoload/PointManager/point_manager.tscn"
 MusicPlayer="*res://Objects/Autoload/MusicPlayer/music_player.tscn"
 
+[display]
+
+window/size/viewport_width=1366
+window/size/viewport_height=768
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")

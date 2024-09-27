@@ -4,6 +4,7 @@ extends Node2D
 
 
 @export_group("References")
+@export var center_row : FieldRow
 
 
 @export_group("Properties")

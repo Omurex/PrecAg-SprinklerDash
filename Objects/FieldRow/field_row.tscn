@@ -58,14 +58,16 @@ script = ExtResource("2_2kfgl")
 threshold = 1000.0
 layer = 4
 
-[node name="FieldRow" type="Node2D" node_paths=PackedStringArray("points_timer", "tilemap", "sprinkler", "tomato_sprites_container", "sprinkler_nozzles_container")]
+[node name="FieldRow" type="Node2D" node_paths=PackedStringArray("points_timer", "tilemap", "sprinkler", "tomato_sprites_container", "sprinkler_nozzles_container", "warnings")]
 script = ExtResource("1_p3tfu")
 points_timer = NodePath("PointsTimer")
 tilemap = NodePath("TileMap")
 sprinkler = NodePath("Sprinkler")
 tomato_sprites_container = NodePath("Tomatoes")
 sprinkler_nozzles_container = NodePath("SprinklerNozzles")
+warnings = NodePath("Warnings")
 overhydrate_tex = ExtResource("2_by3qc")
+base_tomato_tex = ExtResource("6_xklb8")
 underhydrate_tex = ExtResource("3_nxga5")
 field_row_coloring_data = Array[ExtResource("2_2kfgl")]([SubResource("Resource_g7fiw"), SubResource("Resource_gbe2t"), SubResource("Resource_fspr1"), SubResource("Resource_bgx0a"), SubResource("Resource_jdhdn"), SubResource("Resource_khvkc"), SubResource("Resource_1rfcj"), SubResource("Resource_c3t30"), SubResource("Resource_i2srd")])
 points_per_timer = 100
@@ -180,7 +182,9 @@ points = PackedVector2Array(0, 8, 0, 132)
 width = 0.5
 default_color = Color(0, 0.152941, 0, 1)
 
-[node name="WarningIcon" type="Sprite2D" parent="." node_paths=PackedStringArray("flash_timer", "field_row")]
+[node name="Warnings" type="Node2D" parent="."]
+
+[node name="WarningIcon" type="Sprite2D" parent="Warnings" node_paths=PackedStringArray("flash_timer", "field_row")]
 modulate = Color(0.984835, 0.822166, 7.70092e-07, 1)
 z_index = 5
 position = Vector2(28, 20)
@@ -188,11 +192,11 @@ scale = Vector2(1.25, 1.25)
 texture = ExtResource("8_x6fpa")
 script = ExtResource("9_jgdcl")
 flash_timer = NodePath("FlashTimer")
-field_row = NodePath("..")
+field_row = NodePath("../..")
 
-[node name="FlashTimer" type="Timer" parent="WarningIcon"]
+[node name="FlashTimer" type="Timer" parent="Warnings/WarningIcon"]
 
-[node name="WarningIcon2" type="Label" parent="." node_paths=PackedStringArray("flash_timer", "field_row")]
+[node name="WarningIcon2" type="Label" parent="Warnings" node_paths=PackedStringArray("flash_timer", "field_row")]
 modulate = Color(0.984835, 0.822166, 7.70092e-07, 1)
 z_index = 5
 anchors_preset = 8
@@ -218,11 +222,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_jgdcl")
 flash_timer = NodePath("FlashTimer2")
-field_row = NodePath("..")
+field_row = NodePath("../..")
 heavy_flash_start_hidden = true
 
-[node name="FlashTimer2" type="Timer" parent="WarningIcon2"]
+[node name="FlashTimer2" type="Timer" parent="Warnings/WarningIcon2"]
 
 [connection signal="timeout" from="PointsTimer" to="." method="_on_points_timer_timeout"]
-[connection signal="timeout" from="WarningIcon/FlashTimer" to="WarningIcon" method="_on_flash_timer_timeout"]
-[connection signal="timeout" from="WarningIcon2/FlashTimer2" to="WarningIcon2" method="_on_flash_timer_timeout"]
+[connection signal="timeout" from="Warnings/WarningIcon/FlashTimer" to="Warnings/WarningIcon" method="_on_flash_timer_timeout"]
+[connection signal="timeout" from="Warnings/WarningIcon2/FlashTimer2" to="Warnings/WarningIcon2" method="_on_flash_timer_timeout"]

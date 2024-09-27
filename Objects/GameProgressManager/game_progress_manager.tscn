@@ -9,7 +9,7 @@ script = ExtResource("1_grn6f")
 to_scene = ExtResource("2_q2mcn")
 scene_transition = NodePath("SceneTransition")
 game_pause_timer = NodePath("GamePauseTimer")
-num_dead_rows_before_transition = 3
+num_dead_rows_before_transition = 5
 difficulty_reduction_amount_on_crop_death = 2.125
 
 [node name="SceneTransition" type="Node" parent="."]
