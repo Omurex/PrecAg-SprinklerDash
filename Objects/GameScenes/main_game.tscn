@@ -42,7 +42,7 @@ position = Vector2(304, 84)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(344, 184)
-zoom = Vector2(2, 2)
+zoom = Vector2(2.45, 2.45)
 
 [node name="Boundaries" type="Node" parent="."]
 
@@ -63,20 +63,20 @@ script = ExtResource("4_0xgus")
 center_row = NodePath("FieldRow4")
 
 [node name="FieldRow" parent="Field" node_paths=PackedStringArray("right_neighbor_row") instance=ExtResource("1_q8fjm")]
-position = Vector2(104, 104)
+position = Vector2(116, 104)
 right_neighbor_row = NodePath("../FieldRow2")
 row_num = 1
 start_empty = true
 
 [node name="FieldRow2" parent="Field" node_paths=PackedStringArray("left_neighbor_row", "right_neighbor_row") instance=ExtResource("1_q8fjm")]
-position = Vector2(184, 104)
+position = Vector2(192, 104)
 left_neighbor_row = NodePath("../FieldRow")
 right_neighbor_row = NodePath("../FieldRow3")
 row_num = 2
 start_empty = true
 
 [node name="FieldRow3" parent="Field" node_paths=PackedStringArray("left_neighbor_row", "right_neighbor_row") instance=ExtResource("1_q8fjm")]
-position = Vector2(264, 104)
+position = Vector2(268, 104)
 left_neighbor_row = NodePath("../FieldRow2")
 right_neighbor_row = NodePath("../FieldRow4")
 row_num = 3
@@ -88,20 +88,20 @@ right_neighbor_row = NodePath("../FieldRow5")
 row_num = 4
 
 [node name="FieldRow5" parent="Field" node_paths=PackedStringArray("left_neighbor_row", "right_neighbor_row") instance=ExtResource("1_q8fjm")]
-position = Vector2(424, 104)
+position = Vector2(420, 104)
 left_neighbor_row = NodePath("../FieldRow4")
 right_neighbor_row = NodePath("../FieldRow6")
 row_num = 5
 
 [node name="FieldRow6" parent="Field" node_paths=PackedStringArray("left_neighbor_row", "right_neighbor_row") instance=ExtResource("1_q8fjm")]
-position = Vector2(504, 104)
+position = Vector2(496, 104)
 left_neighbor_row = NodePath("../FieldRow5")
 right_neighbor_row = NodePath("../FieldRow7")
 row_num = 6
 start_empty = true
 
 [node name="FieldRow7" parent="Field" node_paths=PackedStringArray("left_neighbor_row") instance=ExtResource("1_q8fjm")]
-position = Vector2(584, 104)
+position = Vector2(572, 104)
 left_neighbor_row = NodePath("../FieldRow6")
 row_num = 7
 start_empty = true
@@ -130,14 +130,13 @@ weather_system = NodePath("../../WeatherSystem")
 [node name="PointsPanel" type="Panel" parent="UI" node_paths=PackedStringArray("label")]
 modulate = Color(1, 1, 1, 0.737255)
 anchors_preset = -1
-anchor_left = 0.007
 anchor_top = 0.012
-anchor_right = 0.437
-anchor_bottom = 0.086
-offset_left = 23.936
-offset_top = 536.224
-offset_right = 96.576
-offset_bottom = 576.272
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 646.784
+offset_right = -681.98
+offset_bottom = -15.1201
 theme_override_styles/panel = SubResource("StyleBoxTexture_pgv7p")
 script = ExtResource("11_4lxqv")
 label = NodePath("Label")
