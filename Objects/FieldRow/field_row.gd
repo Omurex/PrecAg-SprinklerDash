@@ -4,15 +4,19 @@ extends Node2D
 
 
 signal on_died(field_row : FieldRow)
+signal on_revive(field_row : FieldRow)
 
 
 @export_group("References")
 @export var points_timer : Timer
 @export var tilemap : TileMap
 @export var sprinkler : Sprinkler
-@export var tomato_sprites_container : Node
+@export var tomato_sprites_container : Node2D
+@export var sprinkler_nozzles_container : Node2D
 @export var overhydrate_tex : Texture2D
 @export var underhydrate_tex : Texture2D
+@export var left_neighbor_row : FieldRow
+@export var right_neighbor_row : FieldRow
 
 
 @export_group("Properties")
@@ -22,6 +26,11 @@ signal on_died(field_row : FieldRow)
 @export var hydration_start_range = Vector2(25, 75)
 @export var points_per_timer : int = 5
 @export var row_num : int = -1
+
+@export_group("Empty Row Initialization")
+@export var start_empty : bool = false
+@export var empty_field_row_coloring_data_index : int = -1
+
 
 var healthy : bool = true
 var dead : bool = false
@@ -88,6 +97,9 @@ func _ready() -> void:
 
 	check_for_tilemap_update()
 
+	if start_empty:
+		make_row_empty()
+
 	pass
 
 
@@ -142,6 +154,33 @@ func check_for_tilemap_update() -> void:
 
 	pass
 
+
+func make_row_empty() -> void:
+	dead = true
+	sprinkler.visible = false
+	tomato_sprites_container.visible = false
+	sprinkler_nozzles_container.visible = false
+	tilemap.set_layer_enabled(current_enabled_layer, false)
+	tilemap.set_layer_enabled(field_row_coloring_data[empty_field_row_coloring_data_index].layer, true)
+	pause_points_timer()
+	set_process(false)
+
+
+func revive() -> void:
+
+	if !dead:
+		return
+
+	dead = false
+	sprinkler.visible = true
+	tomato_sprites_container.visible = true
+	sprinkler_nozzles_container.visible = true
+	initialize_hydration()
+	check_for_tilemap_update()
+	unpause_points_timer()
+	set_process(true)
+
+	pass
 
 
 func modify_hydration(modification) -> void:

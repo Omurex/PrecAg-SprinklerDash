@@ -11,6 +11,7 @@ extends Node
 
 @export_group("External References")
 @export var field : Field
+@export var center_row : FieldRow
 @export var row_died_warning_ui : RowDiedWarningUI
 @export var weather_system : WeatherSystem
 @export var player : Player
@@ -26,7 +27,9 @@ extends Node
 @export var difficulty_reduction_amount_on_crop_death : float = 2
 
 
-var dead_crops_stack : Array[FieldRow]
+#var dead_crops_stack : Array[FieldRow]
+var num_dead_crops : int = 0
+var last_dead_crop : FieldRow
 
 
 func _ready() -> void:
@@ -34,12 +37,26 @@ func _ready() -> void:
 	for row in field.rows:
 		row.on_died.connect(_on_row_died)
 
+	# Wait a frame to give field rows chance to initialize, then see how many started empty
+	await get_tree().process_frame
+
+
+
 	pass
+
+
+func check_for_initial_empty_rows() -> void:
+
+	for row in field.rows:
+
+		if row.dead:
+
+			num_dead_crops += 1
 
 
 func check_for_scene_transition():
 
-	if num_dead_rows_before_transition <= dead_crops_stack.size():
+	if num_dead_rows_before_transition <= num_dead_crops:
 
 		scene_transition.transition_scene(to_scene.resource_path)
 
@@ -50,8 +67,8 @@ func check_for_scene_transition():
 
 func pause_game() -> void:
 
-	row_died_warning_ui.show_warning(dead_crops_stack.back().row_num, \
-		dead_crops_stack.size(), num_dead_rows_before_transition)
+	row_died_warning_ui.show_warning(last_dead_crop.row_num, \
+		num_dead_crops, num_dead_rows_before_transition)
 
 	weather_system.stop_current_weather_effect()
 	weather_system.stop_timer()
@@ -101,14 +118,26 @@ func toggle_pause_in_row_hydration_modifiers(row : FieldRow, status : bool):
 				(child as HydrationModifier).toggle_pause(status)
 
 
+func regen_rows_from_row(origin_row : FieldRow, num_rows_to_regen : int):
+
+	#if origin_row.dead
+
+	pass
+
+
 func _on_row_died(field_row : FieldRow):
 
-	dead_crops_stack.push_back(field_row)
+	num_dead_crops += 1
+	last_dead_crop = field_row
 
 	pause_game()
 
 	game_pause_timer.start(game_pause_time)
 
+	pass
+
+
+func _on_row_revived(field_row : FieldRow):
 	pass
 
 

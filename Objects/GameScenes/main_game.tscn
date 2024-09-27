@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ddmefqx7t4733" path="res://Objects/Weather/weather_icon_visual.tscn" id="6_ylomu"]
 [ext_resource type="PackedScene" uid="uid://cscn34776cjny" path="res://Objects/Weather/Effects/Rain/rain_weather_effect.tscn" id="6_yxtag"]
 [ext_resource type="PackedScene" uid="uid://d4mwr3gvbuxmo" path="res://Objects/Weather/Effects/ExtremeHeat/extreme_heat_weather_effect.tscn" id="7_dt0wt"]
-[ext_resource type="PackedScene" uid="uid://bnsioq3xc7i5m" path="res://Objects/GameOverManager/game_over_manager.tscn" id="8_kn4b1"]
+[ext_resource type="PackedScene" uid="uid://bnsioq3xc7i5m" path="res://Objects/GameProgressManager/game_progress_manager.tscn" id="8_kn4b1"]
 [ext_resource type="PackedScene" uid="uid://c5uifoyqfxjke" path="res://Objects/MusicPlayerNotifier/music_player_notifier.tscn" id="9_8qtqc"]
 [ext_resource type="AudioStream" uid="uid://c6wvwy34dqdj6" path="res://Audio/Music/External/cat2x-RetroRPG/Curious.ogg" id="9_j4nwg"]
 [ext_resource type="Texture2D" uid="uid://bq58citreyk02" path="res://Art/External/lunar-glitch-FarmingRPGGui/PeachPanel/small_peach_panel_variant.png" id="10_6s47l"]
@@ -61,33 +61,49 @@ shape = SubResource("RectangleShape2D_c8c8p")
 [node name="Field" type="Node2D" parent="."]
 script = ExtResource("4_0xgus")
 
-[node name="FieldRow" parent="Field" instance=ExtResource("1_q8fjm")]
+[node name="FieldRow" parent="Field" node_paths=PackedStringArray("right_neighbor_row") instance=ExtResource("1_q8fjm")]
 position = Vector2(104, 104)
+right_neighbor_row = NodePath("../FieldRow2")
 row_num = 1
+start_empty = true
 
-[node name="FieldRow2" parent="Field" instance=ExtResource("1_q8fjm")]
+[node name="FieldRow2" parent="Field" node_paths=PackedStringArray("left_neighbor_row", "right_neighbor_row") instance=ExtResource("1_q8fjm")]
 position = Vector2(184, 104)
+left_neighbor_row = NodePath("../FieldRow")
+right_neighbor_row = NodePath("../FieldRow3")
 row_num = 2
+start_empty = true
 
-[node name="FieldRow3" parent="Field" instance=ExtResource("1_q8fjm")]
+[node name="FieldRow3" parent="Field" node_paths=PackedStringArray("left_neighbor_row", "right_neighbor_row") instance=ExtResource("1_q8fjm")]
 position = Vector2(264, 104)
+left_neighbor_row = NodePath("../FieldRow2")
+right_neighbor_row = NodePath("../FieldRow4")
 row_num = 3
 
-[node name="FieldRow4" parent="Field" instance=ExtResource("1_q8fjm")]
+[node name="FieldRow4" parent="Field" node_paths=PackedStringArray("left_neighbor_row", "right_neighbor_row") instance=ExtResource("1_q8fjm")]
 position = Vector2(344, 104)
+left_neighbor_row = NodePath("../FieldRow3")
+right_neighbor_row = NodePath("../FieldRow5")
 row_num = 4
 
-[node name="FieldRow5" parent="Field" instance=ExtResource("1_q8fjm")]
+[node name="FieldRow5" parent="Field" node_paths=PackedStringArray("left_neighbor_row", "right_neighbor_row") instance=ExtResource("1_q8fjm")]
 position = Vector2(424, 104)
+left_neighbor_row = NodePath("../FieldRow4")
+right_neighbor_row = NodePath("../FieldRow6")
 row_num = 5
 
-[node name="FieldRow6" parent="Field" instance=ExtResource("1_q8fjm")]
+[node name="FieldRow6" parent="Field" node_paths=PackedStringArray("left_neighbor_row", "right_neighbor_row") instance=ExtResource("1_q8fjm")]
 position = Vector2(504, 104)
+left_neighbor_row = NodePath("../FieldRow5")
+right_neighbor_row = NodePath("../FieldRow7")
 row_num = 5
+start_empty = true
 
-[node name="FieldRow7" parent="Field" instance=ExtResource("1_q8fjm")]
+[node name="FieldRow7" parent="Field" node_paths=PackedStringArray("left_neighbor_row") instance=ExtResource("1_q8fjm")]
 position = Vector2(584, 104)
+left_neighbor_row = NodePath("../FieldRow6")
 row_num = 5
+start_empty = true
 
 [node name="WeatherSystem" parent="." node_paths=PackedStringArray("field") instance=ExtResource("6_87syu")]
 weather_effects_packed = Array[PackedScene]([ExtResource("6_yxtag"), ExtResource("7_dt0wt")])
@@ -98,8 +114,9 @@ audio = ExtResource("9_j4nwg")
 
 [node name="GameDifficultyScaling" parent="." instance=ExtResource("12_2bbkk")]
 
-[node name="GameTimer" parent="." node_paths=PackedStringArray("field", "row_died_warning_ui", "weather_system", "player") instance=ExtResource("8_kn4b1")]
+[node name="GameProgressManager" parent="." node_paths=PackedStringArray("field", "center_row", "row_died_warning_ui", "weather_system", "player") instance=ExtResource("8_kn4b1")]
 field = NodePath("../Field")
+center_row = NodePath("../Field/FieldRow4")
 row_died_warning_ui = NodePath("../UI/RowDiedWarningUi")
 weather_system = NodePath("../WeatherSystem")
 player = NodePath("../Player")

@@ -58,16 +58,18 @@ script = ExtResource("2_2kfgl")
 threshold = 1000.0
 layer = 4
 
-[node name="FieldRow" type="Node2D" node_paths=PackedStringArray("points_timer", "tilemap", "sprinkler", "tomato_sprites_container")]
+[node name="FieldRow" type="Node2D" node_paths=PackedStringArray("points_timer", "tilemap", "sprinkler", "tomato_sprites_container", "sprinkler_nozzles_container")]
 script = ExtResource("1_p3tfu")
 points_timer = NodePath("PointsTimer")
 tilemap = NodePath("TileMap")
 sprinkler = NodePath("Sprinkler")
 tomato_sprites_container = NodePath("Tomatoes")
+sprinkler_nozzles_container = NodePath("SprinklerNozzles")
 overhydrate_tex = ExtResource("2_by3qc")
 underhydrate_tex = ExtResource("3_nxga5")
 field_row_coloring_data = Array[ExtResource("2_2kfgl")]([SubResource("Resource_g7fiw"), SubResource("Resource_gbe2t"), SubResource("Resource_fspr1"), SubResource("Resource_bgx0a"), SubResource("Resource_jdhdn"), SubResource("Resource_khvkc"), SubResource("Resource_1rfcj"), SubResource("Resource_c3t30"), SubResource("Resource_i2srd")])
 points_per_timer = 100
+empty_field_row_coloring_data_index = 4
 
 [node name="PointsTimer" type="Timer" parent="."]
 autostart = true
@@ -153,17 +155,6 @@ texture = ExtResource("6_xklb8")
 position = Vector2(12, 128)
 texture = ExtResource("6_xklb8")
 
-[node name="Line2D" type="Line2D" parent="."]
-points = PackedVector2Array(0, 8, 0, 16, 4, 16, 4, 48, 0, 48, 4, 48, 4, 76, 0, 76, 4, 76, 4, 104, 0, 104, 4, 104, 4, 132, 0, 132)
-width = 0.5
-default_color = Color(0, 0.152941, 0, 1)
-
-[node name="Line2D2" type="Line2D" parent="."]
-visible = false
-points = PackedVector2Array(0, 8, 0, 132)
-width = 0.5
-default_color = Color(0, 0.152941, 0, 1)
-
 [node name="SprinklerNozzles" type="Node2D" parent="."]
 
 [node name="SprinklerNozzle" parent="SprinklerNozzles" instance=ExtResource("7_o4y13")]
@@ -177,6 +168,17 @@ position = Vector2(0, 92)
 
 [node name="SprinklerNozzle4" parent="SprinklerNozzles" instance=ExtResource("7_o4y13")]
 position = Vector2(0, 120)
+
+[node name="Line2D" type="Line2D" parent="SprinklerNozzles"]
+points = PackedVector2Array(0, 8, 0, 16, 4, 16, 4, 48, 0, 48, 4, 48, 4, 76, 0, 76, 4, 76, 4, 104, 0, 104, 4, 104, 4, 132, 0, 132)
+width = 0.5
+default_color = Color(0, 0.152941, 0, 1)
+
+[node name="Line2D2" type="Line2D" parent="SprinklerNozzles"]
+visible = false
+points = PackedVector2Array(0, 8, 0, 132)
+width = 0.5
+default_color = Color(0, 0.152941, 0, 1)
 
 [node name="WarningIcon" type="Sprite2D" parent="." node_paths=PackedStringArray("flash_timer", "field_row")]
 modulate = Color(0.984835, 0.822166, 7.70092e-07, 1)

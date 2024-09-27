@@ -13,10 +13,6 @@ extends AudioStreamPlayer
 
 func play_or_continue(audio : AudioStream):
 
-	print(stream)
-	print(audio)
-	print("\n\n\n")
-
 	if stream != audio:
 
 		stream = audio

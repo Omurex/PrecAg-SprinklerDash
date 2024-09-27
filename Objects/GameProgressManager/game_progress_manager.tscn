@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://bnsioq3xc7i5m"]
 
-[ext_resource type="Script" path="res://Objects/GameOverManager/game_over_manager.gd" id="1_grn6f"]
+[ext_resource type="Script" path="res://Objects/GameProgressManager/game_progress_manager.gd" id="1_grn6f"]
 [ext_resource type="Script" path="res://Objects/zMisc/scene_transition.gd" id="2_eq3or"]
 [ext_resource type="PackedScene" uid="uid://bo2w76svgt1ka" path="res://Objects/GameScenes/score_screen.tscn" id="2_q2mcn"]
 
-[node name="GameOverManager" type="Node" node_paths=PackedStringArray("scene_transition", "game_pause_timer")]
+[node name="GameProgressManager" type="Node" node_paths=PackedStringArray("scene_transition", "game_pause_timer")]
 script = ExtResource("1_grn6f")
 to_scene = ExtResource("2_q2mcn")
 scene_transition = NodePath("SceneTransition")

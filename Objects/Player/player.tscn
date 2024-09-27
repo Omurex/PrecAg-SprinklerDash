@@ -157,7 +157,7 @@ height = 94.48
 motion_mode = 1
 script = ExtResource("1_nod3v")
 animated_sprite = NodePath("AnimatedSprite2D")
-move_speed = 200.0
+move_speed = 215.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_udjqb")
