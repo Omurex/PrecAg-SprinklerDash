@@ -1,7 +1,8 @@
-class_name GameOverManager
+class_name GameProgressManager
 
 extends Node
 
+signal on_new_season(prev_point_threshold : int, new_point_threshold : int)
 
 @export_group("Internal References")
 @export var to_scene : PackedScene
@@ -78,13 +79,15 @@ func advance_season():
 
 func check_for_new_season(prev_points : int, curr_points : int):
 
-	print(curr_points)
-
 	if curr_points >= season_points_requirement:
 
 		advance_season()
+
+		var prev_season_points_requirement = season_points_requirement
 		season_points_requirement += season_points_increase
 		season_points_increase += season_points_increase_growth
+
+		on_new_season.emit(prev_season_points_requirement, season_points_requirement)
 
 	pass
 

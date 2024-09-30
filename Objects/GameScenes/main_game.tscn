@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://1ysiotibgavm"]
+[gd_scene load_steps=20 format=3 uid="uid://1ysiotibgavm"]
 
 [ext_resource type="PackedScene" uid="uid://bmdpf0qns06ig" path="res://Objects/FieldRow/field_row.tscn" id="1_q8fjm"]
 [ext_resource type="PackedScene" uid="uid://ccygi3xb10kgr" path="res://Objects/Player/player.tscn" id="2_xlu18"]
@@ -16,6 +16,7 @@
 [ext_resource type="Theme" uid="uid://brpv3hhm8o0c7" path="res://Objects/UI/ui_theme.tres" id="11_qbrow"]
 [ext_resource type="PackedScene" uid="uid://dkgwswk8bmwf8" path="res://Objects/GameDifficultyScaling/game_difficulty_scaling.tscn" id="12_2bbkk"]
 [ext_resource type="PackedScene" uid="uid://b5wy6up41hvdd" path="res://Objects/RowDiedWarningUI/row_died_warning_ui.tscn" id="14_umx5a"]
+[ext_resource type="Script" path="res://Objects/UI/season_score.gd" id="16_6hgcc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c8c8p"]
 size = Vector2(32, 10000)
@@ -141,6 +142,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_pgv7p")
 script = ExtResource("11_4lxqv")
 label = NodePath("Label")
 preceding_line = "GOOD IRRIGATION TIMING POINTS:\\n"
+num_digits = 9
 update_every_frame = true
 
 [node name="Label" type="Label" parent="UI/PointsPanel"]
@@ -157,8 +159,45 @@ text = "Good Irrigation Timing Points:
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="SeasonPanel" type="Panel" parent="UI" node_paths=PackedStringArray("label", "game_progress_manager")]
+modulate = Color(1, 1, 1, 0.737255)
+anchors_preset = -1
+anchor_top = 0.012
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 696.0
+offset_top = 646.784
+offset_right = -166.0
+offset_bottom = -15.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_pgv7p")
+script = ExtResource("16_6hgcc")
+label = NodePath("Label")
+game_progress_manager = NodePath("../../GameProgressManager")
+
+[node name="Label" type="Label" parent="UI/SeasonPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("11_qbrow")
+theme_override_font_sizes/font_size = 16
+text = "Next Season:
+750,000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FlashLengthTimer" type="Timer" parent="UI/SeasonPanel"]
+one_shot = true
+
+[node name="FlashDelayTimer" type="Timer" parent="UI/SeasonPanel"]
+
 [node name="RowDiedWarningUi" parent="UI" instance=ExtResource("14_umx5a")]
 anchor_top = 0.395
 anchor_bottom = 0.605
 offset_top = 0.0399933
 offset_bottom = -0.0400085
+
+[connection signal="timeout" from="UI/SeasonPanel/FlashLengthTimer" to="UI/SeasonPanel" method="_on_flash_length_timer_timeout"]
+[connection signal="timeout" from="UI/SeasonPanel/FlashDelayTimer" to="UI/SeasonPanel" method="_on_flash_delay_timer_timeout"]

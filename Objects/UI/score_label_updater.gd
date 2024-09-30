@@ -14,28 +14,33 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 
-	update_label()
+	update_label(-1, PointManager.points)
+
+	PointManager.on_points_modified.connect(update_label)
 
 	set_process(update_every_frame)
 
 	pass # Replace with function body.
 
 
-func _process(_delta: float) -> void:
 
-	# Should really be tied to an event, but doesn't matter too much
-	update_label()
-
-
-
-func update_label() -> void:
+func update_label(prev_points : int, curr_points : int) -> void:
 
 	var label_text : String = preceding_line
 
-	var points = str(PointManager.points)
+	var points = Format.format_points_to_default(curr_points)
 
-	for i in range(num_digits - points.length()): # Padding 0s at the front
-		label_text += "0"
+
+	#for i in range(num_digits - points.length()): # Padding 0s at the front
+		#label_text += "0"
+
+	#var num_zeros = 3 - (points_initial_len % 3)
+	#if num_zeros == 3:
+		#num_zeros = 0
+#
+	#print(num_zeros)
+	#for i in range(num_zeros):
+		#label_text += "0"
 
 	label_text += points
 
