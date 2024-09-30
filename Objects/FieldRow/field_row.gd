@@ -29,8 +29,14 @@ signal on_revive(field_row : FieldRow)
 @export var hydration_limits = Vector2(0, 100)
 @export var healthy_hydration_range = Vector2(25, 75)
 @export var hydration_start_range = Vector2(25, 75)
-@export var points_per_timer : int = 5
 @export var row_num : int = -1
+
+@export_subgroup("Points")
+@export var points_per_timer : int = 5
+@export var min_difficulty : float = 1
+@export var max_difficulty : float = 20
+@export var min_difficulty_point_timer_delay : float = 1
+@export var max_difficulty_point_timer_delay : float = .1
 
 @export_group("Empty Row Initialization")
 @export var start_empty : bool = false
@@ -103,6 +109,8 @@ func _ready() -> void:
 		tilemap.set_layer_enabled(i, false)
 
 	check_for_tilemap_update()
+
+	start_points_timer()
 
 	if start_empty:
 		make_row_empty()
@@ -191,6 +199,7 @@ func revive() -> bool:
 	warnings.visible = true
 
 	initialize_hydration()
+	sprinkler.toggle_from_row_status()
 	check_for_tilemap_update()
 
 	unpause_points_timer()
@@ -206,6 +215,17 @@ func modify_hydration(modification) -> void:
 	hydration += modification
 
 
+func start_points_timer() -> void:
+
+	var portion = (GameDifficultyScaling.instance.hydration_modifier_scale - min_difficulty) / (max_difficulty - min_difficulty)
+	portion = clampf(portion, 0.0, 1.0)
+	var time = lerpf(min_difficulty_point_timer_delay, max_difficulty_point_timer_delay, portion)
+
+	points_timer.start(time)
+
+	pass
+
+
 func pause_points_timer() -> void:
 
 	points_timer.paused = true
@@ -219,5 +239,7 @@ func unpause_points_timer() -> void:
 func _on_points_timer_timeout() -> void:
 
 	PointManager.add_points(points_per_timer)
+
+	start_points_timer()
 
 	pass # Replace with function body.

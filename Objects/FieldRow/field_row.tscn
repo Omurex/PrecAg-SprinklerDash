@@ -71,10 +71,12 @@ base_tomato_tex = ExtResource("6_xklb8")
 underhydrate_tex = ExtResource("3_nxga5")
 field_row_coloring_data = Array[ExtResource("2_2kfgl")]([SubResource("Resource_g7fiw"), SubResource("Resource_gbe2t"), SubResource("Resource_fspr1"), SubResource("Resource_bgx0a"), SubResource("Resource_jdhdn"), SubResource("Resource_khvkc"), SubResource("Resource_1rfcj"), SubResource("Resource_c3t30"), SubResource("Resource_i2srd")])
 points_per_timer = 100
+min_difficulty = 0.5
+max_difficulty = 15.5
 empty_field_row_coloring_data_index = 4
 
 [node name="PointsTimer" type="Timer" parent="."]
-autostart = true
+one_shot = true
 
 [node name="TileMap" type="TileMap" parent="."]
 editor_description = "0 : Default

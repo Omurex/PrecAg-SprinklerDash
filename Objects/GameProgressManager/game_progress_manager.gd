@@ -19,20 +19,40 @@ extends Node
 
 @export_group("Properties")
 @export var num_dead_rows_before_transition : int = 2
-
-
 ## How long the game should be essentially paused before resuming.
 ## Use this to allow players to read UI warning
 @export var game_pause_time : float  = 5
 @export var difficulty_reduction_amount_on_crop_death : float = 2
 
 
+@export_subgroup("Season")
+
+## How many points needed to move on to first season
+@export var initial_season_points : int = 25000
+
+## How much season_points_requirement should increase by everytime season is triggered
+@export var season_points_increase : int = 25000
+
+## How much season_points_increase should increase by everytime season is triggered
+@export var season_points_increase_growth : int  = 25000
+
+@export var num_rows_to_regen_on_new_season : int = 2
+
+
+
+
 #var dead_crops_stack : Array[FieldRow]
 var num_dead_crops : int = 0
 var last_dead_crop : FieldRow
 
+var season_points_requirement : int
+
 
 func _ready() -> void:
+
+	PointManager.on_points_modified.connect(check_for_new_season)
+
+	season_points_requirement = initial_season_points
 
 	for row in field.rows:
 		row.on_died.connect(_on_row_died)
@@ -46,10 +66,25 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	pass
 
-	# TODO: DELETE
-	if Input.is_action_just_pressed("up"):
-		regen_rows_from_row(field.center_row, 2)
+
+func advance_season():
+
+	regen_rows_from_row(field.center_row, num_rows_to_regen_on_new_season)
+
+	pass
+
+
+func check_for_new_season(prev_points : int, curr_points : int):
+
+	print(curr_points)
+
+	if curr_points >= season_points_requirement:
+
+		advance_season()
+		season_points_requirement += season_points_increase
+		season_points_increase += season_points_increase_growth
 
 	pass
 

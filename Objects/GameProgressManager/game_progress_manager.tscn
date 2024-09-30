@@ -11,6 +11,8 @@ scene_transition = NodePath("SceneTransition")
 game_pause_timer = NodePath("GamePauseTimer")
 num_dead_rows_before_transition = 5
 difficulty_reduction_amount_on_crop_death = 2.125
+initial_season_points = 15000
+season_points_increase_growth = 15000
 
 [node name="SceneTransition" type="Node" parent="."]
 script = ExtResource("2_eq3or")

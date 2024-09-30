@@ -1,5 +1,6 @@
 extends Node
 
+signal on_points_modified(prev_points : int, curr_points : int)
 
 @export_group("References")
 
@@ -19,7 +20,9 @@ func set_points(amount : int) -> void:
 
 
 func modify_points(amount : int) -> int:
+	var prev = points
 	points += amount
+	on_points_modified.emit(prev, points)
 	return points
 
 
