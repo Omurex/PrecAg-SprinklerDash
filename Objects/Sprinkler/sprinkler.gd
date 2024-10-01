@@ -48,6 +48,20 @@ func toggle_from_row_status() -> void:
 	toggle_nozzle_visuals(on)
 
 
+func toggle_from_weather_effect(weather_effect : BaseWeatherEffect):
+
+	if weather_effect == null:
+		return
+
+	match weather_effect.optimal_sprinkler_reaction:
+
+		BaseWeatherEffect.SprinklerReaction.OFF:
+			toggle(false)
+
+		BaseWeatherEffect.SprinklerReaction.ON:
+			toggle(true)
+
+
 func load_nozzle_refs_from_children():
 
 	var children = nozzle_parent.get_children()

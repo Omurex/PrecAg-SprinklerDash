@@ -198,6 +198,13 @@ func revive() -> bool:
 	sprinkler_nozzles_container.visible = true
 	warnings.visible = true
 
+	for child in tomato_sprites_container.get_children():
+
+		if !(child is Sprite2D):
+			continue
+
+		(child as Sprite2D).texture = base_tomato_tex
+
 	initialize_hydration()
 	sprinkler.toggle_from_row_status()
 	check_for_tilemap_update()

@@ -3,7 +3,7 @@ class_name Format
 
 static func format_points_to_default(points : int) -> String:
 
-	return format_points(points, 9)
+	return format_points(points, 6)
 
 
 static func format_points(points : int, target_num_digits) -> String:

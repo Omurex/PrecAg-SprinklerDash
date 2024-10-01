@@ -42,6 +42,7 @@ weather_icon = ExtResource("3_m8fjk")
 hydration_modifier_amount = 4.0
 hydration_modifier_delay = 2.0
 duration_range = Vector2(8, 12)
+optimal_sprinkler_reaction = 0
 
 [node name="RainParticleSystem" type="GPUParticles2D" parent="."]
 modulate = Color(0, 0, 1, 1)

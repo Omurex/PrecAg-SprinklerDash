@@ -54,6 +54,7 @@ func show_icon(weather_effect : BaseWeatherEffect):
 func hide_icon(_weather_effect : BaseWeatherEffect):
 
 	tex_rect.visible = false
+	warning_flash_timer.stop()
 
 	pass
 

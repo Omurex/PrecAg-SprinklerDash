@@ -49,6 +49,10 @@ var last_dead_crop : FieldRow
 var season_points_requirement : int
 
 
+func _enter_tree() -> void:
+	PointManager.set_points(0)
+
+
 func _ready() -> void:
 
 	PointManager.on_points_modified.connect(check_for_new_season)
@@ -194,6 +198,7 @@ func regen_rows_from_row(origin_row : FieldRow, num_rows_to_regen : int) -> int:
 			first.revive()
 			num_rows_to_regen -= 1
 			num_dead_crops -= 1
+			first.sprinkler.toggle_from_weather_effect(weather_system.current_weather_effect)
 
 		if num_rows_to_regen <= 0:
 			break
@@ -202,6 +207,7 @@ func regen_rows_from_row(origin_row : FieldRow, num_rows_to_regen : int) -> int:
 			second.revive()
 			num_rows_to_regen -= 1
 			num_dead_crops -= 1
+			second.sprinkler.toggle_from_weather_effect(weather_system.current_weather_effect)
 			left_to_right = !left_to_right
 
 		if left_row != null:

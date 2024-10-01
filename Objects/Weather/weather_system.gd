@@ -62,10 +62,10 @@ func start_random_weather_effect() -> void:
 
 func stop_current_weather_effect() -> void:
 
+	on_weather_effect_ended.emit(current_weather_effect)
+
 	if current_weather_effect == null:
 		return
-
-	on_weather_effect_ended.emit(current_weather_effect)
 
 	current_weather_effect.end_weather_effect()
 

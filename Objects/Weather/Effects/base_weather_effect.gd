@@ -3,6 +3,14 @@ class_name BaseWeatherEffect
 extends Node
 
 
+enum SprinklerReaction
+{
+	OFF,
+	ON,
+	NONE
+}
+
+
 @export_group("References")
 @export var hydration_modifier_packed : PackedScene
 @export var weather_icon : Texture2D
@@ -12,6 +20,7 @@ extends Node
 @export var hydration_modifier_amount : float
 @export var hydration_modifier_delay : float
 @export var duration_range : Vector2
+@export var optimal_sprinkler_reaction : SprinklerReaction = SprinklerReaction.NONE
 
 
 var hydration_modifiers : Array[HydrationModifier]
