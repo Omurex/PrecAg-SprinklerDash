@@ -1,0 +1,348 @@
+[gd_scene load_steps=27 format=3 uid="uid://yamxwm88fwrg"]
+
+[ext_resource type="Script" path="res://Objects/zMisc/scene_transition.gd" id="1_2p44a"]
+[ext_resource type="Theme" uid="uid://brpv3hhm8o0c7" path="res://Objects/UI/ui_theme.tres" id="2_gbhdc"]
+[ext_resource type="Texture2D" uid="uid://b2kx5j0m6w0b3" path="res://Art/External/Kenmi-CuteFantasyRPG/Player/Player.png" id="3_lss53"]
+[ext_resource type="Script" path="res://Objects/zMisc/texture_rect_anim_player.gd" id="4_j6tjm"]
+[ext_resource type="Texture2D" uid="uid://lxvk12nxdq6v" path="res://Art/External/DreamMix-PixelKeyboardKeys/Keyboard Letters and Symbols.png" id="5_na3ut"]
+[ext_resource type="PackedScene" uid="uid://c5uifoyqfxjke" path="res://Objects/MusicPlayerNotifier/music_player_notifier.tscn" id="6_xdwvs"]
+[ext_resource type="Texture2D" uid="uid://cogo2ucn48ccq" path="res://Art/Sprites/Sprinkler.png" id="6_ywu3t"]
+[ext_resource type="AudioStream" uid="uid://dgj0gjae345wv" path="res://Audio/Music/External/cat2x-RetroRPG/Festive.ogg" id="7_gyu2t"]
+[ext_resource type="Texture2D" uid="uid://ninf1jpwei23" path="res://Art/UI/FieldRow.png" id="7_hur5h"]
+[ext_resource type="Texture2D" uid="uid://ctmlcxt63au12" path="res://Art/SprinklerSpriteSheet.png" id="8_x2yub"]
+[ext_resource type="Script" path="res://Objects/UI/sprinkler_ui_player.gd" id="9_q7ckl"]
+[ext_resource type="Texture2D" uid="uid://bahu3tv0fovdn" path="res://Art/External/DreamMix-PixelKeyboardKeys/Keyboard Extras.png" id="10_ob1ut"]
+[ext_resource type="Script" path="res://Objects/UI/texture_flipper.gd" id="11_r823y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu7qo"]
+atlas = ExtResource("3_lss53")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqsmq"]
+atlas = ExtResource("3_lss53")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7f62a"]
+atlas = ExtResource("3_lss53")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anj3p"]
+atlas = ExtResource("5_na3ut")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjvrm"]
+atlas = ExtResource("5_na3ut")
+region = Rect2(96, 208, 16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8lsre"]
+line_spacing = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hn3a"]
+atlas = ExtResource("5_na3ut")
+region = Rect2(48, 112, 16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ksl5s"]
+line_spacing = 12.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5a5o"]
+atlas = ExtResource("8_x2yub")
+region = Rect2(0, 0, 275, 254)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gt7om"]
+atlas = ExtResource("8_x2yub")
+region = Rect2(0, 0, 275, 254)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxxdw"]
+atlas = ExtResource("8_x2yub")
+region = Rect2(0, 0, 275, 254)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6tls"]
+atlas = ExtResource("8_x2yub")
+region = Rect2(0, 0, 275, 254)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mjnf"]
+atlas = ExtResource("10_ob1ut")
+region = Rect2(64, 32, 32, 16)
+
+[node name="TutorialScreen1" type="CanvasLayer"]
+script = ExtResource("1_2p44a")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 556.0
+offset_right = -40.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 185
+alignment = 1
+
+[node name="MainMenu" type="Button" parent="Panel/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_gbhdc")
+text = "MAIN MENU"
+
+[node name="Play" type="Button" parent="Panel/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_gbhdc")
+text = "PLAY"
+
+[node name="PlayerAnims" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = -834.0
+offset_bottom = -592.0
+alignment = 1
+
+[node name="PlayerLeft" type="TextureRect" parent="Panel/PlayerAnims"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_wu7qo")
+expand_mode = 3
+stretch_mode = 4
+script = ExtResource("4_j6tjm")
+fps = 8.0
+start_x = 0
+end_x = 5
+
+[node name="PlayerIdle" type="TextureRect" parent="Panel/PlayerAnims"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_xqsmq")
+expand_mode = 3
+stretch_mode = 4
+script = ExtResource("4_j6tjm")
+fps = 8.0
+start_x = 0
+end_x = 5
+
+[node name="PlayerRight" type="TextureRect" parent="Panel/PlayerAnims"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_7f62a")
+expand_mode = 3
+stretch_mode = 4
+script = ExtResource("4_j6tjm")
+fps = 8.0
+start_x = 0
+end_x = 5
+
+[node name="ArrowKeys" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 163.0
+offset_right = -834.0
+offset_bottom = -488.0
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="ArrowLeft" type="TextureRect" parent="Panel/ArrowKeys"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_anj3p")
+expand_mode = 3
+stretch_mode = 4
+script = ExtResource("11_r823y")
+other_tex_region = Rect2(32, 112, 16, 16)
+flip_time = 0.33
+
+[node name="Buffer" type="TextureRect" parent="Panel/ArrowKeys"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_hjvrm")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Panel/ArrowKeys/Buffer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_gbhdc")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "MOVE WITH ARROW KEYS"
+label_settings = SubResource("LabelSettings_8lsre")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ArrowRight" type="TextureRect" parent="Panel/ArrowKeys"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_1hn3a")
+expand_mode = 3
+stretch_mode = 4
+script = ExtResource("11_r823y")
+other_tex_region = Rect2(48, 0, 16, 16)
+flip_time = 0.33
+
+[node name="GoalDescription" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -259.0
+offset_top = -40.0
+offset_right = 176.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+theme = ExtResource("2_gbhdc")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "YOUR GOAL IS TO CORRECTLY TIME WHEN YOU WATER YOUR CROPS SO THEY STAY HEALTHY AND YOU SCORE POINTS"
+label_settings = SubResource("LabelSettings_ksl5s")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[node name="OffSprinkler" type="Control" parent="Panel"]
+anchors_preset = 0
+offset_left = 1048.0
+offset_top = 56.0
+offset_right = 1088.0
+offset_bottom = 96.0
+scale = Vector2(0.64, 0.64)
+
+[node name="Sprinkler" type="TextureRect" parent="Panel/OffSprinkler"]
+layout_mode = 0
+offset_right = 72.0
+offset_bottom = 72.0
+texture = ExtResource("6_ywu3t")
+
+[node name="Field" type="TextureRect" parent="Panel/OffSprinkler/Sprinkler"]
+layout_mode = 0
+offset_left = -48.0
+offset_top = 96.0
+offset_right = 114.0
+offset_bottom = 580.0
+texture = ExtResource("7_hur5h")
+
+[node name="OnSprinkler" type="Control" parent="Panel"]
+anchors_preset = 0
+offset_left = 1216.0
+offset_top = 56.0
+offset_right = 1256.0
+offset_bottom = 96.0
+scale = Vector2(0.64, 0.64)
+
+[node name="Sprinkler" type="TextureRect" parent="Panel/OnSprinkler"]
+layout_mode = 0
+offset_right = 72.0
+offset_bottom = 72.0
+texture = ExtResource("6_ywu3t")
+
+[node name="Field" type="TextureRect" parent="Panel/OnSprinkler/Sprinkler"]
+layout_mode = 0
+offset_left = -48.0
+offset_top = 96.0
+offset_right = 114.0
+offset_bottom = 580.0
+texture = ExtResource("7_hur5h")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/OnSprinkler/Sprinkler/Field"]
+layout_mode = 0
+offset_left = -19.1875
+offset_top = 25.875
+offset_right = 181.813
+offset_bottom = 211.875
+texture = SubResource("AtlasTexture_w5a5o")
+expand_mode = 1
+script = ExtResource("9_q7ckl")
+sprite_dimensions = Vector2i(275, 254)
+num_columns = 15
+num_sprites = 156
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/OnSprinkler/Sprinkler/Field"]
+layout_mode = 0
+offset_left = -19.1875
+offset_top = 121.188
+offset_right = 181.813
+offset_bottom = 307.188
+texture = SubResource("AtlasTexture_gt7om")
+expand_mode = 1
+script = ExtResource("9_q7ckl")
+sprite_dimensions = Vector2i(275, 254)
+num_columns = 15
+num_sprites = 156
+
+[node name="TextureRect3" type="TextureRect" parent="Panel/OnSprinkler/Sprinkler/Field"]
+layout_mode = 0
+offset_left = -19.1875
+offset_top = 214.938
+offset_right = 181.813
+offset_bottom = 400.938
+texture = SubResource("AtlasTexture_dxxdw")
+expand_mode = 1
+script = ExtResource("9_q7ckl")
+sprite_dimensions = Vector2i(275, 254)
+num_columns = 15
+num_sprites = 156
+
+[node name="TextureRect4" type="TextureRect" parent="Panel/OnSprinkler/Sprinkler/Field"]
+layout_mode = 0
+offset_left = -19.1875
+offset_top = 308.688
+offset_right = 181.813
+offset_bottom = 494.688
+texture = SubResource("AtlasTexture_u6tls")
+expand_mode = 1
+script = ExtResource("9_q7ckl")
+sprite_dimensions = Vector2i(275, 254)
+num_columns = 15
+num_sprites = 156
+
+[node name="SprinklerControlsLabel" type="Label" parent="."]
+anchors_preset = -1
+offset_left = 736.0
+offset_top = 48.0
+offset_right = 963.0
+offset_bottom = 130.0
+theme = ExtResource("2_gbhdc")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "PRESS SPACE TO TURN A SPRINKLER ON OR OFF"
+label_settings = SubResource("LabelSettings_8lsre")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="SprinklerControlsLabel"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 96.0
+offset_right = 224.0
+offset_bottom = 192.0
+texture = SubResource("AtlasTexture_2mjnf")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("11_r823y")
+other_tex_region = Rect2(64, 96, 32, 16)
+
+[node name="MusicPlayerNotifier" parent="." instance=ExtResource("6_xdwvs")]
+audio = ExtResource("7_gyu2t")
+
+[connection signal="pressed" from="Panel/Buttons/MainMenu" to="." method="transition_scene" binds= ["res://Objects/GameScenes/main_menu.tscn"]]
+[connection signal="pressed" from="Panel/Buttons/Play" to="." method="transition_scene" binds= ["res://Objects/GameScenes/main_game.tscn"]]
