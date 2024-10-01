@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://n38birkjbbmb"]
+[gd_scene load_steps=9 format=3 uid="uid://n38birkjbbmb"]
 
 [ext_resource type="Script" path="res://Objects/Sprinkler/sprinkler.gd" id="1_8eawx"]
 [ext_resource type="PackedScene" uid="uid://bcf5tuvvbo1bl" path="res://Objects/HydrationModifier/hydration_modifier.tscn" id="2_qucwf"]
+[ext_resource type="AudioStream" uid="uid://c3qsbxmjia6nu" path="res://Audio/SFX/External/Pixabay/SprinklerOn-Pixabay.wav" id="3_juhlv"]
 [ext_resource type="Texture2D" uid="uid://cogo2ucn48ccq" path="res://Art/Sprites/Sprinkler.png" id="3_n8clu"]
+[ext_resource type="AudioStream" uid="uid://dun2m5pe3wbq2" path="res://Audio/SFX/External/Pixabay/SprinklerOff-Pixabay.wav" id="4_gnfgt"]
 [ext_resource type="Script" path="res://Objects/Sprinkler/sprinkler_collision.gd" id="4_jrd7a"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hyalw"]
@@ -18,9 +20,12 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4b2iy"]
 
-[node name="Sprinkler" type="Node2D"]
+[node name="Sprinkler" type="Node2D" node_paths=PackedStringArray("audio_stream_player")]
 script = ExtResource("1_8eawx")
 hydration_modifier_packed = ExtResource("2_qucwf")
+audio_stream_player = NodePath("AudioStreamPlayer2D")
+turn_on_audio = ExtResource("3_juhlv")
+turn_off_audio = ExtResource("4_gnfgt")
 modification_amount = 2.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -36,3 +41,7 @@ sprinkler = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_4b2iy")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = -9.0
+pitch_scale = 0.75

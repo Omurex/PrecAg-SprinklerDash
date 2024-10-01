@@ -51,7 +51,7 @@ func sprinkler_interaction() -> void:
 
 	if detected_sprinkler != null and Input.is_action_just_pressed("interact"):
 
-		detected_sprinkler.flip()
+		detected_sprinkler.flip(true)
 
 
 func lock_movement() -> void:

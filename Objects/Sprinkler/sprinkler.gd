@@ -7,9 +7,13 @@ extends Node2D
 @export var hydration_modifier_packed : PackedScene
 @export var field_row : FieldRow
 @export var nozzle_parent : Node
+@export var audio_stream_player : AudioStreamPlayer2D
+@export var turn_on_audio : AudioStream
+@export var turn_off_audio : AudioStream
 
 @export_group("Properties")
 @export var modification_amount : float = 4
+@export var audio_pitch_range : Vector2 = Vector2(.75, 1)
 
 
 var hydration_modifier : HydrationModifier = null
@@ -87,7 +91,7 @@ func get_sign() -> int:
 	return (2 * int(on)) - 1
 
 
-func toggle(status : bool) -> void:
+func toggle(status : bool, play_audio : bool = false) -> void:
 
 	# Can't change sprinkler if row is already dead!
 	if field_row.dead:
@@ -99,9 +103,19 @@ func toggle(status : bool) -> void:
 
 	toggle_nozzle_visuals(on)
 
+	if play_audio:
 
-func flip() -> bool:
+		if on:
+			audio_stream_player.stream = turn_on_audio
+		else:
+			audio_stream_player.stream = turn_off_audio
 
-	toggle(!on)
+		audio_stream_player.pitch_scale = Random.randf_range_vec2(audio_pitch_range)
+		audio_stream_player.play()
+
+
+func flip(play_audio : bool = false) -> bool:
+
+	toggle(!on, play_audio)
 	return on
 
