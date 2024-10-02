@@ -202,9 +202,9 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -259.0
+offset_left = -355.0
 offset_top = -40.0
-offset_right = 176.0
+offset_right = 80.0
 offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -222,9 +222,9 @@ uppercase = true
 [node name="OffSprinkler" type="Control" parent="Panel"]
 anchors_preset = 0
 offset_left = 1048.0
-offset_top = 56.0
+offset_top = 32.0
 offset_right = 1088.0
-offset_bottom = 96.0
+offset_bottom = 72.0
 scale = Vector2(0.64, 0.64)
 
 [node name="Sprinkler" type="TextureRect" parent="Panel/OffSprinkler"]
@@ -244,9 +244,9 @@ texture = ExtResource("7_hur5h")
 [node name="OnSprinkler" type="Control" parent="Panel"]
 anchors_preset = 0
 offset_left = 1216.0
-offset_top = 56.0
+offset_top = 32.0
 offset_right = 1256.0
-offset_bottom = 96.0
+offset_bottom = 72.0
 scale = Vector2(0.64, 0.64)
 
 [node name="Sprinkler" type="TextureRect" parent="Panel/OnSprinkler"]
@@ -315,12 +315,13 @@ sprite_dimensions = Vector2i(275, 254)
 num_columns = 15
 num_sprites = 156
 
-[node name="SprinklerControlsLabel" type="Label" parent="."]
+[node name="SprinklerControlsLabel" type="Label" parent="Panel"]
+layout_mode = 1
 anchors_preset = -1
 offset_left = 736.0
-offset_top = 48.0
+offset_top = 95.0
 offset_right = 963.0
-offset_bottom = 130.0
+offset_bottom = 177.0
 theme = ExtResource("2_gbhdc")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "PRESS SPACE TO TURN A SPRINKLER ON OR OFF"
@@ -329,7 +330,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="SprinklerControlsLabel"]
+[node name="TextureRect" type="TextureRect" parent="Panel/SprinklerControlsLabel"]
 layout_mode = 0
 offset_left = -8.0
 offset_top = 96.0

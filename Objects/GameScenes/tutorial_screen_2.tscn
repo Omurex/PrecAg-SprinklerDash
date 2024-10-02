@@ -1,0 +1,115 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlfsuualafnh"]
+
+[ext_resource type="Script" path="res://Objects/zMisc/scene_transition.gd" id="1_4x51b"]
+[ext_resource type="Theme" uid="uid://brpv3hhm8o0c7" path="res://Objects/UI/ui_theme.tres" id="2_48xnx"]
+[ext_resource type="PackedScene" uid="uid://c5uifoyqfxjke" path="res://Objects/MusicPlayerNotifier/music_player_notifier.tscn" id="12_usgw0"]
+[ext_resource type="AudioStream" uid="uid://dgj0gjae345wv" path="res://Audio/Music/External/cat2x-RetroRPG/Festive.ogg" id="13_4o1e8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c5c75"]
+line_spacing = 6.0
+
+[node name="TutorialScreen1" type="CanvasLayer"]
+script = ExtResource("1_4x51b")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 556.0
+offset_right = -40.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 185
+alignment = 1
+
+[node name="MainMenu" type="Button" parent="Panel/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_48xnx")
+text = "MAIN MENU"
+
+[node name="Play" type="Button" parent="Panel/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_48xnx")
+text = "PLAY"
+
+[node name="Explanations" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -528.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="SprinklerExplanation" type="Label" parent="Panel/Explanations"]
+custom_minimum_size = Vector2(262.625, 0)
+layout_mode = 2
+theme = ExtResource("2_48xnx")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "EACH CROP ROW HAS A BLUE CIRCLE REPRESENTING ITS HYDRATION"
+label_settings = SubResource("LabelSettings_c5c75")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="SprinklerExplanation2" type="Label" parent="Panel/Explanations"]
+custom_minimum_size = Vector2(262.625, 0)
+layout_mode = 2
+theme = ExtResource("2_48xnx")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "THE SPRINKLER STATUS WILL EITHER GROW THIS BLUE CIRCLE IF ON, OR SHRINK THIS BLUE CIRCLE IF OFF"
+label_settings = SubResource("LabelSettings_c5c75")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="CircleExplanation" type="Label" parent="Panel/Explanations"]
+custom_minimum_size = Vector2(262.625, 0)
+layout_mode = 2
+theme = ExtResource("2_48xnx")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "IF THE BLUE CIRCLE IS INSIDE THE WHITE CIRCLES, THE CROPS ARE PROPERLY HYDRATED AND YOU WILL SCORE POINTS"
+label_settings = SubResource("LabelSettings_c5c75")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="CircleExplanation2" type="Label" parent="Panel/Explanations"]
+custom_minimum_size = Vector2(262.625, 0)
+layout_mode = 2
+theme = ExtResource("2_48xnx")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "IF THE BLUE CIRCLE IS OUTSIDE THE WHITE CIRCLES, THE PLANT IS UNDER OR OVER HYDRATED, AND YOU WILL NOT SCORE POINTS"
+label_settings = SubResource("LabelSettings_c5c75")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="CircleExplanation3" type="Label" parent="Panel/Explanations"]
+custom_minimum_size = Vector2(262.625, 0)
+layout_mode = 2
+theme = ExtResource("2_48xnx")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "IF THE CROP BECOMES TOO UNDER OR OVER HYDRATED, IT WILL DIE"
+label_settings = SubResource("LabelSettings_c5c75")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MusicPlayerNotifier" parent="." instance=ExtResource("12_usgw0")]
+audio = ExtResource("13_4o1e8")
