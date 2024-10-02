@@ -57,19 +57,19 @@ grow_vertical = 2
 theme_override_constants/separation = 185
 alignment = 1
 
-[node name="MainMenu" type="Button" parent="Panel/Buttons"]
+[node name="Previous" type="Button" parent="Panel/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("2_48xnx")
-text = "MAIN MENU"
+text = "PREVIOUS"
 
-[node name="Play" type="Button" parent="Panel/Buttons"]
+[node name="Next" type="Button" parent="Panel/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("2_48xnx")
-text = "PLAY"
+text = "NEXT"
 
 [node name="Explanations" type="HBoxContainer" parent="Panel"]
 layout_mode = 1
@@ -127,6 +127,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Healthy" type="TextureRect" parent="Panel"]
+layout_mode = 0
 offset_left = 72.0
 offset_top = 264.0
 offset_right = 308.8
@@ -143,6 +144,7 @@ offset_right = 96.0
 offset_bottom = 40.0
 
 [node name="TextureRect2" type="TextureRect" parent="Panel/Warning"]
+layout_mode = 0
 offset_left = 350.0
 offset_top = 264.0
 offset_right = 575.067
@@ -153,6 +155,7 @@ expand_mode = 3
 stretch_mode = 5
 
 [node name="TextureRect3" type="TextureRect" parent="Panel/Warning"]
+layout_mode = 0
 offset_left = 552.0
 offset_top = 264.0
 offset_right = 777.067
@@ -169,6 +172,7 @@ offset_right = 112.0
 offset_bottom = 40.0
 
 [node name="TextureRect4" type="TextureRect" parent="Panel/Danger"]
+layout_mode = 0
 offset_left = 846.0
 offset_top = 264.0
 offset_right = 1130.8
@@ -179,6 +183,7 @@ expand_mode = 3
 stretch_mode = 5
 
 [node name="TextureRect6" type="TextureRect" parent="Panel/Danger"]
+layout_mode = 0
 offset_left = 1088.0
 offset_top = 264.0
 offset_right = 1313.07
@@ -190,3 +195,6 @@ stretch_mode = 5
 
 [node name="MusicPlayerNotifier" parent="." instance=ExtResource("12_usgw0")]
 audio = ExtResource("13_4o1e8")
+
+[connection signal="pressed" from="Panel/Buttons/Previous" to="." method="transition_scene" binds= ["res://Objects/GameScenes/tutorial_screen_1.tscn"]]
+[connection signal="pressed" from="Panel/Buttons/Next" to="." method="transition_scene" binds= ["res://Objects/GameScenes/tutorial_screen_3.tscn"]]

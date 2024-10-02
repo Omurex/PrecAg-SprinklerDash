@@ -100,7 +100,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("2_gbhdc")
-text = "PLAY"
+text = "NEXT"
 
 [node name="PlayerAnims" type="HBoxContainer" parent="Panel"]
 layout_mode = 1
@@ -346,4 +346,4 @@ other_tex_region = Rect2(64, 96, 32, 16)
 audio = ExtResource("7_gyu2t")
 
 [connection signal="pressed" from="Panel/Buttons/MainMenu" to="." method="transition_scene" binds= ["res://Objects/GameScenes/main_menu.tscn"]]
-[connection signal="pressed" from="Panel/Buttons/Play" to="." method="transition_scene" binds= ["res://Objects/GameScenes/main_game.tscn"]]
+[connection signal="pressed" from="Panel/Buttons/Play" to="." method="transition_scene" binds= ["res://Objects/GameScenes/tutorial_screen_2.tscn"]]

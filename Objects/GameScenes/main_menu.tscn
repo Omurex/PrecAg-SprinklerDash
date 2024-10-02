@@ -35,6 +35,12 @@ size_flags_vertical = 3
 theme = ExtResource("2_m7uid")
 text = "PLAY"
 
+[node name="Tutorial" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_m7uid")
+text = "TUTORIAL"
+
 [node name="Quit" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -45,4 +51,5 @@ text = "QUIT"
 audio = ExtResource("3_dw5jl")
 
 [connection signal="pressed" from="Panel/VBoxContainer/Play" to="." method="transition_scene" binds= ["res://Objects/GameScenes/main_game.tscn"]]
+[connection signal="pressed" from="Panel/VBoxContainer/Tutorial" to="." method="transition_scene" binds= ["res://Objects/GameScenes/tutorial_screen_1.tscn"]]
 [connection signal="pressed" from="Panel/VBoxContainer/Quit" to="." method="quit_game"]
