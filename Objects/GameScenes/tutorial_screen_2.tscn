@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://Objects/zMisc/scene_transition.gd" id="1_4x51b"]
 [ext_resource type="Theme" uid="uid://brpv3hhm8o0c7" path="res://Objects/UI/ui_theme.tres" id="2_48xnx"]
+[ext_resource type="LabelSettings" uid="uid://bd043shifp28" path="res://Objects/UI/tutorial_text.tres" id="3_gupc3"]
 [ext_resource type="Texture2D" uid="uid://bl2j65fc8425i" path="res://Art/UI/CorrectHydration.PNG" id="5_41crk"]
 [ext_resource type="Texture2D" uid="uid://ba5xdiixhlj8j" path="res://Art/UI/Overhydrate.PNG" id="6_we51e"]
 [ext_resource type="Texture2D" uid="uid://dfker2y5bg55g" path="res://Art/UI/Underhydrate.PNG" id="7_t0pwe"]
@@ -9,9 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://f0www3wkf0tv" path="res://Art/UI/DangerUnderHydrate.PNG" id="9_cmeev"]
 [ext_resource type="PackedScene" uid="uid://c5uifoyqfxjke" path="res://Objects/MusicPlayerNotifier/music_player_notifier.tscn" id="12_usgw0"]
 [ext_resource type="AudioStream" uid="uid://dgj0gjae345wv" path="res://Audio/Music/External/cat2x-RetroRPG/Festive.ogg" id="13_4o1e8"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_c5c75"]
-line_spacing = 6.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2wbsd"]
 atlas = ExtResource("5_41crk")
@@ -88,7 +86,7 @@ layout_mode = 2
 theme = ExtResource("2_48xnx")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "EACH CROP ROW HAS A BLUE CIRCLE REPRESENTING ITS HYDRATION"
-label_settings = SubResource("LabelSettings_c5c75")
+label_settings = ExtResource("3_gupc3")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -99,7 +97,7 @@ layout_mode = 2
 theme = ExtResource("2_48xnx")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "THE SPRINKLER STATUS WILL EITHER GROW THIS BLUE CIRCLE IF ON, OR SHRINK THIS BLUE CIRCLE IF OFF"
-label_settings = SubResource("LabelSettings_c5c75")
+label_settings = ExtResource("3_gupc3")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -110,7 +108,7 @@ layout_mode = 2
 theme = ExtResource("2_48xnx")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "IF THE BLUE CIRCLE IS INSIDE THE WHITE CIRCLES, THE CROPS ARE PROPERLY HYDRATED AND YOU WILL SCORE POINTS"
-label_settings = SubResource("LabelSettings_c5c75")
+label_settings = ExtResource("3_gupc3")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -121,7 +119,7 @@ layout_mode = 2
 theme = ExtResource("2_48xnx")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "IF THE BLUE CIRCLE IS OUTSIDE THE WHITE CIRCLES, THE PLANT IS UNDER OR OVER HYDRATED, AND YOU WILL NOT SCORE POINTS"
-label_settings = SubResource("LabelSettings_c5c75")
+label_settings = ExtResource("3_gupc3")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
