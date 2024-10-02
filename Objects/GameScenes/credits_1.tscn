@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8adyxguqkdfk"]
+
+[ext_resource type="Script" path="res://Objects/zMisc/scene_transition.gd" id="1_73m7d"]
+[ext_resource type="Theme" uid="uid://brpv3hhm8o0c7" path="res://Objects/UI/ui_theme.tres" id="2_fs2nc"]
+[ext_resource type="PackedScene" uid="uid://c5uifoyqfxjke" path="res://Objects/MusicPlayerNotifier/music_player_notifier.tscn" id="3_in4pu"]
+[ext_resource type="AudioStream" uid="uid://dgj0gjae345wv" path="res://Audio/Music/External/cat2x-RetroRPG/Festive.ogg" id="4_e1dqs"]
+
+[node name="TutorialScreen1" type="CanvasLayer"]
+script = ExtResource("1_73m7d")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 296.0
+offset_top = 556.0
+offset_right = -296.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 185
+alignment = 1
+
+[node name="MainMenu" type="Button" parent="Panel/Buttons"]
+custom_minimum_size = Vector2(457.935, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_fs2nc")
+text = "MAIN MENU"
+
+[node name="Next" type="Button" parent="Panel/Buttons"]
+custom_minimum_size = Vector2(457.935, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_fs2nc")
+text = "NEXT"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -264.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(568, 0)
+layout_mode = 2
+theme = ExtResource("2_fs2nc")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "PROGRAMMER / DESIGNER"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_fs2nc")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "----"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(568, 0)
+layout_mode = 2
+theme = ExtResource("2_fs2nc")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "JOSEPH LYONS"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(568, 0)
+layout_mode = 2
+theme = ExtResource("2_fs2nc")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "SUPERVISOR / RESEARCHER"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="Panel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_fs2nc")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "----"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(568, 0)
+layout_mode = 2
+theme = ExtResource("2_fs2nc")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Scott Merrill"
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+
+[node name="MusicPlayerNotifier" parent="." instance=ExtResource("3_in4pu")]
+audio = ExtResource("4_e1dqs")
+
+[connection signal="pressed" from="Panel/Buttons/MainMenu" to="." method="transition_scene" binds= ["res://Objects/GameScenes/main_menu.tscn"]]
+[connection signal="pressed" from="Panel/Buttons/Next" to="." method="transition_scene" binds= ["res://Objects/GameScenes/credits_2.tscn"]]

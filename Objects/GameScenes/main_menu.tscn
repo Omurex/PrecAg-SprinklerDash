@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bexodfelsc044"]
+[gd_scene load_steps=9 format=3 uid="uid://bexodfelsc044"]
 
 [ext_resource type="Script" path="res://Objects/zMisc/scene_transition.gd" id="1_cqbqn"]
 [ext_resource type="Theme" uid="uid://brpv3hhm8o0c7" path="res://Objects/UI/ui_theme.tres" id="2_m7uid"]
 [ext_resource type="PackedScene" uid="uid://c5uifoyqfxjke" path="res://Objects/MusicPlayerNotifier/music_player_notifier.tscn" id="3_acfho"]
 [ext_resource type="AudioStream" uid="uid://dgj0gjae345wv" path="res://Audio/Music/External/cat2x-RetroRPG/Festive.ogg" id="3_dw5jl"]
+[ext_resource type="FontFile" uid="uid://ckxklj826lyw5" path="res://Fonts/CodeMan38-PressStart2P/PressStart2P-Regular.ttf" id="3_dwooj"]
+[ext_resource type="Texture2D" uid="uid://dv2ovq5e8glpq" path="res://Art/External/Josehzz-Crops/TomatoPlant.png" id="4_7a164"]
+[ext_resource type="Texture2D" uid="uid://b2kx5j0m6w0b3" path="res://Art/External/Kenmi-CuteFantasyRPG/Player/Player.png" id="7_p5d1s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hbev"]
+atlas = ExtResource("7_p5d1s")
+region = Rect2(0, 32, 32, 32)
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_cqbqn")
@@ -12,6 +19,7 @@ script = ExtResource("1_cqbqn")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -20,36 +28,106 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 344.0
-offset_top = 192.0
-offset_right = -344.0
-offset_bottom = -192.0
+offset_top = 328.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 65
+theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Play" type="Button" parent="Panel/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Play" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(389.075, 0)
+layout_mode = 2
+size_flags_vertical = 4
 theme = ExtResource("2_m7uid")
 text = "PLAY"
 
-[node name="Tutorial" type="Button" parent="Panel/VBoxContainer"]
+[node name="Tutorial" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(389.075, 0)
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 4
 theme = ExtResource("2_m7uid")
 text = "TUTORIAL"
 
-[node name="Quit" type="Button" parent="Panel/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Credits" type="Button" parent="Panel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(389.075, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("2_m7uid")
+text = "CREDITS"
+
+[node name="Quit" type="Button" parent="Panel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(389.075, 0)
+layout_mode = 2
+size_flags_vertical = 4
 theme = ExtResource("2_m7uid")
 text = "QUIT"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 56.0
+offset_bottom = -408.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_m7uid")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.180005, 0.180005, 0.180005, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 20
+theme_override_constants/shadow_outline_size = 10
+theme_override_constants/outline_size = 30
+theme_override_fonts/normal_font = ExtResource("3_dwooj")
+theme_override_font_sizes/normal_font_size = 136
+bbcode_enabled = true
+text = "[center]SPRINKLER SPRINT[/center]"
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = 1096.0
+offset_top = 416.0
+offset_right = 1224.0
+offset_bottom = 544.0
+texture = ExtResource("4_7a164")
+
+[node name="TextureRect2" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = 1240.0
+offset_top = 416.0
+offset_right = 1368.0
+offset_bottom = 544.0
+texture = ExtResource("4_7a164")
+
+[node name="TextureRect3" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = 1160.0
+offset_top = 544.0
+offset_right = 1288.0
+offset_bottom = 672.0
+texture = ExtResource("4_7a164")
 
 [node name="MusicPlayerNotifier" parent="." instance=ExtResource("3_acfho")]
 audio = ExtResource("3_dw5jl")
 
-[connection signal="pressed" from="Panel/VBoxContainer/Play" to="." method="transition_scene" binds= ["res://Objects/GameScenes/main_game.tscn"]]
-[connection signal="pressed" from="Panel/VBoxContainer/Tutorial" to="." method="transition_scene" binds= ["res://Objects/GameScenes/tutorial_screen_1.tscn"]]
-[connection signal="pressed" from="Panel/VBoxContainer/Quit" to="." method="quit_game"]
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -136.0
+offset_top = 296.0
+offset_right = 400.0
+offset_bottom = 832.0
+texture = SubResource("AtlasTexture_4hbev")
+
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Play" to="." method="transition_scene" binds= ["res://Objects/GameScenes/main_game.tscn"]]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Tutorial" to="." method="transition_scene" binds= ["res://Objects/GameScenes/tutorial_screen_1.tscn"]]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer2/Credits" to="." method="transition_scene" binds= ["res://Objects/GameScenes/credits_1.tscn"]]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer2/Quit" to="." method="quit_game"]
