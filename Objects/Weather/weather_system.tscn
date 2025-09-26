@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bp6dwhn3mnlt4"]
 
-[ext_resource type="Script" path="res://Objects/Weather/weather_system.gd" id="1_nvbru"]
+[ext_resource type="Script" uid="uid://bfrl36vcok2ox" path="res://Objects/Weather/weather_system.gd" id="1_nvbru"]
 [ext_resource type="PackedScene" uid="uid://d4mwr3gvbuxmo" path="res://Objects/Weather/Effects/ExtremeHeat/extreme_heat_weather_effect.tscn" id="3_g8b5k"]
 
 [node name="WeatherSystem" type="Node" node_paths=PackedStringArray("timer")]

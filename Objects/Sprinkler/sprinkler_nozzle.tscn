@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bpncji1vsivr7"]
 
 [ext_resource type="Texture2D" uid="uid://okfrt08oq3eg" path="res://Art/Sprites/WaterDroplet.png" id="1_nf5ev"]
-[ext_resource type="Script" path="res://Objects/Sprinkler/sprinkler_nozzle.gd" id="1_w1ky5"]
+[ext_resource type="Script" uid="uid://cpjkegbajh4wv" path="res://Objects/Sprinkler/sprinkler_nozzle.gd" id="1_w1ky5"]
 [ext_resource type="Texture2D" uid="uid://c462jt6ldv615" path="res://Art/Sprites/SprinklerSpout2.png" id="3_ujapj"]
 
 [sub_resource type="Curve" id="Curve_reyc5"]
@@ -13,7 +13,7 @@ offsets = PackedFloat32Array(0, 0.0835443, 0.349367, 1)
 colors = PackedColorArray(0.298039, 0.72549, 0.815686, 0, 0.298039, 0.72549, 0.815686, 0, 0.298039, 0.72549, 0.815686, 1, 0.298039, 0.72549, 0.815686, 1)
 
 [sub_resource type="Curve" id="Curve_yh2kk"]
-min_value = -1.0
+_limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 

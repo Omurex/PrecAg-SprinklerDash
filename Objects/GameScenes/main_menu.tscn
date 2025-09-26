@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bexodfelsc044"]
 
-[ext_resource type="Script" path="res://Objects/zMisc/scene_transition.gd" id="1_cqbqn"]
+[ext_resource type="Script" uid="uid://0hedb0cpd3k" path="res://Objects/zMisc/scene_transition.gd" id="1_cqbqn"]
 [ext_resource type="Theme" uid="uid://brpv3hhm8o0c7" path="res://Objects/UI/ui_theme.tres" id="2_m7uid"]
 [ext_resource type="PackedScene" uid="uid://c5uifoyqfxjke" path="res://Objects/MusicPlayerNotifier/music_player_notifier.tscn" id="3_acfho"]
 [ext_resource type="AudioStream" uid="uid://dgj0gjae345wv" path="res://Audio/Music/External/cat2x-RetroRPG/Festive.ogg" id="3_dw5jl"]
@@ -82,12 +82,12 @@ offset_bottom = -408.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_m7uid")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.180005, 0.180005, 0.180005, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 20
-theme_override_constants/shadow_outline_size = 10
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 30
+theme_override_constants/shadow_offset_y = 20
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_outline_size = 10
 theme_override_fonts/normal_font = ExtResource("3_dwooj")
 theme_override_font_sizes/normal_font_size = 136
 bbcode_enabled = true

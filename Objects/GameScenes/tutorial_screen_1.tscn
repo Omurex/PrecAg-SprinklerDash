@@ -1,18 +1,18 @@
 [gd_scene load_steps=27 format=3 uid="uid://yamxwm88fwrg"]
 
-[ext_resource type="Script" path="res://Objects/zMisc/scene_transition.gd" id="1_2p44a"]
+[ext_resource type="Script" uid="uid://0hedb0cpd3k" path="res://Objects/zMisc/scene_transition.gd" id="1_2p44a"]
 [ext_resource type="Theme" uid="uid://brpv3hhm8o0c7" path="res://Objects/UI/ui_theme.tres" id="2_gbhdc"]
 [ext_resource type="Texture2D" uid="uid://b2kx5j0m6w0b3" path="res://Art/External/Kenmi-CuteFantasyRPG/Player/Player.png" id="3_lss53"]
-[ext_resource type="Script" path="res://Objects/zMisc/texture_rect_anim_player.gd" id="4_j6tjm"]
+[ext_resource type="Script" uid="uid://b1i30p7mhwg3y" path="res://Objects/zMisc/texture_rect_anim_player.gd" id="4_j6tjm"]
 [ext_resource type="Texture2D" uid="uid://lxvk12nxdq6v" path="res://Art/External/DreamMix-PixelKeyboardKeys/Keyboard Letters and Symbols.png" id="5_na3ut"]
 [ext_resource type="PackedScene" uid="uid://c5uifoyqfxjke" path="res://Objects/MusicPlayerNotifier/music_player_notifier.tscn" id="6_xdwvs"]
 [ext_resource type="Texture2D" uid="uid://cogo2ucn48ccq" path="res://Art/Sprites/Sprinkler.png" id="6_ywu3t"]
 [ext_resource type="AudioStream" uid="uid://dgj0gjae345wv" path="res://Audio/Music/External/cat2x-RetroRPG/Festive.ogg" id="7_gyu2t"]
 [ext_resource type="Texture2D" uid="uid://ninf1jpwei23" path="res://Art/UI/FieldRow.png" id="7_hur5h"]
 [ext_resource type="Texture2D" uid="uid://ctmlcxt63au12" path="res://Art/SprinklerSpriteSheet.png" id="8_x2yub"]
-[ext_resource type="Script" path="res://Objects/UI/sprinkler_ui_player.gd" id="9_q7ckl"]
+[ext_resource type="Script" uid="uid://cvjnopd4ljt6l" path="res://Objects/UI/sprinkler_ui_player.gd" id="9_q7ckl"]
 [ext_resource type="Texture2D" uid="uid://bahu3tv0fovdn" path="res://Art/External/DreamMix-PixelKeyboardKeys/Keyboard Extras.png" id="10_ob1ut"]
-[ext_resource type="Script" path="res://Objects/UI/texture_flipper.gd" id="11_r823y"]
+[ext_resource type="Script" uid="uid://dy88eg77m1ged" path="res://Objects/UI/texture_flipper.gd" id="11_r823y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wu7qo"]
 atlas = ExtResource("3_lss53")

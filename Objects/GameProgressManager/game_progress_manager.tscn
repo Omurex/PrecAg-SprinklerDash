@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bnsioq3xc7i5m"]
 
-[ext_resource type="Script" path="res://Objects/GameProgressManager/game_progress_manager.gd" id="1_grn6f"]
-[ext_resource type="Script" path="res://Objects/zMisc/scene_transition.gd" id="2_eq3or"]
+[ext_resource type="Script" uid="uid://guq5l86t5i8g" path="res://Objects/GameProgressManager/game_progress_manager.gd" id="1_grn6f"]
+[ext_resource type="Script" uid="uid://0hedb0cpd3k" path="res://Objects/zMisc/scene_transition.gd" id="2_eq3or"]
 [ext_resource type="PackedScene" uid="uid://bo2w76svgt1ka" path="res://Objects/GameScenes/score_screen.tscn" id="2_q2mcn"]
 
 [node name="GameProgressManager" type="Node" node_paths=PackedStringArray("scene_transition", "game_pause_timer")]

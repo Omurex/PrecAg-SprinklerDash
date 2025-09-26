@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://gqb4c4yj45gp"]
 
-[ext_resource type="Script" path="res://Objects/CircleVisual/circle_visual.gd" id="1_5km8h"]
+[ext_resource type="Script" uid="uid://cms7soqmv6ist" path="res://Objects/CircleVisual/circle_visual.gd" id="1_5km8h"]
 [ext_resource type="Texture2D" uid="uid://bb60trllitwy" path="res://Art/Sprites/CircleOutline.png" id="1_7rv7s"]
 
 [node name="CircleVisual" type="Node2D" node_paths=PackedStringArray("inner_circle", "outer_circle", "hydration_circle")]

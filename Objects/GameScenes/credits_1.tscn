@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c8adyxguqkdfk"]
 
-[ext_resource type="Script" path="res://Objects/zMisc/scene_transition.gd" id="1_73m7d"]
+[ext_resource type="Script" uid="uid://0hedb0cpd3k" path="res://Objects/zMisc/scene_transition.gd" id="1_73m7d"]
 [ext_resource type="Theme" uid="uid://brpv3hhm8o0c7" path="res://Objects/UI/ui_theme.tres" id="2_fs2nc"]
 [ext_resource type="PackedScene" uid="uid://c5uifoyqfxjke" path="res://Objects/MusicPlayerNotifier/music_player_notifier.tscn" id="3_in4pu"]
 [ext_resource type="AudioStream" uid="uid://dgj0gjae345wv" path="res://Audio/Music/External/cat2x-RetroRPG/Festive.ogg" id="4_e1dqs"]

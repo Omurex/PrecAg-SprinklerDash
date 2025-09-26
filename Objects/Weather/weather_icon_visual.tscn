@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ddmefqx7t4733"]
 
-[ext_resource type="Script" path="res://Objects/Weather/weather_icon_visual.gd" id="1_v6k4k"]
+[ext_resource type="Script" uid="uid://crpadgsenorb" path="res://Objects/Weather/weather_icon_visual.gd" id="1_v6k4k"]
 [ext_resource type="Texture2D" uid="uid://b2o5is7ohin8k" path="res://Art/Sprites/WeatherIcons/RainWeatherIcon.png" id="2_mjo01"]
 
 [node name="WeatherIconVisual" type="CanvasLayer" node_paths=PackedStringArray("tex_rect", "warning_flash_timer")]

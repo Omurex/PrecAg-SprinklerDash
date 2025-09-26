@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://dlfsuualafnh"]
 
-[ext_resource type="Script" path="res://Objects/zMisc/scene_transition.gd" id="1_4x51b"]
+[ext_resource type="Script" uid="uid://0hedb0cpd3k" path="res://Objects/zMisc/scene_transition.gd" id="1_4x51b"]
 [ext_resource type="Theme" uid="uid://brpv3hhm8o0c7" path="res://Objects/UI/ui_theme.tres" id="2_48xnx"]
 [ext_resource type="LabelSettings" uid="uid://bd043shifp28" path="res://Objects/UI/tutorial_text.tres" id="3_gupc3"]
 [ext_resource type="Texture2D" uid="uid://bl2j65fc8425i" path="res://Art/UI/CorrectHydration.PNG" id="5_41crk"]

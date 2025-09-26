@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b5wy6up41hvdd"]
 
-[ext_resource type="Script" path="res://Objects/RowDiedWarningUI/row_died_warning_ui.gd" id="1_bol16"]
+[ext_resource type="Script" uid="uid://5pyqpqo0g3dc" path="res://Objects/RowDiedWarningUI/row_died_warning_ui.gd" id="1_bol16"]
 [ext_resource type="Theme" uid="uid://brpv3hhm8o0c7" path="res://Objects/UI/ui_theme.tres" id="1_lhrtg"]
 
 [node name="RowDiedWarningUi" type="Panel" node_paths=PackedStringArray("label")]

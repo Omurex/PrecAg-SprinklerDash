@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://n38birkjbbmb"]
 
-[ext_resource type="Script" path="res://Objects/Sprinkler/sprinkler.gd" id="1_8eawx"]
+[ext_resource type="Script" uid="uid://b784cwusnvpvj" path="res://Objects/Sprinkler/sprinkler.gd" id="1_8eawx"]
 [ext_resource type="PackedScene" uid="uid://bcf5tuvvbo1bl" path="res://Objects/HydrationModifier/hydration_modifier.tscn" id="2_qucwf"]
 [ext_resource type="AudioStream" uid="uid://c3qsbxmjia6nu" path="res://Audio/SFX/External/Pixabay/SprinklerOn-Pixabay.wav" id="3_juhlv"]
 [ext_resource type="Texture2D" uid="uid://cogo2ucn48ccq" path="res://Art/Sprites/Sprinkler.png" id="3_n8clu"]
 [ext_resource type="AudioStream" uid="uid://dun2m5pe3wbq2" path="res://Audio/SFX/External/Pixabay/SprinklerOff-Pixabay.wav" id="4_gnfgt"]
-[ext_resource type="Script" path="res://Objects/Sprinkler/sprinkler_collision.gd" id="4_jrd7a"]
+[ext_resource type="Script" uid="uid://yy3n7dwruca" path="res://Objects/Sprinkler/sprinkler_collision.gd" id="4_jrd7a"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hyalw"]
 animations = [{
