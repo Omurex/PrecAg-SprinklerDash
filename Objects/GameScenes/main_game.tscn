@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://1ysiotibgavm"]
+[gd_scene load_steps=18 format=3 uid="uid://1ysiotibgavm"]
 
 [ext_resource type="PackedScene" uid="uid://bmdpf0qns06ig" path="res://Objects/FieldRow/field_row.tscn" id="1_q8fjm"]
 [ext_resource type="PackedScene" uid="uid://ccygi3xb10kgr" path="res://Objects/Player/player.tscn" id="2_xlu18"]
@@ -11,22 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://bnsioq3xc7i5m" path="res://Objects/GameProgressManager/game_progress_manager.tscn" id="8_kn4b1"]
 [ext_resource type="PackedScene" uid="uid://c5uifoyqfxjke" path="res://Objects/MusicPlayerNotifier/music_player_notifier.tscn" id="9_8qtqc"]
 [ext_resource type="AudioStream" uid="uid://c6wvwy34dqdj6" path="res://Audio/Music/External/cat2x-RetroRPG/Curious.ogg" id="9_j4nwg"]
-[ext_resource type="Texture2D" uid="uid://bq58citreyk02" path="res://Art/External/lunar-glitch-FarmingRPGGui/PeachPanel/small_peach_panel_variant.png" id="10_6s47l"]
 [ext_resource type="Script" uid="uid://83u8jr2sc0ag" path="res://Objects/UI/score_label_updater.gd" id="11_4lxqv"]
-[ext_resource type="Theme" uid="uid://brpv3hhm8o0c7" path="res://Objects/UI/ui_theme.tres" id="11_qbrow"]
 [ext_resource type="PackedScene" uid="uid://dkgwswk8bmwf8" path="res://Objects/GameDifficultyScaling/game_difficulty_scaling.tscn" id="12_2bbkk"]
+[ext_resource type="Theme" uid="uid://cmmx2yk0364n8" path="res://GenericUI/Resources/Themes/Generic_GUI_Theme.tres" id="13_mobrq"]
 [ext_resource type="PackedScene" uid="uid://b5wy6up41hvdd" path="res://Objects/RowDiedWarningUI/row_died_warning_ui.tscn" id="14_umx5a"]
 [ext_resource type="Script" uid="uid://buj4p1ucpwbhv" path="res://Objects/UI/season_score.gd" id="16_6hgcc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c8c8p"]
 size = Vector2(32, 10000)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pgv7p"]
-texture = ExtResource("10_6s47l")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
 
 [node name="MainGame" type="Node2D"]
 
@@ -139,7 +131,7 @@ offset_left = 24.0
 offset_top = 646.784
 offset_right = -681.98
 offset_bottom = -15.1201
-theme_override_styles/panel = SubResource("StyleBoxTexture_pgv7p")
+theme = ExtResource("13_mobrq")
 script = ExtResource("11_4lxqv")
 label = NodePath("Label")
 preceding_line = "GOOD IRRIGATION TIMING POINTS:\\n"
@@ -153,7 +145,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("11_qbrow")
+theme = ExtResource("13_mobrq")
 theme_override_font_sizes/font_size = 16
 text = "Good Irrigation Timing Points:
 38590"
@@ -170,7 +162,7 @@ offset_left = 696.0
 offset_top = 646.784
 offset_right = -166.0
 offset_bottom = -15.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_pgv7p")
+theme = ExtResource("13_mobrq")
 script = ExtResource("16_6hgcc")
 label = NodePath("Label")
 flash_length_timer = NodePath("FlashLengthTimer")
@@ -187,7 +179,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("11_qbrow")
+theme = ExtResource("13_mobrq")
 theme_override_font_sizes/font_size = 16
 text = "Next Season:
 750,000"

@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=3 uid="uid://db6ftj81uv6st"]
+
+[ext_resource type="Script" uid="uid://cogj0if43u53x" path="res://GenericUI/IntroDisplay/intro_display_generic.gd" id="1_3cbty"]
+[ext_resource type="Theme" uid="uid://cmmx2yk0364n8" path="res://GenericUI/Resources/Themes/Generic_GUI_Theme.tres" id="2_kln2m"]
+[ext_resource type="Theme" uid="uid://b7s80u668od01" path="res://GenericUI/Resources/Themes/Generic_Banner.tres" id="3_yftpc"]
+
+[node name="IntroDisplayGeneric" type="CanvasLayer" node_paths=PackedStringArray("NextButton", "BackButton")]
+script = ExtResource("1_3cbty")
+NextButton = NodePath("Panel/Next")
+BackButton = NodePath("Panel/Back")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_kln2m")
+
+[node name="Next" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 21.5
+offset_top = 194.0
+offset_right = 78.5
+offset_bottom = 237.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Next"
+
+[node name="Back" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.5
+offset_top = 194.0
+offset_right = -21.5
+offset_bottom = 237.0
+grow_horizontal = 2
+grow_vertical = 2
+disabled = true
+text = "Back"
+
+[node name="Panel1" type="Control" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/Panel1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -491.5
+offset_top = 26.0
+offset_right = 491.5
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_yftpc")
+text = "
+"
+horizontal_alignment = 1
+autowrap_mode = 2

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bo2w76svgt1ka"]
+[gd_scene load_steps=7 format=3 uid="uid://bo2w76svgt1ka"]
 
 [ext_resource type="Script" uid="uid://0hedb0cpd3k" path="res://Objects/zMisc/scene_transition.gd" id="1_kjn5h"]
-[ext_resource type="Theme" uid="uid://brpv3hhm8o0c7" path="res://Objects/UI/ui_theme.tres" id="2_74ngh"]
+[ext_resource type="Theme" uid="uid://cmmx2yk0364n8" path="res://GenericUI/Resources/Themes/Generic_GUI_Theme.tres" id="2_3jywo"]
 [ext_resource type="Script" uid="uid://83u8jr2sc0ag" path="res://Objects/UI/score_label_updater.gd" id="3_4v0oi"]
 [ext_resource type="AudioStream" uid="uid://dgj0gjae345wv" path="res://Audio/Music/External/cat2x-RetroRPG/Festive.ogg" id="4_b4aho"]
+[ext_resource type="Theme" uid="uid://b7s80u668od01" path="res://GenericUI/Resources/Themes/Generic_Banner.tres" id="4_bjd6y"]
 [ext_resource type="PackedScene" uid="uid://c5uifoyqfxjke" path="res://Objects/MusicPlayerNotifier/music_player_notifier.tscn" id="4_utxih"]
 
 [node name="ScoreScreen" type="CanvasLayer"]
@@ -15,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_3jywo")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
@@ -33,13 +35,15 @@ alignment = 1
 [node name="PlayAgain" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("2_74ngh")
+theme = ExtResource("2_3jywo")
+theme_override_font_sizes/font_size = 32
 text = "PLAY AGAIN"
 
 [node name="MainMenu" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("2_74ngh")
+theme = ExtResource("2_3jywo")
+theme_override_font_sizes/font_size = 32
 text = "MAIN MENU"
 
 [node name="ScorePanel" type="Panel" parent="." node_paths=PackedStringArray("label")]
@@ -54,7 +58,7 @@ offset_right = -7.48804
 offset_bottom = 0.167999
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_74ngh")
+theme = ExtResource("2_3jywo")
 script = ExtResource("3_4v0oi")
 label = NodePath("Label")
 preceding_line = "GOOD IRRIGATION TIMING POINTS:\\n"
@@ -66,7 +70,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_74ngh")
+theme = ExtResource("4_bjd6y")
+theme_override_font_sizes/font_size = 48
 text = "GOOD IRRIGATION TIMING POINTS: 
 00000"
 horizontal_alignment = 1

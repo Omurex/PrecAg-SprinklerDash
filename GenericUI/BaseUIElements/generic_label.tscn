@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cusnloxrjbph"]
+
+[ext_resource type="Theme" uid="uid://cmmx2yk0364n8" path="res://GenericUI/Resources/Themes/Generic_GUI_Theme.tres" id="1_i7b6f"]
+
+[node name="GenericLabel" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("1_i7b6f")

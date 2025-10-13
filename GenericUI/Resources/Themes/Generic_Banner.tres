@@ -1,0 +1,25 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://b7s80u668od01"]
+
+[ext_resource type="FontFile" uid="uid://dodnbc7trbtaw" path="res://GenericUI/Resources/Fonts/Kenney Mini Square Mono.ttf" id="1_1dosw"]
+[ext_resource type="Texture2D" uid="uid://bw7hn5g386anw" path="res://GenericUI/Resources/Textures/tilemap.png" id="2_7qppn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3tqxw"]
+texture = ExtResource("2_7qppn")
+texture_margin_left = 33.0
+texture_margin_top = 20.0
+texture_margin_right = 33.0
+texture_margin_bottom = 20.0
+region_rect = Rect2(133, 132, 96, 32)
+
+[resource]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/line_spacing = 0
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 0
+Label/constants/shadow_outline_size = 0
+Label/font_sizes/font_size = 18
+Label/fonts/font = ExtResource("1_1dosw")
+Label/styles/normal = SubResource("StyleBoxTexture_3tqxw")

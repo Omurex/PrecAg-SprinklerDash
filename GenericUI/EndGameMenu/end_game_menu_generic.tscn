@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu5pgjq4i86qr"]
+
+[ext_resource type="Theme" uid="uid://cmmx2yk0364n8" path="res://GenericUI/Resources/Themes/Generic_GUI_Theme.tres" id="1_2n5i5"]
+[ext_resource type="Script" uid="uid://cn10mvf7i0oun" path="res://GenericUI/EndGameMenu/end_game_menu_generic.gd" id="1_jn5r0"]
+
+[node name="EndGameMenuGeneric" type="CanvasLayer"]
+script = ExtResource("1_jn5r0")
+
+[node name="FinalMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_2n5i5")
+
+[node name="Panel" type="Panel" parent="FinalMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="FinalMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.0
+offset_top = -19.0
+offset_right = 181.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "Return to Main Menu"
+
+[node name="Title" type="Label" parent="FinalMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -248.5
+offset_top = 25.0
+offset_right = 248.5
+offset_bottom = 74.0
+grow_horizontal = 2
+theme = ExtResource("1_2n5i5")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Display final score here"
+
+[connection signal="button_up" from="FinalMenu/Button" to="." method="OnMenuUp"]

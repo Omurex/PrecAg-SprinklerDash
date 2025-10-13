@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b4x3d7vt3svil"]
 
 [ext_resource type="Script" uid="uid://0hedb0cpd3k" path="res://Objects/zMisc/scene_transition.gd" id="1_n6snh"]
-[ext_resource type="Theme" uid="uid://brpv3hhm8o0c7" path="res://Objects/UI/ui_theme.tres" id="2_1p4nr"]
+[ext_resource type="Theme" uid="uid://cmmx2yk0364n8" path="res://GenericUI/Resources/Themes/Generic_GUI_Theme.tres" id="2_s2qod"]
 [ext_resource type="PackedScene" uid="uid://c5uifoyqfxjke" path="res://Objects/MusicPlayerNotifier/music_player_notifier.tscn" id="3_ynvgf"]
 [ext_resource type="AudioStream" uid="uid://dgj0gjae345wv" path="res://Audio/Music/External/cat2x-RetroRPG/Festive.ogg" id="4_3ayel"]
 
@@ -14,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_s2qod")
 
 [node name="Buttons" type="HBoxContainer" parent="Panel"]
 layout_mode = 1
@@ -34,7 +35,8 @@ custom_minimum_size = Vector2(457.935, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("2_1p4nr")
+theme = ExtResource("2_s2qod")
+theme_override_font_sizes/font_size = 32
 text = "Back"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
@@ -56,8 +58,9 @@ layout_mode = 2
 alignment = 2
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
-theme = ExtResource("2_1p4nr")
+theme = ExtResource("2_s2qod")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
 text = "Dream Mix"
@@ -68,8 +71,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Label2" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
-theme = ExtResource("2_1p4nr")
+theme = ExtResource("2_s2qod")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
 text = "https://dreammix.itch.io/keyboard-keys-for-ui"
@@ -81,8 +85,9 @@ layout_mode = 2
 alignment = 2
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer2"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
-theme = ExtResource("2_1p4nr")
+theme = ExtResource("2_s2qod")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
 text = "josehzz"
@@ -93,8 +98,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Label2" type="Label" parent="Panel/VBoxContainer/HBoxContainer2"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
-theme = ExtResource("2_1p4nr")
+theme = ExtResource("2_s2qod")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
 text = "https://opengameart.org/content/farming-crops-16x16"
@@ -106,8 +112,9 @@ layout_mode = 2
 alignment = 2
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer3"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
-theme = ExtResource("2_1p4nr")
+theme = ExtResource("2_s2qod")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
 text = "lunar-glitch"
@@ -118,8 +125,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Label2" type="Label" parent="Panel/VBoxContainer/HBoxContainer3"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
-theme = ExtResource("2_1p4nr")
+theme = ExtResource("2_s2qod")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
 text = "https://lunar-glitch.itch.io/farming-rpg-gui"
@@ -131,8 +139,9 @@ layout_mode = 2
 alignment = 2
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer4"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
-theme = ExtResource("2_1p4nr")
+theme = ExtResource("2_s2qod")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
 text = "cat2x"
@@ -143,8 +152,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Label2" type="Label" parent="Panel/VBoxContainer/HBoxContainer4"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
-theme = ExtResource("2_1p4nr")
+theme = ExtResource("2_s2qod")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
 text = "https://cat2x.itch.io/retro-rpg-music-pack"
@@ -156,8 +166,9 @@ layout_mode = 2
 alignment = 2
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer5"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
-theme = ExtResource("2_1p4nr")
+theme = ExtResource("2_s2qod")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
 text = "Kenmi"
@@ -168,8 +179,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Label2" type="Label" parent="Panel/VBoxContainer/HBoxContainer5"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
-theme = ExtResource("2_1p4nr")
+theme = ExtResource("2_s2qod")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
 text = "https://kenmi-art.itch.io/cute-fantasy-rpg"
@@ -181,8 +193,9 @@ layout_mode = 2
 alignment = 2
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer6"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
-theme = ExtResource("2_1p4nr")
+theme = ExtResource("2_s2qod")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
 text = "Helton Yan"
@@ -193,8 +206,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Label2" type="Label" parent="Panel/VBoxContainer/HBoxContainer6"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
-theme = ExtResource("2_1p4nr")
+theme = ExtResource("2_s2qod")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
 text = "https://heltonyan.itch.io/weatherelements"
@@ -206,8 +220,9 @@ layout_mode = 2
 alignment = 2
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer7"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
-theme = ExtResource("2_1p4nr")
+theme = ExtResource("2_s2qod")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
 text = "SomeoneCool15 (Pixabay)"
@@ -218,8 +233,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Label2" type="Label" parent="Panel/VBoxContainer/HBoxContainer7"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
-theme = ExtResource("2_1p4nr")
+theme = ExtResource("2_s2qod")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
 text = "https://pixabay.com/sound-effects/crackling-fire-35695/"
@@ -231,8 +247,9 @@ layout_mode = 2
 alignment = 2
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer8"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
-theme = ExtResource("2_1p4nr")
+theme = ExtResource("2_s2qod")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
 text = "rdneubauer (Pixabay)"
@@ -243,8 +260,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Label2" type="Label" parent="Panel/VBoxContainer/HBoxContainer8"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
-theme = ExtResource("2_1p4nr")
+theme = ExtResource("2_s2qod")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
 text = "https://pixabay.com/sound-effects/metal-squeak-2-91858/"

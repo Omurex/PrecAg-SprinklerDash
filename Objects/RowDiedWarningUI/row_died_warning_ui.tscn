@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b5wy6up41hvdd"]
 
+[ext_resource type="Theme" uid="uid://cmmx2yk0364n8" path="res://GenericUI/Resources/Themes/Generic_GUI_Theme.tres" id="1_axno4"]
 [ext_resource type="Script" uid="uid://5pyqpqo0g3dc" path="res://Objects/RowDiedWarningUI/row_died_warning_ui.gd" id="1_bol16"]
-[ext_resource type="Theme" uid="uid://brpv3hhm8o0c7" path="res://Objects/UI/ui_theme.tres" id="1_lhrtg"]
 
 [node name="RowDiedWarningUi" type="Panel" node_paths=PackedStringArray("label")]
 anchors_preset = -1
@@ -15,7 +15,7 @@ offset_right = 0.575928
 offset_bottom = 0.119995
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_lhrtg")
+theme = ExtResource("1_axno4")
 script = ExtResource("1_bol16")
 label = NodePath("Label")
 
@@ -26,6 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 32
 text = "ROW X'S CROPS HAVE DIED,
 Y CROPS LEFT BEFORE GAME OVER!"
 horizontal_alignment = 1

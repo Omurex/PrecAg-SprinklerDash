@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://y3a0oojcg2if"]
+
+[ext_resource type="Theme" uid="uid://b7s80u668od01" path="res://GenericUI/Resources/Themes/Generic_Banner.tres" id="1_vjhjn"]
+
+[node name="GenericBanner" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("1_vjhjn")

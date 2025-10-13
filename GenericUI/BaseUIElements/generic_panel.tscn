@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cck0nmqe66xuu"]
+
+[ext_resource type="Theme" uid="uid://cmmx2yk0364n8" path="res://GenericUI/Resources/Themes/Generic_GUI_Theme.tres" id="1_517w7"]
+
+[node name="GenericPanel" type="Panel"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_517w7")
